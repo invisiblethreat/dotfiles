@@ -1,0 +1,31 @@
+#!/bin/bash
+
+PWD=$(pwd)
+
+# You're in a bad place if this happens
+if [ -z $HOME ]
+then
+{
+    printf "\$HOME is not set\n"
+}
+fi
+
+printf "Linking $PWD/vimrc to $HOME/.vimrc "
+
+if [ -e $HOME/.vimrc ]
+then
+{
+  mv $HOME/.vimrc $HOME/.vimrc-old
+}
+
+ln -nsf $PWD/vimrc $HOME/.vimrc
+
+printf "Linking $PWD/tmux.conf to $HOME/.tmux.conf "
+
+if [ -e $HOME/.tmux.conf ]
+then
+{
+  mv $HOME/.tmux.conf $HOME/.tmux.conf-old
+}
+
+ln -nsf $PWD/tmux.conf $HOME/.tmux.conf
