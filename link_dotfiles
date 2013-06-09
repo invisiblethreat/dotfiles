@@ -1,5 +1,8 @@
 #!/bin/bash
-
+#
+# By my convention, the files linked out of this directory named the same as
+# their correspondig "dotfile", but not prefixed with a "."
+#
 PWD=$(pwd)
 FILES="vimrc tmux.conf gitconfig"
 
@@ -12,7 +15,6 @@ fi
 for i in $FILES
 do
   printf "Linking $PWD/$i to $HOME/.$i "
-
   if [ -e $HOME/.$i ]
   then
     mv $HOME/.$i $HOME/.$i-old
