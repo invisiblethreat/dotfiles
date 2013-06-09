@@ -31,3 +31,14 @@ then
 fi
 
 ln -nsf $PWD/tmux.conf $HOME/.tmux.conf
+
+printf "Linking $PWD/gitconfig to $HOME/.gitconfig "
+
+if [ -e $HOME/.gitconfig ]
+then
+{
+  mv $HOME/.gitconfig $HOME/.gitconfig
+}
+fi
+
+ln -nsf $PWD/gitconfig $HOME/.gitconfig
