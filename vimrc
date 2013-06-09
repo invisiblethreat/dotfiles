@@ -1,15 +1,20 @@
 "http://vim.wikia.com/wiki/Xterm256_color_names_for_console_Vim for more colours
+set t_Co=256
 syntax on
 set number
-highlight LineNr ctermfg=101
+highlight LineNr ctermfg=8 ctermbg=none cterm=none
+highlight Search ctermbg=28 ctermfg=black cterm=none
+highlight MatchParen ctermbg=160 ctermfg=black cterm=none
 set paste
 set hlsearch
+set foldmethod=indent
+set foldlevelstart=20
 filetype on
 
 au BufNewFile,BufRead *.nasl set filetype=nasl
 au BufNewFile,BufRead *.inc set filetype=nasl
 
-au BufWritePost * call Chown_bin()
+au BufWritePost * call Chmod_bin()
 
 " Tabular
 set tabstop=2
@@ -31,27 +36,27 @@ nmap tx :x<cr>
 nmap tq :q!<cr>
 
 " Colours for modes
-hi statusline ctermfg=cyan ctermbg=blue cterm=bold
+hi statusline ctermfg=15 ctermbg=27 cterm=none
 au InsertEnter * call InsertStatuslineColor(v:insertmode)
-au InsertLeave * hi statusline ctermfg=cyan ctermbg=blue cterm=bold
+au InsertLeave * hi statusline ctermfg=15 ctermbg=27 cterm=none
 au BufReadPost * call CheckRo()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! InsertStatuslineColor(mode)
   if a:mode == 'i'
-    hi statusline ctermfg=black ctermbg=158 cterm=bold
+    hi statusline ctermfg=15 ctermbg=22 cterm=bold
   endif
 endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function CheckRo()
   if &readonly
-    hi statusline cterm=bold ctermfg=black ctermbg=101
+    hi statusline cterm=none ctermfg=0 ctermbg=178
   endif
 endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function Chown_bin()
+function Chmod_bin()
   if getline(1) =~ "^#!"
     if getline(1) =~ "/bin/"
       silent !chmod 700 <afile>

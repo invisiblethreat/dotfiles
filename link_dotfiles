@@ -17,6 +17,7 @@ then
 {
   mv $HOME/.vimrc $HOME/.vimrc-old
 }
+fi
 
 ln -nsf $PWD/vimrc $HOME/.vimrc
 
@@ -27,5 +28,6 @@ then
 {
   mv $HOME/.tmux.conf $HOME/.tmux.conf-old
 }
+fi
 
 ln -nsf $PWD/tmux.conf $HOME/.tmux.conf
