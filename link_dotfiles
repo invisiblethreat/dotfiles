@@ -1,44 +1,21 @@
 #!/bin/bash
 
 PWD=$(pwd)
+FILES="vimrc tmux.conf gitconfig"
 
 # You're in a bad place if this happens
 if [ -z $HOME ]
 then
-{
     printf "\$HOME is not set\n"
-}
 fi
 
-printf "Linking $PWD/vimrc to $HOME/.vimrc "
+for i in $FILES
+do
+  printf "Linking $PWD/$i to $HOME/.$i "
 
-if [ -e $HOME/.vimrc ]
-then
-{
-  mv $HOME/.vimrc $HOME/.vimrc-old
-}
-fi
-
-ln -nsf $PWD/vimrc $HOME/.vimrc
-
-printf "Linking $PWD/tmux.conf to $HOME/.tmux.conf "
-
-if [ -e $HOME/.tmux.conf ]
-then
-{
-  mv $HOME/.tmux.conf $HOME/.tmux.conf-old
-}
-fi
-
-ln -nsf $PWD/tmux.conf $HOME/.tmux.conf
-
-printf "Linking $PWD/gitconfig to $HOME/.gitconfig "
-
-if [ -e $HOME/.gitconfig ]
-then
-{
-  mv $HOME/.gitconfig $HOME/.gitconfig
-}
-fi
-
-ln -nsf $PWD/gitconfig $HOME/.gitconfig
+  if [ -e $HOME/.$i ]
+  then
+    mv $HOME/.$i $HOME/.$i-old
+  fi
+  ln -nsf $PWD/$i $HOME/.$i
+done
