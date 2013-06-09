@@ -10,6 +10,8 @@
   ui = true
   interactive = auto
 [alias]
+  s = status
+  b = branch
   co = checkout
   ci = commit -a
   lp = log -p
