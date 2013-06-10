@@ -1,6 +1,11 @@
-[user]
-  name = <commit name>
-  email = <commit email>
+[include]
+  path = ~/.gitconfig.local
+
+# At a minimum, you want the user section in .gitconfig.local
+#[user]
+#  name = "Your Name"
+#  email = name@example.com
+
 [push]
   default = current
 [core]
