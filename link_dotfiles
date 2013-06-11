@@ -14,7 +14,7 @@ fi
 
 for i in $FILES
 do
-  printf "Linking $PWD/$i to $HOME/.$i "
+  printf "Linking $PWD/$i to $HOME/.$i\n"
   if [ -e $HOME/.$i ]
   then
     mv $HOME/.$i $HOME/.$i-old

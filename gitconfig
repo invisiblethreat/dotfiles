@@ -21,7 +21,7 @@
   ci = commit -a
   lp = log -p
   dno = diff --name-only origin/master
-  mo = merge origin/master
+  mo = merge origin/master --no-edit
   rhh = reset --hard HEAD
   dm = diff origin/master...
   hist = log --all --graph --pretty='[%C(cyan)%h%Creset]%C(bold cyan)%d%Creset %s'
