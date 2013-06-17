@@ -21,8 +21,12 @@
   ci = commit -a
   lp = log -p
   dno = diff --name-only origin/master
-  mo = merge origin/master --no-edit
+  mo = merge --no-edit origin/master
   rhh = reset --hard HEAD
   dm = diff origin/master...
   hist = log --all --graph --pretty='[%C(cyan)%h%Creset]%C(bold cyan)%d%Creset %s'
   cl = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+[diff]
+	tool = vimdiff
+[merge]
+	tool = vimdiff
