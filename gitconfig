@@ -29,4 +29,6 @@
 [diff]
 	tool = vimdiff
 [merge]
-	tool = vimdiff
+	tool = vimdiff 
+[difftool]
+	prompt = false

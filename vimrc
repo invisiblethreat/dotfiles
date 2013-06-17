@@ -1,10 +1,10 @@
 "http://vim.wikia.com/wiki/Xterm256_color_names_for_console_Vim for more colours
 set t_Co=256
 syntax on
+colo custom
 set number
-highlight LineNr ctermfg=8 ctermbg=none cterm=none
-highlight Search ctermbg=28 ctermfg=black cterm=none
-highlight MatchParen ctermbg=160 ctermfg=black cterm=none
+"highlight LineNr ctermfg=8 ctermbg=none cterm=none
+"highlight Search ctermbg=28 ctermfg=black cterm=none
 set paste
 set hlsearch
 set foldmethod=indent

@@ -4,7 +4,7 @@
 # their correspondig "dotfile", but not prefixed with a "."
 #
 PWD=$(pwd)
-FILES="vimrc tmux.conf gitconfig"
+FILES="vimrc tmux.conf gitconfig vim"
 
 # You're in a bad place if this happens
 if [ -z $HOME ]
