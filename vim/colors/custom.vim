@@ -1,3 +1,4 @@
+"based off of skittles_berry
 set background=dark
 if version > 580
     hi clear
@@ -5,7 +6,7 @@ if version > 580
         syntax reset
     endif
 endif
-let g:colors_name="skittles_berry"
+let g:colors_name="custom"
 
 hi SpecialKey ctermfg=240 guifg=#585858
 hi NonText ctermfg=250 guifg=#bcbcbc
@@ -34,7 +35,7 @@ hi DiffText term=reverse cterm=bold ctermfg=0 ctermbg=202 gui=bold guifg=#ad81ff
 hi SignColumn term=standout ctermfg=149 ctermbg=74 guifg=#a6e22e guibg=#232526
 hi Conceal ctermfg=7 ctermbg=242 guifg=#e5e5e5 guibg=#080808
 hi SpellBad term=reverse ctermfg=255 ctermbg=9 guifg=#eeeeee guisp=#ff0000
-hi SpellCap term=reverse ctermfg=255 ctermbg=12 guifg=#eeeeee guisp=#0000ff
+hi SpellCap term=reverse ctermfg=8 ctermbg=12 guifg=#eeeeee guisp=#0000ff
 hi SpellRare term=reverse ctermfg=255 ctermbg=13 guifg=#eeeeee guisp=#ff00ff
 hi SpellLocal ctermfg=255 ctermbg=14 guifg=#eeeeee guisp=#00ffff
 hi Pmenu ctermfg=81 ctermbg=0 guifg=#5fd7ff guibg=#000000
