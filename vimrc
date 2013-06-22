@@ -13,6 +13,7 @@ set hlsearch
 set foldmethod=indent
 set foldlevelstart=20
 filetype on
+autocmd FileType make setlocal noexpandtab
 
 au BufNewFile,BufRead *.nasl set filetype=nasl
 au BufNewFile,BufRead *.inc set filetype=nasl
