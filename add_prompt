@@ -6,4 +6,4 @@ if [ -e ~/.bash_prompt ]; then
 fi
 EOT
 
-source ~/.bash_profile
+echo "Now run: source ~/.bash_prompt(first time only)"
