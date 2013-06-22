@@ -6,4 +6,4 @@ if [ -e ~/.bash_prompt ]; then
 fi
 EOT
 
-source .bash_profile
+source ~/.bash_profile
