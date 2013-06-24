@@ -14,10 +14,11 @@ fi
 
 for i in $FILES
 do
-  printf "Linking $PWD/$i to $HOME/.$i\n"
+  printf "Linking $PWD/$i to $HOME/.$i..."
   if [ -e $HOME/.$i ]
   then
     mv $HOME/.$i $HOME/.$i-old
   fi
   ln -nsf $PWD/$i $HOME/.$i
+  printf " Done.\n"
 done
