@@ -1,0 +1,10 @@
+RED='\[\e[31m\]'
+GREEN='\[\e[32m\]'
+YELLOW='\[\e[33m\]'
+RESET='\[\e[0m\]'
+
+if [ $(id -u) -eq 0 ]; then
+  export PS1="$RED\u@\h[\t][$YELLOW\w$RED]\n#$RESET "
+else
+  export PS1="$GREEN\u@\h[\t][$YELLOW\w$GREEN]\n\$$RESET "
+fi
