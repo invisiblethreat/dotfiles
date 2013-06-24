@@ -41,6 +41,11 @@ nmap tq :q!<cr>
 
 nmap cr :so $MYVIMRC<cr> :echo "Reloaded config"<cr>
 
+"show the highlighting tag stack under the cursor
+nmap hr :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
 " Colours for modes
 hi statusline ctermfg=15 ctermbg=27 cterm=none
 au InsertEnter * call InsertStatuslineColor(v:insertmode)
@@ -50,7 +55,7 @@ au BufReadPost * call CheckRo()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! InsertStatuslineColor(mode)
   if a:mode == 'i'
-    hi statusline ctermfg=15 ctermbg=22 cterm=bold
+    hi statusline ctermfg=15 ctermbg=28 cterm=bold
   endif
 endfunction
 
