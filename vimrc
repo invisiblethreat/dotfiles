@@ -6,17 +6,18 @@ setlocal spell spelllang=en_us
 set spellcapcheck=""
 colo custom
 set number
-"highlight LineNr ctermfg=8 ctermbg=none cterm=none
-"highlight Search ctermbg=28 ctermfg=black cterm=none
 set paste
 set hlsearch
 set foldmethod=indent
 set foldlevelstart=20
 filetype on
-autocmd FileType make setlocal noexpandtab
+au FileType make setlocal noexpandtab
 
+" NASL prefs
 au BufNewFile,BufRead *.nasl set filetype=nasl
 au BufNewFile,BufRead *.inc set filetype=nasl
+au BufNewFile,BufRead *.inc set indentexpr=
+au FileType nasl setlocal shiftwidth=2 tabstop=2 expandtab softtabstop=2 colorcolumn=70
 
 au BufWritePost * call Chmod_bin()
 
@@ -40,6 +41,9 @@ nmap tx :x<cr>
 nmap tq :q!<cr>
 
 nmap cr :so $MYVIMRC<cr> :echo "Reloaded config"<cr>
+" If the current buffer has never been saved, it will have no name,
+" call the file browser to save it, otherwise just save it.
+map <C-S> :update<CR>
 
 "show the highlighting tag stack under the cursor
 nmap hr :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'

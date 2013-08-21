@@ -51,7 +51,7 @@ hi clear ColorColumn
 hi link ColorColumn CursorLine
 hi MatchParen term=reverse ctermfg=0 ctermbg=208 gui=bold guifg=#000000 guibg=#ff8700
 hi Comment ctermfg=66 guifg=#5f8787
-hi Constant ctermfg=91 gui=bold guifg=#8700af
+hi Constant ctermfg=99 guifg=#8700af
 hi Special ctermfg=81 guifg=#5fd7ff
 hi Statement ctermfg=202 ctermbg=233 guifg=#ff5f00 guibg=#121212
 hi PreProc ctermfg=149 guifg=#afd75f
