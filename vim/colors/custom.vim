@@ -1,4 +1,5 @@
 "based off of skittles_berry
+"http://vim.wikia.com/wiki/Xterm256_color_names_for_console_Vim for more colours
 set background=dark
 if version > 580
     hi clear

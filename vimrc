@@ -1,4 +1,3 @@
-"http://vim.wikia.com/wiki/Xterm256_color_names_for_console_Vim for more colours
 set t_Co=256
 syntax on
 set spell
@@ -10,6 +9,8 @@ set paste
 set hlsearch
 set foldmethod=indent
 set foldlevelstart=20
+set backspace=2
+"set colorcolumn=80
 filetype on
 au FileType make setlocal noexpandtab
 
@@ -17,9 +18,7 @@ au FileType make setlocal noexpandtab
 au BufNewFile,BufRead *.nasl set filetype=nasl
 au BufNewFile,BufRead *.inc set filetype=nasl
 au BufNewFile,BufRead *.inc set indentexpr=
-au FileType nasl setlocal shiftwidth=2 tabstop=2 expandtab softtabstop=2 colorcolumn=70
-
-au BufWritePost * call Chmod_bin()
+au FileType nasl setlocal shiftwidth=2 tabstop=2 expandtab softtabstop=2 
 
 " Tabular
 set tabstop=2
@@ -54,7 +53,10 @@ nmap hr :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 hi statusline ctermfg=15 ctermbg=27 cterm=none
 au InsertEnter * call InsertStatuslineColor(v:insertmode)
 au InsertLeave * hi statusline ctermfg=15 ctermbg=27 cterm=none
+
 au BufReadPost * call CheckRo()
+au BufWritePost * call Chmod_bin()
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! InsertStatuslineColor(mode)
