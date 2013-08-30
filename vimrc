@@ -1,4 +1,7 @@
 set t_Co=256
+let mapleader=","
+nmap <leader>ev :e $MYVIMRC<CR> :echo "Reloaded Config"<CR>
+nmap <leader>sv :so $MYVIMRC<CR>
 syntax on
 set spell
 setlocal spell spelllang=en_us
@@ -39,7 +42,6 @@ nmap tk :tabclose<cr>
 nmap tx :x<cr>
 nmap tq :q!<cr>
 
-nmap cr :so $MYVIMRC<cr> :echo "Reloaded config"<cr>
 " If the current buffer has never been saved, it will have no name,
 " call the file browser to save it, otherwise just save it.
 map <C-S> :update<CR>
@@ -48,6 +50,8 @@ map <C-S> :update<CR>
 nmap hr :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+ 
+vmap mt y :call MakeTiny('<C-r>"')<CR>
 
 " Colours for modes
 hi statusline ctermfg=15 ctermbg=27 cterm=none
@@ -57,7 +61,12 @@ au InsertLeave * hi statusline ctermfg=15 ctermbg=27 cterm=none
 au BufReadPost * call CheckRo()
 au BufWritePost * call Chmod_bin()
 
-
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! MakeTiny(url)
+        let result = system("mktiny " . a:url)
+        let result = substitute(result, '[^a-zA-Z0-9:/.?]', '', 'g')
+        call setline(line('.'), substitute(getline('.'), a:url, result, 'g'))
+endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! InsertStatuslineColor(mode)
   if a:mode == 'i'
