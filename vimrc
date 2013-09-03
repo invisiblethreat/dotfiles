@@ -1,27 +1,24 @@
 set t_Co=256
+colo custom
+
 let mapleader=","
 nmap <leader>ev :e $MYVIMRC<CR> :echo "Reloaded Config"<CR>
 nmap <leader>sv :so $MYVIMRC<CR>
 syntax on
+set cursorline
+set hidden
 set spell
 setlocal spell spelllang=en_us
 set spellcapcheck=""
-colo custom
 set number
 set paste
 set hlsearch
+set incsearch
 set foldmethod=indent
 set foldlevelstart=20
 set backspace=2
 "set colorcolumn=80
 filetype on
-au FileType make setlocal noexpandtab
-
-" NASL prefs
-au BufNewFile,BufRead *.nasl set filetype=nasl
-au BufNewFile,BufRead *.inc set filetype=nasl
-au BufNewFile,BufRead *.inc set indentexpr=
-au FileType nasl setlocal shiftwidth=2 tabstop=2 expandtab softtabstop=2 
 
 " Tabular
 set tabstop=2
@@ -41,6 +38,14 @@ nmap tp :tabprev<cr>
 nmap tk :tabclose<cr>
 nmap tx :x<cr>
 nmap tq :q!<cr>
+
+au FileType make setlocal noexpandtab
+
+" NASL prefs
+au BufNewFile,BufRead *.nasl set filetype=nasl
+au BufNewFile,BufRead *.inc set filetype=nasl
+au BufNewFile,BufRead *.inc set indentexpr=
+au FileType nasl setlocal shiftwidth=2 tabstop=2 expandtab softtabstop=2 
 
 " If the current buffer has never been saved, it will have no name,
 " call the file browser to save it, otherwise just save it.
@@ -63,9 +68,9 @@ au BufWritePost * call Chmod_bin()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! MakeTiny(url)
-        let result = system("mktiny " . a:url)
-        let result = substitute(result, '[^a-zA-Z0-9:/.?]', '', 'g')
-        call setline(line('.'), substitute(getline('.'), a:url, result, 'g'))
+  let result = system("mktiny " . a:url)
+  let result = substitute(result, '[^a-zA-Z0-9:/.?]', '', 'g')
+  call setline(line('.'), substitute(getline('.'), a:url, result, 'g'))
 endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! InsertStatuslineColor(mode)
