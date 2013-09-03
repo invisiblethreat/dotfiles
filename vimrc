@@ -1,14 +1,11 @@
 set t_Co=256
 colo custom
 
-let mapleader=","
-nmap <leader>ev :e $MYVIMRC<CR> :echo "Reloaded Config"<CR>
-nmap <leader>sv :so $MYVIMRC<CR>
 syntax on
 set cursorline
 set hidden
 set spell
-setlocal spell spelllang=en_us
+set spell spelllang=en_us
 set spellcapcheck=""
 set number
 set paste
@@ -17,7 +14,8 @@ set incsearch
 set foldmethod=indent
 set foldlevelstart=20
 set backspace=2
-"set colorcolumn=80
+set showmatch
+set ignorecase
 filetype on
 
 " Tabular
@@ -30,14 +28,14 @@ set showtabline=2
 set laststatus=2
 set statusline=%F%m%r%h%w\ [Position=%04l,%04v][%p%%]\ [Lines=%L]
 
-" Everyone loves tabs
+let mapleader=","
+nmap <leader>ev :e $MYVIMRC<CR>
+nmap <leader>sv :so $MYVIMRC<CR> :echo "Reloaded Config"<CR>
 set tabpagemax=10
-nmap tc :tabnew<cr>
-nmap tn :tabnext<cr>
-nmap tp :tabprev<cr>
-nmap tk :tabclose<cr>
-nmap tx :x<cr>
-nmap tq :q!<cr>
+nmap <leader>c :tabnew<cr>
+nmap <leader>n :tabnext<cr>
+nmap <leader>p :tabprev<cr>
+nmap <leader>k :tabclose<cr>
 
 au FileType make setlocal noexpandtab
 
