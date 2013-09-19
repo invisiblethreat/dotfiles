@@ -37,8 +37,8 @@ set laststatus=2
 set statusline=%F%m%r%h%w\ [Position=%04l,%04v][%p%%]\ [Lines=%L]
 
 let mapleader=","
-nmap <leader>ev :e $MYVIMRC<CR>
-nmap <leader>sv :so $MYVIMRC<CR> :echo "Reloaded Config"<CR>
+nmap <leader>ec :e $MYVIMRC<CR>
+nmap <leader>rc :so $MYVIMRC<CR> :echo "Reloaded Config"<CR>
 set tabpagemax=10
 nmap <leader>c :tabnew<cr>
 nmap <leader>n :tabnext<cr>
