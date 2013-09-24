@@ -10,12 +10,10 @@ set spellcapcheck=""
 set number
 set paste
 set hlsearch
-set incsearch
 set foldmethod=indent
 set foldlevelstart=20
 set backspace=2
 set showmatch
-set ignorecase
 set history=1000
 set undolevels=1000
 set title
@@ -25,7 +23,7 @@ set list
 set listchars=tab:>.,trail:!,extends:#,nbsp:#
 filetype on
 nnoremap ; :
-"testing
+
 " Tabular
 set tabstop=2
 set shiftwidth=2
