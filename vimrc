@@ -2,7 +2,6 @@ set t_Co=256
 colo custom
 
 syntax on
-set cursorline
 set hidden
 set spell
 set spell spelllang=en_us
