@@ -1,3 +1,6 @@
+set rtp+=/root/git/powerline/powerline/bindings/vim
+let g:Powerline_symbols = 'fancy'
+set statusline=%F%m%r%h%w\ [Position=%04l,%04v][%p%%]\ [Lines=%L]
 set t_Co=256
 colo custom
 syntax on
@@ -30,7 +33,6 @@ set expandtab
 " Bottom status line
 set showtabline=2
 set laststatus=2
-set statusline=%F%m%r%h%w\ [Position=%04l,%04v][%p%%]\ [Lines=%L]
 
 let mapleader=","
 nmap <leader>ec :e $MYVIMRC<CR>
