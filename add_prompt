@@ -6,4 +6,4 @@ if [ -e ~/.bash_prompt ]; then
 fi
 EOT
 
-echo "Now run: source ~/.bash_prompt(first time only)"
+echo "Now run: source ~/.bash_prompt"
