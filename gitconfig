@@ -15,6 +15,7 @@
   ui = true
   interactive = auto
 [alias]
+  alias = config --get-regexp alias
   s = status
   b = branch
   cl = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
@@ -22,14 +23,15 @@
   ci = commit -a
   dl = difftool HEAD^
   dm = difftool origin/master...
+  dn = diff --name-only origin/master
   dno = diff --name-only origin/master
   hist = log --all --graph --pretty='[%C(cyan)%h%Creset]%C(bold cyan)%d%Creset %s'
   lp = log -p
   mo = merge --no-edit origin/master
   rhh = reset --hard HEAD
 [diff]
-	tool = vimdiff
+  tool = vimdiff
 [merge]
-	tool = vimdiff 
+  tool = vimdiff 
 [difftool]
-	prompt = false
+  prompt = false

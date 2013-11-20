@@ -2,17 +2,14 @@ set t_Co=256
 colo custom
 
 syntax on
-set cursorline
 set hidden
 set number
 set paste
 set hlsearch
-set incsearch
 set foldmethod=indent
 set foldlevelstart=20
 set backspace=2
 set showmatch
-set ignorecase
 set history=1000
 set undolevels=1000
 set title
@@ -22,7 +19,7 @@ set list
 set listchars=tab:>.,trail:!,extends:#,nbsp:#
 filetype on
 nnoremap ; :
-"testing
+
 " Tabular
 set tabstop=2
 set shiftwidth=2
@@ -34,8 +31,8 @@ set laststatus=2
 set statusline=%F%m%r%h%w\ [Position=%04l,%04v][%p%%]\ [Lines=%L]
 
 let mapleader=","
-nmap <leader>ev :e $MYVIMRC<CR>
-nmap <leader>sv :so $MYVIMRC<CR> :echo "Reloaded Config"<CR>
+nmap <leader>ec :e $MYVIMRC<CR>
+nmap <leader>rc :so $MYVIMRC<CR> :echo "Reloaded Config"<CR>
 set tabpagemax=10
 nmap <leader>c :tabnew<cr>
 nmap <leader>n :tabnext<cr>
