@@ -1,21 +1,18 @@
+set rtp+=/root/git/powerline/powerline/bindings/vim
 set t_Co=256
 colo custom
-
 syntax on
-set cursorline
+set pastetoggle=<F5>
 set hidden
 set spell
 set spell spelllang=en_us
 set spellcapcheck=""
 set number
-set paste
 set hlsearch
-set incsearch
 set foldmethod=indent
 set foldlevelstart=20
 set backspace=2
 set showmatch
-set ignorecase
 set history=1000
 set undolevels=1000
 set title
@@ -25,8 +22,8 @@ set list
 set listchars=tab:>.,trail:!,extends:#,nbsp:#
 filetype on
 nnoremap ; :
-"testing
-" Tabular
+
+" Tabs
 set tabstop=2
 set shiftwidth=2
 set expandtab
@@ -44,6 +41,9 @@ nmap <leader>c :tabnew<cr>
 nmap <leader>n :tabnext<cr>
 nmap <leader>p :tabprev<cr>
 nmap <leader>k :tabclose<cr>
+
+nmap <leader>f <C-]>
+nmap <leader>b <C-o>
 
 au FileType make setlocal noexpandtab
 
