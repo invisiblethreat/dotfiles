@@ -4,9 +4,6 @@ colo custom
 syntax on
 set cursorline
 set hidden
-set spell
-set spell spelllang=en_us
-set spellcapcheck=""
 set number
 set paste
 set hlsearch
@@ -52,6 +49,9 @@ au BufNewFile,BufRead *.nasl set filetype=nasl
 au BufNewFile,BufRead *.inc set filetype=nasl
 au BufNewFile,BufRead *.inc set indentexpr=
 au FileType nasl setlocal shiftwidth=2 tabstop=2 expandtab softtabstop=2 
+au FileType nasl setlocal spell
+au FileType nasl setlocal spelllang=en_us
+au FileType nasl setlocal spellcapcheck=""
 
 " If the current buffer has never been saved, it will have no name,
 " call the file browser to save it, otherwise just save it.

@@ -73,7 +73,7 @@ hi Label ctermfg=228 guifg=#ffff87
 hi Operator ctermfg=214 guifg=#ffaf00
 hi Keyword ctermfg=117 gui=bold guifg=#87d700
 hi Exception ctermfg=106 gui=bold guifg=#87af00
-hi Include ctermfg=255 guifg=#eeeeee
+hi Include ctermfg=178 guifg=#eeeeee
 hi Define ctermfg=124 gui=bold guifg=#af0000
 hi Macro ctermfg=186 guifg=#d7d787
 hi PreCondit ctermfg=149 gui=bold guifg=#afd75f
