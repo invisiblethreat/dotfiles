@@ -1,4 +1,3 @@
-set rtp+=/root/git/powerline/powerline/bindings/vim
 set t_Co=256
 colo custom
 syntax on
