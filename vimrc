@@ -1,7 +1,37 @@
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+" required
+Bundle 'gmarik/vundle'
+
+"Github repos
+Bundle 'bling/vim-airline'
+Bundle 'sjl/gundo.vim'
+Bundle 'ervandew/supertab'
+Bundle 'ervandew/snipmate.vim'
+Bundle 'tenable/vim-nasl'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-git'
+
+filetype plugin indent on
+
+"Bundle config items
+let g:airline_powerline_fonts = 1
+let g:airline_theme='powerlineish'
+let g:gundo_width = 60
+let g:gundo_preview_height = 40
+let g:gundo_right = 1
+nnoremap <F5> :GundoToggle<CR>
+
+"fallback statusline
+set statusline=%F%m%r%h%w\ [Position=%04l,%04v][%p%%]\ [Lines=%L]
 set t_Co=256
 colo custom
 syntax on
-set pastetoggle=<F5>
 set hidden
 set spell
 set spell spelllang=en_us
@@ -18,7 +48,7 @@ set title
 set history=1000
 set undolevels=1000
 set list
-set listchars=tab:>.,trail:!,extends:#,nbsp:#
+set listchars=tab:>.,trail:•,extends:#,nbsp:#
 filetype on
 nnoremap ; :
 
@@ -30,7 +60,6 @@ set expandtab
 " Bottom status line
 set showtabline=2
 set laststatus=2
-set statusline=%F%m%r%h%w\ [Position=%04l,%04v][%p%%]\ [Lines=%L]
 
 let mapleader=","
 nmap <leader>ec :e $MYVIMRC<CR>
@@ -50,7 +79,7 @@ au FileType make setlocal noexpandtab
 au BufNewFile,BufRead *.nasl set filetype=nasl
 au BufNewFile,BufRead *.inc set filetype=nasl
 au BufNewFile,BufRead *.inc set indentexpr=
-au FileType nasl setlocal shiftwidth=2 tabstop=2 expandtab softtabstop=2 
+au FileType nasl setlocal shiftwidth=2 tabstop=2 expandtab softtabstop=2
 
 " If the current buffer has never been saved, it will have no name,
 " call the file browser to save it, otherwise just save it.
@@ -60,7 +89,7 @@ map <C-S> :update<CR>
 nmap hr :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
- 
+
 vmap mt y :call MakeTiny('<C-r>"')<CR>
 
 " Colours for modes
@@ -99,4 +128,3 @@ function! Chmod_bin()
     endif
   endif
 endfunction
-
