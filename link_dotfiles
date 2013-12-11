@@ -22,3 +22,5 @@ do
   ln -nsf $PWD/$i $HOME/.$i
   printf " Done.\n"
 done
+
+config_vim

@@ -16,22 +16,36 @@ Bundle 'ervandew/snipmate.vim'
 Bundle 'tenable/vim-nasl'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-git'
+Bundle 'majutsushi/tagbar'
+Bundle 'altercation/vim-colors-solarized'
 
 filetype plugin indent on
 
 "Bundle config items
 let g:airline_powerline_fonts = 1
 let g:airline_theme='powerlineish'
+let g:airline#extensions#tabline#enabled = 1
 let g:gundo_width = 60
 let g:gundo_preview_height = 40
 let g:gundo_right = 1
 nnoremap <F5> :GundoToggle<CR>
-
+nmap <F8> :TagbarToggle<CR>
+let g:tagbar_type_nasl = {
+      \ 'ctagstype' : 'nasl',
+      \ 'kinds'     : [
+      \ 'f:function',
+      \ 'v:variables',
+      \ 'g:globals',
+      \ ]
+      \               }
 "fallback statusline
 set statusline=%F%m%r%h%w\ [Position=%04l,%04v][%p%%]\ [Lines=%L]
 set t_Co=256
-colo custom
-syntax on
+"colo custom
+syntax enable
+set background=dark
+let g:solarized_termcolors=256
+colorscheme solarized
 set hidden
 set spell
 set spell spelllang=en_us
