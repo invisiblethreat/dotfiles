@@ -23,4 +23,5 @@ do
   printf " Done.\n"
 done
 
-config_vim
+./config_vim
+./add_prompt
