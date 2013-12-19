@@ -18,6 +18,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-git'
 Bundle 'majutsushi/tagbar'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'invisiblethreat/vim-color-automaton'
 
 filetype plugin indent on
 
@@ -43,9 +44,10 @@ set statusline=%F%m%r%h%w\ [Position=%04l,%04v][%p%%]\ [Lines=%L]
 set t_Co=256
 "colo custom
 syntax enable
-set background=dark
-let g:solarized_termcolors=256
-colorscheme solarized
+"set background=dark
+"let g:solarized_termcolors=256
+"colorscheme solarized
+colorscheme automaton
 set hidden
 set spell
 set spell spelllang=en_us
@@ -107,7 +109,7 @@ nmap hr :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 vmap mt y :call MakeTiny('<C-r>"')<CR>
 
 " Colours for modes
-hi statusline ctermfg=15 ctermbg=27 cterm=none
+"hi statusline ctermfg=15 ctermbg=27 cterm=none
 au InsertEnter * call InsertStatuslineColor(v:insertmode)
 au InsertLeave * hi statusline ctermfg=15 ctermbg=27 cterm=none
 
