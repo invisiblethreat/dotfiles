@@ -1,10 +1,55 @@
-set t_Co=256
-colo custom
+set nocompatible
+filetype off
 
-syntax on
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+" required
+Bundle 'gmarik/vundle'
+
+"Github repos
+Bundle 'bling/vim-airline'
+Bundle 'sjl/gundo.vim'
+Bundle 'ervandew/supertab'
+Bundle 'ervandew/snipmate.vim'
+Bundle 'tenable/vim-nasl'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-git'
+Bundle 'majutsushi/tagbar'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'invisiblethreat/vim-color-automaton'
+
+filetype plugin indent on
+
+"Bundle config items
+let g:airline_powerline_fonts = 1
+let g:airline_theme='powerlineish'
+let g:airline#extensions#tabline#enabled = 1
+let g:gundo_width = 60
+let g:gundo_preview_height = 40
+let g:gundo_right = 1
+nnoremap <F5> :GundoToggle<CR>
+nmap <F8> :TagbarToggle<CR>
+let g:tagbar_type_nasl = {
+      \ 'ctagstype' : 'nasl',
+      \ 'kinds'     : [
+      \ 'f:function',
+      \ 'v:variables',
+      \ 'g:globals',
+      \ ]
+      \               }
+"fallback statusline
+set statusline=%F%m%r%h%w\ [Position=%04l,%04v][%p%%]\ [Lines=%L]
+set t_Co=256
+"colo custom
+syntax enable
+"set background=dark
+"let g:solarized_termcolors=256
+"colorscheme solarized
+colorscheme automaton
 set hidden
 set number
-set paste
 set hlsearch
 set foldmethod=indent
 set foldlevelstart=20
@@ -16,11 +61,11 @@ set title
 set history=1000
 set undolevels=1000
 set list
-set listchars=tab:>.,trail:!,extends:#,nbsp:#
+set listchars=tab:>.,trail:•,extends:#,nbsp:#
 filetype on
 nnoremap ; :
 
-" Tabular
+" Tabs
 set tabstop=2
 set shiftwidth=2
 set expandtab
@@ -28,7 +73,6 @@ set expandtab
 " Bottom status line
 set showtabline=2
 set laststatus=2
-set statusline=%F%m%r%h%w\ [Position=%04l,%04v][%p%%]\ [Lines=%L]
 
 let mapleader=","
 nmap <leader>ec :e $MYVIMRC<CR>
@@ -38,6 +82,9 @@ nmap <leader>c :tabnew<cr>
 nmap <leader>n :tabnext<cr>
 nmap <leader>p :tabprev<cr>
 nmap <leader>k :tabclose<cr>
+
+nmap <leader>f <C-]>
+nmap <leader>b <C-o>
 
 au FileType make setlocal noexpandtab
 
@@ -58,11 +105,11 @@ map <C-S> :update<CR>
 nmap hr :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
- 
+
 vmap mt y :call MakeTiny('<C-r>"')<CR>
 
 " Colours for modes
-hi statusline ctermfg=15 ctermbg=27 cterm=none
+"hi statusline ctermfg=15 ctermbg=27 cterm=none
 au InsertEnter * call InsertStatuslineColor(v:insertmode)
 au InsertLeave * hi statusline ctermfg=15 ctermbg=27 cterm=none
 
@@ -97,4 +144,3 @@ function! Chmod_bin()
     endif
   endif
 endfunction
-
