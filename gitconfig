@@ -30,6 +30,7 @@
   lp = log -p
   mo = merge --no-edit origin/master
   rhh = reset --hard HEAD
+  uncommit = reset HEAD^
 [diff]
   tool = vimdiff
 [merge]
