@@ -30,7 +30,7 @@ let g:gundo_width = 60
 let g:gundo_preview_height = 40
 let g:gundo_right = 1
 nnoremap <F5> :GundoToggle<CR>
-nmap <F8> :TagbarToggle<CR>
+nmap <F6> :TagbarToggle<CR>
 let g:tagbar_type_nasl = {
       \ 'ctagstype' : 'nasl',
       \ 'kinds'     : [
