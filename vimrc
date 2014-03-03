@@ -106,6 +106,9 @@ nmap hr :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
+" Thanks for flying Vim can DIAF
+let &titleold=getcwd()
+
 vmap mt y :call MakeTiny('<C-r>"')<CR>
 
 " Colours for modes
