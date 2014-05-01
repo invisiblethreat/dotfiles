@@ -37,3 +37,5 @@
   tool = vimdiff 
 [difftool]
   prompt = false
+[credential]
+	helper = cache

@@ -1,10 +1,21 @@
-RED='\[\e[31m\]'
-GREEN='\[\e[32m\]'
-YELLOW='\[\e[33m\]'
-RESET='\[\e[0m\]'
+function git_branch {
+  ret=$(git branch 2> /dev/null | grep -e ^*| sed 's/\* //')
+  if [ ! -z $ret ]; then echo "($ret)";fi
+}
 
-if [ $(id -u) -eq 0 ]; then
-  export PS1="$RED\u@\h[\t][$YELLOW\w$RED]\n#$RESET "
+WHITE="\[\033[1;37m\]"
+BRIGHTGREEN="\[\033[1;32m\]"
+GREEN="\[\033[0;32m\]"
+CYAN="\[\033[0;36m\]"
+GRAY="\[\033[0;37m\]"
+RED="\[\033[0;31m\]"
+YELLOW="\[\033[0;33m\]"
+USER=""
+if [ $UID -eq 0 ]; then
+  USER=$RED
+  DECOR="#"
 else
-  export PS1="$GREEN\u@\h[\t][$YELLOW\w$GREEN]\n\$$RESET "
+  USER=$GREEN
+  DECOR="\$"
 fi
+PS1="${WHITE}(${USER}\u${BRIGHTGREEN}@${GREEN}\h ${CYAN}\w${WHITE}) ${YELLOW}\$(git_branch)${GRAY}\n${DECOR} "
