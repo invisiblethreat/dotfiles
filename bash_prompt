@@ -1,6 +1,6 @@
 function git_branch {
-  ret=$(git branch 2> /dev/null | grep -e ^*| sed 's/\* //')
-  if [ ! -z $ret ]; then echo "($ret)";fi
+  ret=$(git branch 2> /dev/null | grep -e ^*| sed 's/\* //; s/[()]//g')
+  if [ -n "$ret" ]; then echo "($ret)";fi
 }
 
 WHITE="\[\033[1;37m\]"
