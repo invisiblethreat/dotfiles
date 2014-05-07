@@ -27,7 +27,7 @@
   dn = diff --name-only origin/master
   dno = diff --name-only origin/master
   hist = log --all --graph --pretty='[%C(cyan)%h%Creset]%C(bold cyan)%d%Creset %s'
-  lp = log -p
+  lp = log -p -w
   mo = merge --no-edit origin/master
   rhh = reset --hard HEAD
   uncommit = reset HEAD^
