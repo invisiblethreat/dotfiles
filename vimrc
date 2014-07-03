@@ -5,7 +5,6 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 " let Vundle manage Vundle
-" required
 Bundle 'gmarik/vundle'
 
 "Github repos
@@ -42,11 +41,7 @@ let g:tagbar_type_nasl = {
 "fallback statusline
 set statusline=%F%m%r%h%w\ [Position=%04l,%04v][%p%%]\ [Lines=%L]
 set t_Co=256
-"colo custom
 syntax enable
-"set background=dark
-"let g:solarized_termcolors=256
-"colorscheme solarized
 colorscheme automaton
 set hidden
 set number
@@ -74,6 +69,7 @@ set expandtab
 set showtabline=2
 set laststatus=2
 
+" leader commands
 let mapleader=","
 nmap <leader>ec :e $MYVIMRC<CR>
 nmap <leader>rc :so $MYVIMRC<CR> :echo "Reloaded Config"<CR>
@@ -112,7 +108,6 @@ let &titleold=getcwd()
 vmap mt y :call MakeTiny('<C-r>"')<CR>
 
 " Colours for modes
-"hi statusline ctermfg=15 ctermbg=27 cterm=none
 au InsertEnter * call InsertStatuslineColor(v:insertmode)
 au InsertLeave * hi statusline ctermfg=15 ctermbg=27 cterm=none
 
