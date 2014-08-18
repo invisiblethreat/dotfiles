@@ -5,6 +5,9 @@ cat << EOT >> ~/.bash_profile
 if [ -e ~/.bash_prompt ]; then
   source ~/.bash_prompt
 fi
+if [ -e ~/.bashrc ]; then
+  source ~/.bashrc
+fi
 EOT
 
-echo "Now run: source ~/.bash_prompt"
+echo "Now run: source ~/.bash_profile"
