@@ -39,3 +39,6 @@
   prompt = false
 [credential]
   helper = cache
+[user]
+	name = Scott Walsh
+	email = swalsh@tenable.com
