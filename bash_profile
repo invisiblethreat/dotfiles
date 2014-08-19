@@ -23,7 +23,7 @@ if [ -e ~/.bash_prompt ]; then
 fi
 
 # TMUX_AUTO should be set in .bash_profile.local
-if [ -e ~/.tmux/auto ] && [ $TMUX_AUTO -eq 1 ]; then
+if [ -e ~/.tmux/auto ] && [ "$TMUX_AUTO" == "1" ]; then
   source ~/.tmux/auto
 fi
 
