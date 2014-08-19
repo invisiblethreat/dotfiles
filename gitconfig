@@ -19,7 +19,7 @@
   alias = config --get-regexp alias
   s = status
   b = branch
-  cl = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+  cl = log --graph --decorate --pretty=format:'%C(yellow)%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
   co = checkout
   ci = commit -a
   dl = difftool HEAD^
@@ -34,7 +34,7 @@
 [diff]
   tool = vimdiff
 [merge]
-  tool = vimdiff 
+  tool = vimdiff
 [difftool]
   prompt = false
 [credential]
