@@ -74,11 +74,18 @@ let mapleader=","
 nmap <leader>ec :e $MYVIMRC<CR>
 nmap <leader>rc :so $MYVIMRC<CR> :echo "Reloaded Config"<CR>
 set tabpagemax=10
-nmap <leader>c :tabnew<cr>
-nmap <leader>n :tabnext<cr>
-nmap <leader>p :tabprev<cr>
-nmap <leader>k :tabclose<cr>
-
+"tabs
+nmap <leader>tc :tabnew<cr>
+nmap <leader>tn :tabnext<cr>
+nmap <leader>tp :tabprev<cr>
+nmap <leader>tk :tabclose<cr>
+"buffers
+nmap <leader>bn :bnext<cr>
+nmap <leader>bp :bprevious<cr>
+nmap <leader>bf :bfirst<cr>
+nmap <leader>bl :blast<cr>
+nmap <leader>bx :bdelete<cr>
+"ctags
 nmap <leader>f <C-]>
 nmap <leader>b <C-o>
 
