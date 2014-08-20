@@ -17,6 +17,14 @@ if [ -e ~/.bash_aliases.local ]; then
   source ~/.bash_aliases.local
 fi
 
+if [ -e ~/.bash_exports ]; then
+  source ~/.bash_exports
+fi
+
+if [ -e ~/.bash_exports.local ]; then
+  source ~/.bash_exports.local
+fi
+
 # pretty prompt
 if [ -e ~/.bash_prompt ]; then
   source ~/.bash_prompt
@@ -28,4 +36,8 @@ if [ -e ~/.tmux/auto ] && [ "$TMUX_AUTO" == "1" ]; then
 fi
 
 PATH=$HOME/bin:$PATH
+stty stop ''
+stty start ''
+stty -ixon
+stty -ixoff
 PROMPT_COMMAND='echo "$(history 1)" >> ~/.bash_eternal_history'
