@@ -29,4 +29,3 @@ fi
 
 PATH=$HOME/bin:$PATH
 PROMPT_COMMAND='echo "$(history 1)" >> ~/.bash_eternal_history'
-

@@ -16,7 +16,6 @@ Bundle 'tenable/vim-nasl'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-git'
 Bundle 'majutsushi/tagbar'
-Bundle 'altercation/vim-colors-solarized'
 Bundle 'invisiblethreat/vim-color-automaton'
 
 filetype plugin indent on
