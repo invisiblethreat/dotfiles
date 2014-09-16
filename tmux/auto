@@ -15,7 +15,7 @@ if [ $? -ne 0 ]; then
 fi
 
 # Ensure that the tmux server is running.
-tmux -u start-server 1>/dev/null 2>&1
+tmux -2 -u start-server 1>/dev/null 2>&1
 
 # Try to connect to this hostname's session, if existing.
 tmux -2 -u attach -t $session
