@@ -88,6 +88,9 @@ nmap <leader>bx :bdelete<cr>
 nmap <leader>f <C-]>
 nmap <leader>b <C-o>
 
+"trailing spaces and mixed tabs
+nmap <leader><space> :%s/\s\+$//<cr>:retab<cr>
+
 au FileType make setlocal noexpandtab
 
 " NASL prefs
