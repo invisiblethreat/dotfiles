@@ -10,7 +10,7 @@
   default = current
 [core]
   editor = vim
-  pager = less -r
+  pager = less -X -F
 [color]
   ui = true
   interactive = auto
@@ -24,7 +24,6 @@
   ci = commit -a
   dl = difftool HEAD^
   dm = difftool origin/master...
-  dn = diff --name-only origin/master
   dno = diff --name-only origin/master
   hist = log --all --graph --pretty='[%C(cyan)%h%Creset]%C(bold cyan)%d%Creset %s'
   lp = log -p -w
@@ -39,3 +38,72 @@
   prompt = false
 [credential]
   helper = cache
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
