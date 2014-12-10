@@ -19,6 +19,7 @@ Bundle 'tpope/vim-git'
 Bundle 'majutsushi/tagbar'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'invisiblethreat/vim-color-automaton'
+Bundle 'klen/python-mode'
 
 filetype plugin indent on
 
