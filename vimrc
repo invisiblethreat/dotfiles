@@ -17,6 +17,8 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-git'
 Bundle 'majutsushi/tagbar'
 Bundle 'invisiblethreat/vim-color-automaton'
+Bundle 'klen/python-mode'
+Bundle 'guns/xterm-color-table.vim'
 
 filetype plugin indent on
 
