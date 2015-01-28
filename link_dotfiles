@@ -4,7 +4,7 @@
 # their corresponding "dotfile", but not prefixed with a "."
 #
 PWD=$(pwd)
-FILES="vimrc tmux.conf gitconfig vim bash_prompt"
+FILES="bash_aliases bash_exports bash_profile bash_prompt gitconfig tmux tmux.conf vim vimrc"
 
 # You're in a bad place if this happens
 if [ -z $HOME ]
@@ -24,4 +24,3 @@ do
 done
 
 ./config_vim
-./add_prompt

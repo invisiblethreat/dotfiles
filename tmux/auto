@@ -1,0 +1,31 @@
+#!/bin/bash
+
+session=$(hostname -s)
+
+# Ensure we're not inside a tmux session already.
+if [ -n "$TMUX" ]; then
+  return
+fi
+
+# Ensure tmux is installed.
+which tmux 1>/dev/null 2>&1
+
+if [ $? -ne 0 ]; then
+  return
+fi
+
+# Ensure that the tmux server is running.
+tmux -2 -u start-server 1>/dev/null 2>&1
+
+# Try to connect to this hostname's session, if existing.
+tmux -2 -u attach -t $session
+
+if [ $? -eq 0 ]; then
+  return
+fi
+
+if [ -e $HOME/.tmux/$session ]; then
+  source $HOME/.tmux/$session
+else
+  echo "No config for $session found at $HOME/.tmux/$session"
+fi

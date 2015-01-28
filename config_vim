@@ -6,4 +6,4 @@ mkdir ~/.fonts
 cd ~/.fonts
 wget https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf
 
-fc-cache -vf ~/.fonts
+#fc-cache -vf ~/.fonts

@@ -10,7 +10,7 @@
   default = current
 [core]
   editor = vim
-  pager = less -r
+  pager = less -X -F
 [color]
   ui = true
   interactive = auto
@@ -19,12 +19,11 @@
   alias = config --get-regexp alias
   s = status
   b = branch
-  cl = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+  cl = log --graph --decorate --pretty=format:'%C(yellow)%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
   co = checkout
   ci = commit -a
   dl = difftool HEAD^
   dm = difftool origin/master...
-  dn = diff --name-only origin/master
   dno = diff --name-only origin/master
   hist = log --all --graph --pretty='[%C(cyan)%h%Creset]%C(bold cyan)%d%Creset %s'
   lp = log -p -w
@@ -34,8 +33,77 @@
 [diff]
   tool = vimdiff
 [merge]
-  tool = vimdiff 
+  tool = vimdiff
 [difftool]
   prompt = false
 [credential]
   helper = cache
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
