@@ -20,6 +20,7 @@ Bundle 'majutsushi/tagbar'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'invisiblethreat/vim-color-automaton'
 Bundle 'klen/python-mode'
+Bundle 'guns/xterm-color-table.vim'
 
 filetype plugin indent on
 
