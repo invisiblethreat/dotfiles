@@ -12,7 +12,8 @@ Bundle 'gmarik/vundle'
 Bundle 'bling/vim-airline'
 Bundle 'sjl/gundo.vim'
 Bundle 'ervandew/supertab'
-Bundle 'ervandew/snipmate.vim'
+"Bundle 'ervandew/snipmate.vim'
+Bundle 'sirver/ultisnips'
 Bundle 'tenable/vim-nasl'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-git'
@@ -31,6 +32,12 @@ let g:airline#extensions#tabline#enabled = 1
 let g:gundo_width = 60
 let g:gundo_preview_height = 40
 let g:gundo_right = 1
+
+" UltiSnips commands
+let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
 nnoremap <F5> :GundoToggle<CR>
 nmap <F6> :TagbarToggle<CR>
 let g:tagbar_type_nasl = {

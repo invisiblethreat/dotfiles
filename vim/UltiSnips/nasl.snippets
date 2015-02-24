@@ -1,0 +1,116 @@
+snippet dis "display statements for debugging"
+display('${1:debug} \n');
+$0
+endsnippet
+
+snippet todo "todo reminder" b
+##
+# `date`
+# TODO: ${1:What to do...}
+##
+$0
+endsnippet
+
+# autocomplete
+global !p
+def ac(t, opts):
+	if t:
+		opts = [ m[len(t):] for m in opts if m.startswith(t) ]
+	if len(opts) == 1:
+		return opts[0]
+	return "(" + "|".join(opts) + ")"
+endglobal
+
+global !p
+def rand_pid(start, end):
+	import random
+	return random.randrange(start,end)
+endglobal
+
+snippet ia "include audit.inc"
+include("audit.inc");
+$0
+endsnippet
+
+snippet ig "include glocal_settings.inc"
+include("global_settings.inc");
+$0
+endsnippet
+
+snippet ii "include install_func.inc"
+include("install_func.inc");
+$0
+endsnippet
+
+
+snippet vc "ver_compare"
+if (ver_compare(ver:${2:ver}, fix:${3:fix}, strict:$1`!p snip.rv=ac(t[1],['TRUE','FALSE'])`) == 0 )
+{
+  ${0:#placeholder}
+}
+endsnippet
+
+snippet report "report"
+report = NULL;
+if (report_verbosity > 0)
+{
+  report =
+    '\n  Path              : ' + ${2:path} +
+    '\n  Installed version : ' + ${3:ver} +
+    '\n  Fixed version     : ' + ${4:fixed_ver} +
+    '\n';
+}
+security_$1`!p snip.rv=ac(t[1],['report','warning','hole','critical'])`(port:${5:port}, extra:report);
+$0
+endsnippet
+
+snippet port "http port"
+port = get_http_port(default: 80);
+$0
+endsnippet
+
+snippet pid
+script_id(`!p if not snip.c: snip.rv=rand_pid(917000,917100)`);
+script_version("$Revision$");
+script_cvs_date("$Date$");
+$0
+endsnippet
+
+snippet gsi "Get single install, this branches"
+app = "${2:Application}";
+
+install  = get_single_install(app_name:app, exit_if_unknown_ver:$1`!p snip.rv=ac(t[1],['TRUE','FALSE'])`);
+ver      = install['version'];
+path     = install['path'];
+$0
+endsnippet
+
+snippet ri "Register an install"
+register_install(
+  app_name:${1:app},
+  path:${2:path},
+  version:${3:version},
+  cpe:"cpe:/${4:a}");
+$0
+endsnippet
+
+snippet copy
+script_copyright(english:"This script is Copyright (C) `date +%Y` Tenable Network Security, Inc.");
+$0
+endsnippet
+
+snippet dates
+#published, patched
+
+$0
+endsnippet
+
+snippet fam
+script_family(english:"$1`!p
+f = ['Backdoors', 'CGI abuses', 'CGI abuses : XSS', 'CISCO', 'Databases',
+		 'Default Unix Accounts', 'Denial of Service', 'DNS', 'Firewalls', 'FTP',
+		 'Gain a shell remotely', 'General', 'Misc.', 'Mobile Devices', 'Settings', 
+		 'SMTP Problems', 'SNMP', 'Web Servers', 'Windows', 'Windows : Microsoft Bulletins']
+snip.rv = ac(t[1],f)`);
+endsnippet
+
