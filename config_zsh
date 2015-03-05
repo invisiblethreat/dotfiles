@@ -1,4 +1,4 @@
 #!/bin/bash
 wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O - | sh
 mkdir -p ~/.oh-my-zsh/custom/themes
-ln -s ~/.zsh/automaton.theme ~/.oh-my-zsh/custom/themes/automaton.theme
+ln -s ~/.zsh/automaton.zsh-theme ~/.oh-my-zsh/custom/themes/automaton.zsh-theme
