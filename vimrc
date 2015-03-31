@@ -6,22 +6,23 @@ call vundle#rc()
 
 " let Vundle manage Vundle
 " required
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
 "Github repos
-Bundle 'bling/vim-airline'
-Bundle 'sjl/gundo.vim'
-Bundle 'ervandew/supertab'
-"Bundle 'ervandew/snipmate.vim'
-Bundle 'sirver/ultisnips'
-Bundle 'tenable/vim-nasl'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-git'
-Bundle 'majutsushi/tagbar'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'invisiblethreat/vim-color-automaton'
-Bundle 'klen/python-mode'
-Bundle 'guns/xterm-color-table.vim'
+Plugin 'bling/vim-airline'
+Plugin 'sjl/gundo.vim'
+Plugin 'ervandew/supertab'
+Plugin 'sirver/ultisnips'
+Plugin 'tenable/vim-nasl'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-git'
+Plugin 'tpope/vim-surround'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'majutsushi/tagbar'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'invisiblethreat/vim-color-automaton'
+Plugin 'klen/python-mode'
+Plugin 'guns/xterm-color-table.vim'
 
 filetype plugin indent on
 
