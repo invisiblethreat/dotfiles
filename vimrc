@@ -39,8 +39,11 @@ let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
-nnoremap <F5> :GundoToggle<CR>
-nmap <F6> :TagbarToggle<CR>
+nmap <F5> :syntax sync fromstart<CR>
+nnoremap <F6> :GundoToggle<CR>
+nmap <F7> :TagbarToggle<CR>
+
+" ctags
 let g:tagbar_type_nasl = {
       \ 'ctagstype' : 'nasl',
       \ 'kinds'     : [
@@ -49,6 +52,9 @@ let g:tagbar_type_nasl = {
       \ 'g:globals',
       \ ]
       \               }
+" keep going up until you find a tags file
+set tags=tags;/
+
 "fallback statusline
 set statusline=%F%m%r%h%w\ [Position=%04l,%04v][%p%%]\ [Lines=%L]
 set t_Co=256
@@ -95,6 +101,8 @@ nmap <leader>k :tabclose<cr>
 
 nmap <leader>f <C-]>
 nmap <leader>b <C-o>
+
+nnoremap <leader>d "=strftime("%Y/%m/%d")"<CR>P
 
 au FileType make setlocal noexpandtab
 
