@@ -114,7 +114,7 @@ au FileType nasl setlocal shiftwidth=2 tabstop=2 expandtab softtabstop=2
 au FileType nasl setlocal spell
 au FileType nasl setlocal spelllang=en_us
 au FileType nasl setlocal spellcapcheck=""
-
+nnoremap <leader>d "=strftime("%Y/%m/%d")"<CR>P
 " If the current buffer has never been saved, it will have no name,
 " call the file browser to save it, otherwise just save it.
 map <C-S> :update<CR>
