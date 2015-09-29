@@ -48,8 +48,12 @@ let g:tagbar_type_nasl = {
       \ 'ctagstype' : 'nasl',
       \ 'kinds'     : [
       \ 'f:function',
+      \ 'u:public function',
+      \ 'r:private function',
       \ 'v:variables',
+      \ 'n:namespace',
       \ 'g:globals',
+      \ 'o:objects',
       \ ]
       \               }
 " keep going up until you find a tags file
