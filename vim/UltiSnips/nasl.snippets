@@ -3,6 +3,11 @@ display('debug $1: ' + ${2:var}  + '\n');
 $0
 endsnippet
 
+snippet ln "debug with line number"
+display("Debug line: " + LINE_NUMBER + '\n');
+$0
+endsnippet
+
 snippet todo "todo reminder" b
 ##
 # `date`
@@ -14,12 +19,19 @@ endsnippet
 # autocomplete
 global !p
 def ac(t, opts):
-	if t:
-		opts = [ m[len(t):] for m in opts if m.startswith(t) ]
-	if len(opts) == 1:
-		return opts[0]
-	return "(" + "|".join(opts) + ")"
+    if t:
+        opts = [ m[len(t):] for m in opts if m.startswith(t) ]
+    if len(opts) == 1:
+        return opts[0]
+    return "(" + "|".join(opts) + ")"
 endglobal
+
+snippet sr "security_report_v4"
+security_report_v4(port:port, extra:report, severity:SECURITY_$1`!p snip.rv=ac(t[1],['NOTE','WARNING','HOLE'])`);
+exit(0);
+$0
+endsnippet
+
 
 global !p
 def rand_pid(start, end):
@@ -42,6 +54,12 @@ include("install_func.inc");
 $0
 endsnippet
 
+snippet obj "dump objects to determine structure"
+include ("obj.inc");
+
+display (obj_rep(${1} + '\n'));
+$0
+endsnippet
 
 snippet vc "ver_compare"
 if (ver_compare(ver:${2:ver}, fix:${3:fix}, strict:$1`!p snip.rv=ac(t[1],['TRUE','FALSE'])`) == 0 )
@@ -51,16 +69,12 @@ if (ver_compare(ver:${2:ver}, fix:${3:fix}, strict:$1`!p snip.rv=ac(t[1],['TRUE'
 endsnippet
 
 snippet report "report"
-report = NULL;
-if (report_verbosity > 0)
-{
-  report =
-    '\n  Path              : ' + ${2:path} +
-    '\n  Installed version : ' + ${3:ver} +
-    '\n  Fixed version     : ' + ${4:fixed_ver} +
-    '\n';
-}
-security_$1`!p snip.rv=ac(t[1],['report','warning','hole','critical'])`(port:${5:port}, extra:report);
+items = make_array("Installed version", version,
+                   "Fixed version", fix
+                  );
+
+order = make_list("Installed version", "Fixed version");
+report = report_items_str(report_items:items, ordered_fields:order);
 $0
 endsnippet
 
