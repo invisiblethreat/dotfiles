@@ -9,7 +9,8 @@ call vundle#rc()
 Plugin 'gmarik/vundle'
 
 "Github repos
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'sjl/gundo.vim'
 Plugin 'ervandew/supertab'
 Plugin 'sirver/ultisnips'
