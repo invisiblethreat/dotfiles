@@ -42,6 +42,7 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 nmap <F5> :syntax sync fromstart<CR>
 nnoremap <F6> :GundoToggle<CR>
 nmap <F7> :TagbarToggle<CR>
+nnoremap <F8> :set nu!<CR>
 
 " ctags
 let g:tagbar_type_nasl = {
@@ -56,18 +57,18 @@ let g:tagbar_type_nasl = {
       \ 'o:objects',
       \ ]
       \               }
-" keep going up until you find a tags file
+
+" Keep going up until you find a tags file
 set tags=tags;/
 
-"fallback statusline
+" Fallback statusline
 set statusline=%F%m%r%h%w\ [Position=%04l,%04v][%p%%]\ [Lines=%L]
+
 set t_Co=256
-"colo custom
 syntax enable
-"set background=dark
-"let g:solarized_termcolors=256
-"colorscheme solarized
 colorscheme automaton
+
+" General prefs
 set hidden
 set number
 set hlsearch
@@ -81,8 +82,10 @@ set title
 set history=1000
 set undolevels=1000
 set list
-set listchars=tab:>.,trail:•,extends:#,nbsp:#
+set listchars=tab:»»,trail:•,extends:#,nbsp:#,extends:▶,precedes:◀
 filetype on
+
+" No shift key needed in normal mode
 nnoremap ; :
 
 " Tabs
@@ -95,30 +98,40 @@ set showtabline=2
 set laststatus=2
 
 let mapleader=","
+
+" Edit and reload config
 nmap <leader>ec :e $MYVIMRC<CR>
 nmap <leader>rc :so $MYVIMRC<CR> :echo "Reloaded Config"<CR>
+
+" Tab functions
 set tabpagemax=10
 nmap <leader>c :tabnew<cr>
 nmap <leader>n :tabnext<cr>
 nmap <leader>p :tabprev<cr>
 nmap <leader>k :tabclose<cr>
 
+" Access tags and buffers quickly
 nmap <leader>f <C-]>
 nmap <leader>b <C-o>
 
+" Remove trailing spaces quickly
+nmap <leader><space> :%s/\s\+$//<cr>
+
+" Insert currend date as YYYY/MM/DD
 nnoremap <leader>d "=strftime("%Y/%m/%d")"<CR>P
 
+" Makefiles need tabs, not spaces
 au FileType make setlocal noexpandtab
 
 " NASL prefs
 au BufNewFile,BufRead *.nasl set filetype=nasl
 au BufNewFile,BufRead *.inc set filetype=nasl
 au BufNewFile,BufRead *.inc set indentexpr=
-au FileType nasl setlocal shiftwidth=2 tabstop=2 expandtab softtabstop=2 
+au FileType nasl setlocal shiftwidth=2 tabstop=2 expandtab softtabstop=2
 au FileType nasl setlocal spell
 au FileType nasl setlocal spelllang=en_us
 au FileType nasl setlocal spellcapcheck=""
-nnoremap <leader>d "=strftime("%Y/%m/%d")"<CR>P
+
 " If the current buffer has never been saved, it will have no name,
 " call the file browser to save it, otherwise just save it.
 map <C-S> :update<CR>
@@ -143,7 +156,7 @@ au BufWritePost * call Chmod_bin()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! MakeTiny(url)
-  let result = system("mktiny " . a:url)
+  let result = system("/root/bin/mktiny " . a:url)
   let result = substitute(result, '[^a-zA-Z0-9:/.?]', '', 'g')
   call setline(line('.'), substitute(getline('.'), a:url, result, 'g'))
 endfunction

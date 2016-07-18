@@ -22,6 +22,7 @@
   cl = log --graph --decorate --pretty=format:'%C(yellow)%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
   co = checkout
   ci = commit -a
+  cn = commit -a --no-verify
   dl = difftool HEAD^
   dm = difftool origin/master...
   dno = diff --name-only origin/master
@@ -30,6 +31,7 @@
   mo = merge --no-edit origin/master
   rhh = reset --hard HEAD
   uncommit = reset HEAD^
+  yolo = push --force
 [diff]
   tool = vimdiff
 [merge]

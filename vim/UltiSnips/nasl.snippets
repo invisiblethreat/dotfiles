@@ -54,12 +54,30 @@ include("install_func.inc");
 $0
 endsnippet
 
-snippet obj "dump objects to determine structure"
-include ("obj.inc");
-
-display (obj_rep(${1} + '\n'));
+snippet im "include misc_func.inc"
+include("misc_func.inc");
 $0
 endsnippet
+
+
+snippet obj "dump objects to determine structure"
+include ("obj.inc");
+$0
+endsnippet
+
+snippet obkb "stuff obj_rep content into the KB"
+### DEBUG ###
+set_kb_item(name:"debug/" + debug_count, value:obj_rep(${1}));
+debug_count++;
+#############
+$0
+endsnippet
+
+snippet dc "init debug counter"
+debug_count = 0;
+$0
+endsnippet
+
 
 snippet vc "ver_compare"
 if (ver_compare(ver:${2:ver}, fix:${3:fix}, strict:$1`!p snip.rv=ac(t[1],['TRUE','FALSE'])`) == 0 )
@@ -123,6 +141,11 @@ endsnippet
 
 snippet copy
 script_copyright(english:"This script is Copyright (C) `date +%Y` Tenable Network Security, Inc.");
+$0
+endsnippet
+
+snippet pot
+script_set_attribute(attribute:"potential_vulnerability", value:"true");
 $0
 endsnippet
 

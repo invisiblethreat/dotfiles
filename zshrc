@@ -5,6 +5,7 @@ CASE_SENSITIVE="true"
 HIST_STAMPS="yyyy-mm-dd"
 plugins=()
 
+DISABLE_AUTO_UPDATE=true
 source $ZSH/oh-my-zsh.sh
 
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:$HOME:/bin"
