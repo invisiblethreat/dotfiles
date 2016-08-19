@@ -1,0 +1,4 @@
+TMUX="tmux"
+FLAGS="-2"
+$TMUX new -d -s $session
+$TMUX $FLAGS attach -t $session

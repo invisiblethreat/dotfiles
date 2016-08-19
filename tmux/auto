@@ -24,8 +24,9 @@ if [ $? -eq 0 ]; then
   return
 fi
 
-if [ -e $HOME/.tmux/$session ]; then
-  source $HOME/.tmux/$session
+if [ -e $HOME/.tmux/$session.conf ]; then
+  source $HOME/.tmux/$session.conf
 else
-  echo "No config for $session found at $HOME/.tmux/$session"
+  echo "No config for $session found at $HOME/.tmux/$session.conf, using ~/.tmux/example-basic"
+  source $HOME/.tmux/example-basic
 fi

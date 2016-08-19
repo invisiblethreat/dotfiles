@@ -1,9 +1,0 @@
-TMUX="tmux -2"
-$TMUX new -d -s $session -n logs
-$TMUX send-keys -t $session tail\ -f\ /var/log/secure.log C-m
-$TMUX split-window -t $session:1.0 -h
-$TMUX send-keys -t $session:1.1 tail\ -f\ /var/log/messages C-m
-$TMUX new -d -s $session -n vim vim
-$TMUX neww -a -t $session -n irssi irssi
-$TMUX new-window -a -t $session
-$TMUX attach -t $session

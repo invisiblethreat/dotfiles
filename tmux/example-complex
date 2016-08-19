@@ -1,0 +1,10 @@
+TMUX="tmux"
+FLAGS="-2"
+$TMUX $FLAGS new -d -s $session -n logs
+$TMUX $FLAGS send-keys -t $session tail\ -f\ /var/log/secure.log C-m
+$TMUX $FLAGS split-window -t $session:1.0 -h
+$TMUX $FLAGS send-keys -t $session:1.1 tail\ -f\ /var/log/messages C-m
+$TMUX $FLAGS new -d -s $session -n vim vim
+$TMUX $FLAGS neww -a -t $session -n irssi irssi
+$TMUX $FLAGS new-window -a -t $session
+$TMUX $FLAGS attach -t $session
