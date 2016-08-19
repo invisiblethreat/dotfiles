@@ -1,0 +1,16 @@
+#!/bin/bash
+
+cat << EOT > ~/.gitconfig.local
+#[user]
+#  name = "Your Name"
+#  email = name@example.com
+EOT
+
+echo "~/.gitconfig.local created. Edit it before commiting."
+
+
+touch ~/.local_profile.zsh
+touch ~/.local_aliases.zsh
+touch ~/.local_exports.zsh
+
+echo "Local files for zsh created"

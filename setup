@@ -1,0 +1,9 @@
+#!/bin/bash
+
+
+wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O - | sh
+
+./link_dotfiles
+./config_zsh
+./config_vim
+./stub_files

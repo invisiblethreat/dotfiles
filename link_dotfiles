@@ -6,8 +6,6 @@
 PWD=$(pwd)
 FILES="bash_aliases bash_exports bash_profile bash_prompt gitconfig tmux tmux.conf vim vimrc zsh zshrc"
 
-wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O - | sh
-
 # You're in a bad place if this happens
 if [ -z $HOME ]
 then
@@ -24,5 +22,3 @@ do
   ln -nsf $PWD/$i $HOME/.$i
   printf " Done.\n"
 done
-./config_zsh
-./config_vim
