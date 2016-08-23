@@ -23,6 +23,7 @@ Plugin 'majutsushi/tagbar'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'invisiblethreat/vim-color-automaton'
 Plugin 'klen/python-mode'
+Plugin 'fatih/vim-go'
 Plugin 'guns/xterm-color-table.vim'
 
 filetype plugin indent on
@@ -83,7 +84,7 @@ set title
 set history=1000
 set undolevels=1000
 set list
-set listchars=tab:»»,trail:•,extends:#,nbsp:#,extends:▶,precedes:◀
+set listchars=tab:\ \ ,trail:•,extends:#,nbsp:#,extends:▶,precedes:◀
 filetype on
 
 " No shift key needed in normal mode
@@ -132,6 +133,12 @@ au FileType nasl setlocal shiftwidth=2 tabstop=2 expandtab softtabstop=2
 au FileType nasl setlocal spell
 au FileType nasl setlocal spelllang=en_us
 au FileType nasl setlocal spellcapcheck=""
+
+au FileType go setlocal shiftwidth=8 tabstop=8 softtabstop=8
+au FileType go setlocal spell
+au FileType go setlocal spelllang=en_us
+au FileType go setlocal spellcapcheck=""
+
 
 " If the current buffer has never been saved, it will have no name,
 " call the file browser to save it, otherwise just save it.
