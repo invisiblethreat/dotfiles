@@ -1,4 +1,10 @@
 #!/bin/bash
+
+# Install OMZ
 wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O - | sh
+
+# Create the custom theme path
 mkdir -p ~/.oh-my-zsh/custom/themes
+
+# Link the theme in the repo into the OMZ path
 ln -s ~/.zsh/automaton.zsh-theme ~/.oh-my-zsh/custom/themes/automaton.zsh-theme
