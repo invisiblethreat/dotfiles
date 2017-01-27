@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PACKAGES="install aptitude htop zsh git"
+PACKAGES="aptitude apt-transport-https tmux vim-nox htop zsh git strace"
 
 apt-get update
-apt-get -y install $PACKAGES
+apt-get install -y $PACKAGES

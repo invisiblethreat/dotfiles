@@ -8,7 +8,7 @@ plugins=()
 DISABLE_AUTO_UPDATE=true
 source $ZSH/oh-my-zsh.sh
 
-export PATH="$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin"
+export PATH="$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 
 [[ -r ~/.zsh/exports.zsh ]] && . ~/.zsh/exports.zsh
 [[ -r ~/.zsh/aliases.zsh ]] && . ~/.zsh/aliases.zsh

@@ -1,12 +1,12 @@
 #!/bin/bash
 
-cat << EOT > ~/.gitconfig.local
-#[user]
-#  name = "Your Name"
-#  email = name@example.com
+cat >> ~/.gitconfig.local << 'EOT'
+[user]
+  name = "Scott Walsh"
+  email = scott@invisiblethreat.ca
 EOT
 
-echo "~/.gitconfig.local created. Edit it before commiting."
+echo "~/.gitconfig.local created. Defaulted email to scott@invisiblethreat.ca"
 
 touch ~/.local_profile.zsh
 touch ~/.local_aliases.zsh
