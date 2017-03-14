@@ -134,11 +134,13 @@ au FileType nasl setlocal spell
 au FileType nasl setlocal spelllang=en_us
 au FileType nasl setlocal spellcapcheck=""
 
-au FileType go setlocal shiftwidth=8 tabstop=8 softtabstop=8
+au FileType go setlocal shiftwidth=4 tabstop=4 softtabstop=4
 au FileType go setlocal spell
 au FileType go setlocal spelllang=en_us
 au FileType go setlocal spellcapcheck=""
 
+au FileType gitcommit set colorcolumn=51,73
+au FileType gitcommit set textwidth=72
 
 " If the current buffer has never been saved, it will have no name,
 " call the file browser to save it, otherwise just save it.
@@ -162,12 +164,6 @@ au InsertLeave * hi statusline ctermfg=15 ctermbg=27 cterm=none
 au BufReadPost * call CheckRo()
 au BufWritePost * call Chmod_bin()
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! MakeTiny(url)
-  let result = system("/root/bin/mktiny " . a:url)
-  let result = substitute(result, '[^a-zA-Z0-9:/.?]', '', 'g')
-  call setline(line('.'), substitute(getline('.'), a:url, result, 'g'))
-endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! InsertStatuslineColor(mode)
   if a:mode == 'i'
