@@ -84,6 +84,7 @@ set title
 set history=1000
 set undolevels=1000
 set list
+set enc=utf8
 set listchars=tab:\ \ ,trail:•,extends:#,nbsp:#,extends:▶,precedes:◀
 filetype on
 
