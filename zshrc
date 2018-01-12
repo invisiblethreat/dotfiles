@@ -3,7 +3,7 @@ export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="automaton"
 CASE_SENSITIVE="true"
 HIST_STAMPS="yyyy-mm-dd"
-plugins=()
+plugins=(zsh-syntax-highlighting)
 
 DISABLE_AUTO_UPDATE=true
 source $ZSH/oh-my-zsh.sh
