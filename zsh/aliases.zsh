@@ -18,3 +18,35 @@ alias diff='colordiff'
 alias less='less -r'
 
 alias drop='iptables -A INPUT -j DROP -s'
+
+git_status () {
+
+  if [[ ! -d .git  ]]; then
+    exit 0
+  fi
+  CHANGES=$(command git status --porcelain -b 2> /dev/null)
+  #CHANGES=$(git status --porcelain)
+  ADDED=$(echo $CHANGES | grep -c "^M ")
+  MODIFIED=$(echo $CHANGES | grep -c "^ M")
+  UNTRACKED=$(echo $CHANGES | grep -c "^??")
+
+  if [[ "$ADDED" != "0" ]]; then
+    ADDED="\e[38;5;40m✚ $ADDED\e[0m "
+  else
+    ADDED=""
+  fi
+
+  if [[ "$MODIFIED" != "0" ]]; then
+    MODIFIED="\e[38;5;202m⧫ $MODIFIED\e[0m "
+  else
+    MODIFIED=""
+  fi
+
+  if [[ "$UNTRACKED" != "0" ]]; then
+    UNTRACKED="\e[38;5;198m� $UNTRACKED\e[0m "
+  else
+    UNTRACKED=""
+  fi
+
+echo $ADDED $MODIFIED $UNTRACKED
+}

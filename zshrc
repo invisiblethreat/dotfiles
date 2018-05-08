@@ -6,6 +6,8 @@ HIST_STAMPS="yyyy-mm-dd"
 plugins=(zsh-syntax-highlighting)
 
 DISABLE_AUTO_UPDATE=true
+DISABLE_UPDATE_PROMPT=true
+DISABLE_AUTO_TITLE=true
 source $ZSH/oh-my-zsh.sh
 
 export PATH="$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
