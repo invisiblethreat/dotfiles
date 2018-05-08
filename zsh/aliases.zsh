@@ -12,7 +12,7 @@ alias l.='ls -d .* --color=auto'
 alias ll='ls -l --color=auto'
 alias ls='ls --color=auto'
 
-alias serve='python -m SimpleHTTPServer 80 &'
+alias serve='sudo python -m SimpleHTTPServer 80 &'
 alias tmux='tmux -2'
 alias diff='colordiff'
 alias less='less -r'
