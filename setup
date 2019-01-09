@@ -7,3 +7,11 @@ wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O - 
 ./config_zsh
 ./config_vim
 ./stub_files
+
+if [ "$(uname)" == "Darwin" ]; then
+  ./config brew
+fi
+
+if [ -e /etc/debian_version ]; then
+  ./config_debian
+fi

@@ -1,0 +1,6 @@
+#!/bin/bash
+
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+brew install awscli bat bgrep colordiff coreutils docker-compose docker-machine exa gcc gnu-sed go hub jq jsonlint lua lz4 mutt perl r readline ripgrep ruby tig tmux vim
+
