@@ -5,5 +5,5 @@ vim +BundleInstall +qall
 mkdir ~/.fonts
 cd ~/.fonts
 wget https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf
-
+curl https://raw.githubusercontent.com/powerline/powerline/develop/font/PowerlineSymbols.otf -o ~/.fonts/PowerlineSymbols.otf
 #fc-cache -vf ~/.fonts

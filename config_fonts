@@ -1,0 +1,28 @@
+#!/bin/bash
+[ ${DEBUG:=0} -eq 1 ] && set -x
+set -euo pipefail
+
+FONTPATH=""
+OS=$(uname)
+
+if [ "$OS" = "Darwin" ]; then
+  FONTPATH="$HOME/Library/Fonts"
+fi
+
+if [ "$OS" = "Linux" ]; then
+  FONTPATH="$HOME/.fonts"
+fi
+
+if [ ! -e $FONTPATH ]; then
+  mkdir $FONTPATH
+fi
+
+# Glyphs
+curl -sL https://raw.githubusercontent.com/powerline/powerline/develop/font/PowerlineSymbols.otf -o ${FONTPATH}/PowerlineSymbols.otf
+
+# Hack
+WD=$(pwd)
+TMP=$(mktemp -d)
+curl -sL https://github.com/source-foundry/Hack/releases/download/v3.003/Hack-v3.003-ttf.tar.gz -o ${TMP}/hack.tar.gz
+tar -zxvf ${TMP}/hack.tar.gz --strip-components 1 -C $FONTPATH
+rm -rf $TMP

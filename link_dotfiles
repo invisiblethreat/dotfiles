@@ -3,22 +3,31 @@
 # By my convention, the files linked out of this directory named the same as
 # their corresponding "dotfile", but not prefixed with a "."
 #
+set -ueo pipefail
+
 PWD=$(pwd)
 FILES="gitconfig tmux tmux.conf vim vimrc zsh zshrc"
 
 # You're in a bad place if this happens
-if [ -z $HOME ]
-then
+if [ -z $HOME ]; then
     printf "\$HOME is not set\n"
 fi
 
-for i in $FILES
-do
-  printf "Linking $PWD/$i to $HOME/.$i..."
-  if [ -e $HOME/.$i ]
-  then
-    mv $HOME/.$i $HOME/.$i-old
-  fi
-  ln -nsf $PWD/$i $HOME/.$i
-  printf " Done.\n"
-done
+# Bulk unlink if things have gone awry
+if [ "$1" = "unlink" ]; then
+  for i in $FILES
+  do
+    unlink $HOME/.$i
+  done
+# Default mode is to link the files
+else
+  for i in $FILES
+  do
+    printf "Linking $PWD/$i to $HOME/.$i..."
+    if [ -e $HOME/.$i ]; then
+      mv $HOME/.$i $HOME/.$i-old
+    fi
+    ln -nsf $PWD/$i $HOME/.$i
+    printf " Done.\n"
+  done
+fi
