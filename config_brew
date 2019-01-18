@@ -22,6 +22,7 @@ brew install \
         lua \
         lz4 \
         mutt \
+        nmap \
         perl \
         r \
         readline \
@@ -31,12 +32,15 @@ brew install \
         telnet \
         tig \
         tmux \
+        tree \
         vim \
-        wget
+        wget \
 
 brew cask install \
         1password \
         1password-cli \
+        balenaetcher \
         clipy \
-        google-chrome \
-        slack
+        slack \
+        tunnelblick \
+        wireshark

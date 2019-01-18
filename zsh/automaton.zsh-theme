@@ -8,7 +8,7 @@
 
 # Machine name.
 function box_name {
-    echo $HOST
+    echo $SHORT_HOST
 }
 
 # Directory info.
