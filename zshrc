@@ -14,6 +14,7 @@ export PATH="$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/
 
 [[ -r ~/.zsh/exports.zsh ]] && . ~/.zsh/exports.zsh
 [[ -r ~/.zsh/aliases.zsh ]] && . ~/.zsh/aliases.zsh
+[[ -r ~/.zsh/functions.zsh ]] && . ~/.zsh/functions.zsh
 
 # Override the defaults here if necessary
 [[ -r ~/.zsh/load_locals.zsh ]] && . ~/.zsh/load_locals.zsh
