@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PACKAGES="aptitude apt-transport-https tmux vim-nox htop zsh git strace"
+PACKAGES="aptitude apt-transport-https colordiff tree tmux vim-nox htop zsh git strace"
 
 apt-get update
 apt-get install -y $PACKAGES
