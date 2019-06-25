@@ -16,6 +16,7 @@ alias serve='sudo python -m SimpleHTTPServer 80 &'
 alias tmux='tmux -2'
 alias diff='colordiff'
 alias less='less -r'
+alias lc='wc -l'
 
 alias drop='iptables -A INPUT -j DROP -s'
 
