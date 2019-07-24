@@ -8,7 +8,6 @@ brew install \
         awscli \
         bat \
         bgrep \
-        brave-browser \
         colordiff \
         coreutils \
         docker-compose \
@@ -36,12 +35,14 @@ brew install \
         tree \
         vim \
         wget \
+        zsh-syntax-highlighting
 
 brew cask install \
         1password \
         1password-cli \
         balenaetcher \
+        brave-browser \
         clipy \
-        slack \
         tunnelblick \
+        visual-studio-code \
         wireshark

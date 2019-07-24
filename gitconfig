@@ -19,6 +19,7 @@
   alias = config --get-regexp alias
   s = status
   b = branch
+  bco = checkout -b
   cl = log --graph --decorate --pretty=format:'%C(yellow)%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
   co = checkout
   ci = commit -a
