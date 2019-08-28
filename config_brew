@@ -36,6 +36,7 @@ brew install \
         tree \
         vim \
         wget \
+        zsh-syntax-highlighting
 
 brew cask install \
         1password \
