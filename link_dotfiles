@@ -3,7 +3,6 @@
 # By my convention, the files linked out of this directory named the same as
 # their corresponding "dotfile", but not prefixed with a "."
 #
-set -ueo pipefail
 
 PWD=$(pwd)
 FILES="gitconfig tmux tmux.conf vim vimrc zsh zshrc"
