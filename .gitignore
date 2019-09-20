@@ -1,4 +1,5 @@
 vim/bundle/
 vim/.netrwhist
 zsh-syntax-highlighting/
+*.DS_Store*
 

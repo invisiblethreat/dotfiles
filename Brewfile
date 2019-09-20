@@ -30,12 +30,13 @@ brew "vim"
 brew "wget"
 brew "zsh-syntax-highlighting"
 
-mas "1Password"
+mas "1Password", id: 443987910
 
 cask "1password-cli"
 cask "balenaetcher"
 cask "brave-browser"
 cask "clipy"
+cask "rstudio"
 cask "tunnelblick"
 cask "visual-studio-code"
 cask "wireshark"
