@@ -4,45 +4,7 @@ if [ ! -e /usr/local/bin/brew ]; then
  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
-brew install \
-        awscli \
-        bat \
-        bgrep \
-        colordiff \
-        coreutils \
-        docker-compose \
-        docker-machine \
-        exa \
-        gcc \
-        gnu-sed \
-        go \
-        hub \
-        jq \
-        jsonlint \
-        lua \
-        lz4 \
-        mutt \
-        nmap \
-        perl \
-        r \
-        readline \
-        ripgrep \
-        ruby \
-        tcptraceroute \
-        telnet \
-        tig \
-        tmux \
-        tree \
-        vim \
-        wget \
-        zsh-syntax-highlighting
+brew analytics off
+brew analytics state
 
-brew cask install \
-        1password \
-        1password-cli \
-        balenaetcher \
-        brave-browser \
-        clipy \
-        tunnelblick \
-        visual-studio-code \
-        wireshark
+brew bundle
