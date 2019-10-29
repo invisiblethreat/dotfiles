@@ -20,7 +20,7 @@ alias lc='wc -l'
 
 alias drop='iptables -A INPUT -j DROP -s'
 
-alias pr='hub -o pull-request'
+alias pr='hub pull-request -o'
 
 git_status () {
 
