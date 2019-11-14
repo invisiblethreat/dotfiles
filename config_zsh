@@ -11,3 +11,5 @@ ln -s ~/.zsh/automaton.zsh-theme ~/.oh-my-zsh/custom/themes/automaton.zsh-theme
 # Install plugins
 cd ~/.oh-my-zsh/custom/plugins/
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
+
+ln -nsf ~/git/dotfiles/zshrc ~/.zshrc
