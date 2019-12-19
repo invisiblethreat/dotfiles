@@ -8,9 +8,11 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 ./stub_files
 
 if [ "$(uname)" == "Darwin" ]; then
-  ./config brew
+  ./config_brew
   # Add the path for gnubin, so things like ls --color=auto don't break for interactive logins
   echo "PATH=/usr/local/bin:/usr/local/opt/coreutils/libexec/gnubin:\$PATH" >> $HOME/.local_exports.zsh
+  # Death to .DS_Store
+  defaults write com.apple.desktopservices DSDontWriteNetworkStores true
 fi
 
 if [ -e /etc/debian_version ]; then
