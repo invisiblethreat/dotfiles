@@ -7,7 +7,7 @@
 PWD=$(pwd)
 
 # zshrc gets linked in config_zsh, after the OMZ install
-FILES="gitconfig tmux tmux.conf vim vimrc zsh"
+FILES="gitconfig gitignore_global tmux tmux.conf vim vimrc zsh"
 
 # You're in a bad place if this happens
 if [ -z $HOME ]; then
