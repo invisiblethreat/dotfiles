@@ -3,9 +3,6 @@
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 ./link_dotfiles
-./config_zsh
-./config_vim
-./stub_files
 
 if [ "$(uname)" == "Darwin" ]; then
   ./config_brew
@@ -20,3 +17,6 @@ if [ -e /etc/debian_version ]; then
 fi
 
 ./config_fonts
+./config_zsh
+./config_vim
+./stub_files
