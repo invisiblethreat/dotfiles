@@ -6,6 +6,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 
 if [ "$(uname)" == "Darwin" ]; then
   ./config_brew
+  ./config_vscode
   # Add the path for gnubin, so things like ls --color=auto don't break for interactive logins
   echo "PATH=/usr/local/bin:/usr/local/opt/coreutils/libexec/gnubin:\$PATH" >> $HOME/.local_exports.zsh
   # Death to .DS_Store
@@ -19,4 +20,4 @@ fi
 ./config_fonts
 ./config_zsh
 ./config_vim
-./stub_files
+./helpers/stub_files

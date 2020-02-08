@@ -6,5 +6,5 @@ fi
 
 brew analytics off
 brew analytics state
-
+cd brew
 brew bundle
