@@ -1,0 +1,9 @@
+#!/bin/bash
+
+ln -nsf vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
+
+# extension list is built with `code --list-extensions`
+for i in $(cat vscode/extensions.txt)
+do
+  code --install-extension $i
+done
