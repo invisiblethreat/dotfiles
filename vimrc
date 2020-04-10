@@ -161,6 +161,9 @@ au InsertLeave * hi statusline ctermfg=15 ctermbg=27 cterm=none
 au BufReadPost * call CheckRo()
 au BufWritePost * call Chmod_bin()
 
+" enable project speficific vimrc
+set exrc
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! InsertStatuslineColor(mode)
   if a:mode == 'i'

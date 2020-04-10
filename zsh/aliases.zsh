@@ -22,6 +22,9 @@ alias drop='iptables -A INPUT -j DROP -s'
 
 alias pr='hub pull-request -o'
 
+alias ocs='openssl s_client -connect'
+alias x509='openssl x50'
+
 git_status () {
 
   if [[ ! -d .git  ]]; then
