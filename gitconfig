@@ -18,13 +18,12 @@
   diff = auto
 [alias]
   alias = config --get-regexp alias
-  s = status
   b = branch
   bco = checkout -b
-  cl = log --graph --decorate --pretty=format:'%C(yellow)%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-  co = checkout
   ci = commit -a
+  cl = log --graph --decorate --pretty=format:'%C(yellow)%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
   cn = commit -a --no-verify
+  co = checkout
   dl = difftool HEAD^
   dm = difftool origin/master...
   dno = diff --name-only origin/master
@@ -32,6 +31,7 @@
   lp = log -p -w
   mo = merge --no-edit origin/master
   rhh = reset --hard HEAD
+  s = status
   uncommit = reset HEAD^
   yolo = push --force
 [diff]
