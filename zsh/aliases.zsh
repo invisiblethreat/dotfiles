@@ -3,7 +3,7 @@
 alias ..='cd ..'
 alias b='cd ~/bin'
 alias g='cd ~/git'
-alias gr="cd $(git rev-parse --show-toplevel)"
+alias gr="cd $(if [ -d .git ];then git rev-parse --show-toplevel; fi)"
 
 alias cp='cp -i'
 alias mv='mv -i'
