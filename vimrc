@@ -42,20 +42,6 @@ nnoremap <F6> :GundoToggle<CR>
 nmap <F7> :TagbarToggle<CR>
 nnoremap <F8> :set nu!<CR>
 
-" ctags
-let g:tagbar_type_nasl = {
-      \ 'ctagstype' : 'nasl',
-      \ 'kinds'     : [
-      \ 'f:function',
-      \ 'u:public function',
-      \ 'r:private function',
-      \ 'v:variables',
-      \ 'n:namespace',
-      \ 'g:globals',
-      \ 'o:objects',
-      \ ]
-      \               }
-
 " Keep going up until you find a tags file
 set tags=tags;/
 
@@ -122,14 +108,6 @@ nnoremap <leader>d "=strftime("%Y/%m/%d")"<CR>P
 " Makefiles need tabs, not spaces
 au FileType make setlocal noexpandtab
 
-" NASL prefs
-au BufNewFile,BufRead *.nasl set filetype=nasl
-au BufNewFile,BufRead *.inc set filetype=nasl
-au BufNewFile,BufRead *.inc set indentexpr=
-au FileType nasl setlocal shiftwidth=2 tabstop=2 expandtab softtabstop=2
-au FileType nasl setlocal spell
-au FileType nasl setlocal spelllang=en_us
-au FileType nasl setlocal spellcapcheck=""
 
 au FileType go setlocal shiftwidth=4 tabstop=4 softtabstop=4
 au FileType go setlocal spell
@@ -210,12 +188,17 @@ call matchadd('ColorColumn', '\%81v', 100)
 " Visual dragging of highlighted blocks. Superior to v+y+p
 try
   source ~/.vim/dragvisuals.vim
+  vmap  <expr>  <S-LEFT>   DVB_Drag('left')
+  vmap  <expr>  <S-RIGHT>  DVB_Drag('right')
+  vmap  <expr>  <S-DOWN>   DVB_Drag('down')
+  vmap  <expr>  <S-UP>     DVB_Drag('up')
+  vmap  <expr>  D          DVB_Duplicate()
 catch
   " Ignore missing file
 endtry
 
-vmap  <expr>  <S-LEFT>   DVB_Drag('left')
-vmap  <expr>  <S-RIGHT>  DVB_Drag('right')
-vmap  <expr>  <S-DOWN>   DVB_Drag('down')
-vmap  <expr>  <S-UP>     DVB_Drag('up')
-vmap  <expr>  D          DVB_Duplicate()
+try
+  source ~/.vim/nasl.vim
+catch
+  " Ignore missing file
+endtry
