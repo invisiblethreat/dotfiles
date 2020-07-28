@@ -9,18 +9,18 @@ call vundle#rc()
 Plugin 'gmarik/vundle'
 
 "Github repos
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'sjl/gundo.vim'
-Plugin 'ervandew/supertab'
-Plugin 'sirver/ultisnips'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-git'
-Plugin 'majutsushi/tagbar'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'invisiblethreat/vim-color-automaton'
+Plugin 'ervandew/supertab'
 Plugin 'fatih/vim-go'
 Plugin 'guns/xterm-color-table.vim'
+Plugin 'invisiblethreat/vim-color-automaton'
+Plugin 'majutsushi/tagbar'
+Plugin 'sirver/ultisnips'
+Plugin 'sjl/gundo.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-git'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 filetype plugin indent on
 
@@ -206,3 +206,16 @@ endfunction
 
 highlight ColorColumn ctermbg=red
 call matchadd('ColorColumn', '\%81v', 100)
+
+" Visual dragging of highlighted blocks. Superior to v+y+p
+try
+  source ~/.vim/dragvisuals.vim
+catch
+  " Ignore missing file
+endtry
+
+vmap  <expr>  <S-LEFT>   DVB_Drag('left')
+vmap  <expr>  <S-RIGHT>  DVB_Drag('right')
+vmap  <expr>  <S-DOWN>   DVB_Drag('down')
+vmap  <expr>  <S-UP>     DVB_Drag('up')
+vmap  <expr>  D          DVB_Duplicate()
