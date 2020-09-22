@@ -1,5 +1,5 @@
-vim/bundle/
-vim/.netrwhist
-zsh-syntax-highlighting/
 *.DS_Store*
-
+brew/Brewfile.lock.json
+vim/.netrwhist
+vim/bundle/
+zsh-syntax-highlighting/
