@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # Install OMZ
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh) --unattended"
+chsh -s /usr/bin/zsh
 # Create the custom theme path
 mkdir -p ~/.oh-my-zsh/custom/themes
 
