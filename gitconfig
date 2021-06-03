@@ -42,3 +42,5 @@
   prompt = false
 [credential]
   helper = cache
+[pull]
+	rebase = false
