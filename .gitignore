@@ -2,4 +2,6 @@
 brew/Brewfile.lock.json
 vim/.netrwhist
 vim/bundle/
+vim/pack/
+vim/colors/
 zsh-syntax-highlighting/
