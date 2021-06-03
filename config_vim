@@ -1,3 +1,32 @@
 #!/bin/bash
-git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-vim +BundleInstall +qall
+
+AUTO="$HOME/.vim/pack/autoload/start"
+THEMES="$HOME/.vim/themes"
+
+# Autoload plugins
+if [ -d $AUTO ]; then
+  echo "Vim plugin directory of $AUTO found. Skipping plugin configuration."
+else
+
+  mkdir -p $AUTO
+  for i in $(cat vim/plugin-repos)
+  do
+    REPO=$(basename -s .git $i)
+    git clone $i $AUTO/$REPO
+  done
+fi
+
+# Link colors
+COLORS="$HOME/.vim/colors"
+if [ ! -d $HOME/.vim/colors ];then
+  mkdir -p $COLORS
+fi
+
+for i in $(find $AUTO -type d -name colors )
+do
+  for j in $(find $i -type f -name "*.vim")
+  do
+    echo "Linking $j"
+    ln -nsf $j $COLORS/
+  done
+done

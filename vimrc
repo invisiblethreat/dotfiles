@@ -1,41 +1,19 @@
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-
-" let Vundle manage Vundle
-" required
-Plugin 'gmarik/vundle'
-
-"Github repos
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'ervandew/supertab'
-Plugin 'fatih/vim-go'
-Plugin 'guns/xterm-color-table.vim'
-Plugin 'invisiblethreat/vim-color-automaton'
-Plugin 'majutsushi/tagbar'
-Plugin 'sirver/ultisnips'
-Plugin 'sjl/gundo.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-git'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-
 filetype plugin indent on
 
 "Bundle config items
 let g:airline_powerline_fonts = 1
-let g:airline_theme='powerlineish'
+let g:airline_theme='molokai'
 let g:airline#extensions#tabline#enabled = 1
 let g:gundo_width = 60
 let g:gundo_preview_height = 40
 let g:gundo_right = 1
 
-" UltiSnips commands
-let g:UltiSnipsEditSplit="vertical"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+set termguicolors
+colorscheme monokai_pro
+"let g:lightline = { 'colorscheme': 'monokai_pro' }
 
 nmap <F5> :syntax sync fromstart<CR>
 nnoremap <F6> :GundoToggle<CR>
@@ -50,7 +28,6 @@ set statusline=%F%m%r%h%w\ [Position=%04l,%04v][%p%%]\ [Lines=%L]
 
 set t_Co=256
 syntax enable
-colorscheme automaton
 
 " General prefs
 set hidden
@@ -98,12 +75,14 @@ nmap <leader>k :tabclose<cr>
 " Access tags and buffers quickly
 nmap <leader>f <C-]>
 nmap <leader>b <C-o>
-
+inoremap jk <ESC>
+nnoremap ; :
+nnoremap ;; :x<CR>
 " Remove trailing spaces quickly
 nmap <leader><space> :%s/\s\+$//<cr>
 
 " Insert currend date as YYYY/MM/DD
-nnoremap <leader>d "=strftime("%Y/%m/%d")"<CR>P
+nnoremap <leader>d "=strftime("%Y-%m-%d")"<CR>P
 
 " Makefiles need tabs, not spaces
 au FileType make setlocal noexpandtab
@@ -138,6 +117,7 @@ au InsertLeave * hi statusline ctermfg=15 ctermbg=27 cterm=none
 
 au BufReadPost * call CheckRo()
 au BufWritePost * call Chmod_bin()
+au BufWritePre * %s/\s\+$//e
 
 " enable project speficific vimrc
 set exrc
@@ -193,12 +173,6 @@ try
   vmap  <expr>  <S-DOWN>   DVB_Drag('down')
   vmap  <expr>  <S-UP>     DVB_Drag('up')
   vmap  <expr>  D          DVB_Duplicate()
-catch
-  " Ignore missing file
-endtry
-
-try
-  source ~/.vim/nasl.vim
 catch
   " Ignore missing file
 endtry
