@@ -14,7 +14,7 @@ alias ll='ls -l --color=auto'
 alias ls='ls --color=auto'
 
 alias serve='sudo python -m SimpleHTTPServer 80 &'
-alias tmux='tmux -2'
+alias tmux='TERM=screen-256color-bce tmux -2'
 alias diff='colordiff'
 alias less='less -r'
 alias lc='wc -l'
