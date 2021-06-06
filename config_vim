@@ -1,20 +1,20 @@
 #!/bin/bash
 
 AUTO="$HOME/.vim/pack/autoload/start"
-THEMES="$HOME/.vim/themes"
 
 # Autoload plugins
 if [ -d $AUTO ]; then
   echo "Vim plugin directory of $AUTO found. Skipping plugin configuration."
-else
-
-  mkdir -p $AUTO
-  for i in $(cat vim/plugin-repos)
-  do
-    REPO=$(basename -s .git $i)
-    git clone $i $AUTO/$REPO
-  done
+  exit 1
 fi
+
+mkdir -p $AUTO
+for i in $(cat vim/plugin-repos)
+do
+  REPO=$(basename -s .git $i)
+  echo "Cloning plugin $i"
+  git clone --depth 1 --quiet $i $AUTO/$REPO >/dev/null
+done
 
 # Link colors
 COLORS="$HOME/.vim/colors"
