@@ -59,11 +59,11 @@ set expandtab
 set showtabline=2
 set laststatus=2
 
-let mapleader=","
+let mapleader="'"
 
 " Edit and reload config
-nmap <leader>ec :e $MYVIMRC<CR>
-nmap <leader>rc :so $MYVIMRC<CR> :echo "Reloaded Config"<CR>
+nmap <leader>e :e $MYVIMRC<CR>
+nmap <leader>r :so $MYVIMRC<CR> :echo "Reloaded Config"<CR>
 
 " Tab functions
 set tabpagemax=10
