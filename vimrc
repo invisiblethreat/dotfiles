@@ -78,6 +78,7 @@ nmap <leader>b <C-o>
 inoremap jk <ESC>
 nnoremap ; :
 nnoremap ;; :x<CR>
+nnoremap ;' :q!<CR>
 " Remove trailing spaces quickly
 nmap <leader><space> :%s/\s\+$//<cr>
 
