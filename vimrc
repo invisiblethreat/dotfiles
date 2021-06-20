@@ -65,6 +65,8 @@ let mapleader="'"
 nmap <leader>e :e $MYVIMRC<CR>
 nmap <leader>r :so $MYVIMRC<CR> :echo "Reloaded Config"<CR>
 
+" NERDTree
+nmap <leader>d :NERDTreeToggle<CR>
 " Tab functions
 set tabpagemax=10
 nmap <leader>c :tabnew<cr>
@@ -82,21 +84,6 @@ nnoremap ;' :q!<CR>
 " Remove trailing spaces quickly
 nmap <leader><space> :%s/\s\+$//<cr>
 
-" Insert currend date as YYYY/MM/DD
-nnoremap <leader>d "=strftime("%Y-%m-%d")"<CR>P
-
-" Makefiles need tabs, not spaces
-au FileType make setlocal noexpandtab
-
-
-au FileType go setlocal shiftwidth=4 tabstop=4 softtabstop=4
-au FileType go setlocal spell
-au FileType go setlocal spelllang=en_us
-au FileType go setlocal spellcapcheck=""
-
-au FileType gitcommit set colorcolumn=51,73
-au FileType gitcommit set textwidth=72
-
 " If the current buffer has never been saved, it will have no name,
 " call the file browser to save it, otherwise just save it.
 map <C-S> :update<CR>
@@ -108,8 +95,6 @@ nmap hr :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 
 " Thanks for flying Vim can DIAF
 let &titleold=getcwd()
-
-vmap mt y :call MakeTiny('<C-r>"')<CR>
 
 " Colours for modes
 "hi statusline ctermfg=15 ctermbg=27 cterm=none
@@ -145,7 +130,6 @@ function! Chmod_bin()
     endif
   endif
 endfunction
-
 
 " This rewires n and N to do the highlighing...
 nnoremap <silent> n   n:call HLNext(0.4)<cr>
