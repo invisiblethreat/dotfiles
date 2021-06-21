@@ -1,0 +1,34 @@
+#!/bin/bash
+
+AUTO="$HOME/.vim/pack/autoload/start"
+
+for i in $(cat plugin-repos)
+do
+  REPO=$(basename -s .git $i)
+  if [ ! -d $AUTO/$REPO ]; then
+    echo "Cloning plugin $i"
+    git clone --depth 1 --quiet $i $AUTO/$REPO >/dev/null
+  else
+    GOBACK=$(pwd)
+    cd $AUTO/$REPO
+    echo "Updating $REPO"
+    git pull
+    cd $GOBACK
+  fi
+
+done
+
+# Link colors regardless- this doesn't hurt anything to run every time.
+COLORS="$HOME/.vim/colors"
+if [ ! -d $HOME/.vim/colors ];then
+  mkdir -p $COLORS
+fi
+
+for i in $(find $AUTO -type d -name colors )
+do
+  for j in $(find $i -type f -name "*.vim")
+  do
+    echo "Linking $j"
+    ln -nsf $j $COLORS/
+  done
+done
