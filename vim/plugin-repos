@@ -1,9 +1,5 @@
-https://github.com/altercation/vim-colors-solarized.git
 https://github.com/ervandew/supertab.git
 https://github.com/fatih/vim-go.git
-https://github.com/gmarik/vundle.git
-https://github.com/guns/xterm-color-table.vim.git
-https://github.com/invisiblethreat/vim-color-automaton
 https://github.com/jvirtanen/vim-hcl.git
 https://github.com/majutsushi/tagbar.git
 https://github.com/phanviet/vim-monokai-pro

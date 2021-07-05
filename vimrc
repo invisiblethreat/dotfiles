@@ -62,25 +62,23 @@ set laststatus=2
 let mapleader="'"
 
 " Edit and reload config
-nmap <leader>e :e $MYVIMRC<CR>
+nmap <leader>e :e $MYVIMRC<CR> :echo ".vimrc opened for editing"<CR>
 nmap <leader>r :so $MYVIMRC<CR> :echo "Reloaded Config"<CR>
 
 " NERDTree
 nmap <leader>d :NERDTreeToggle<CR>
-" Tab functions
-set tabpagemax=10
-nmap <leader>c :tabnew<cr>
-nmap <leader>n :tabnext<cr>
-nmap <leader>p :tabprev<cr>
-nmap <leader>k :tabclose<cr>
 
-" Access tags and buffers quickly
+" Think of tabs as views/layouts. Buffers will set you free
+"" Access tags and buffers quickly
 nmap <leader>f <C-]>
 nmap <leader>b <C-o>
+
+" Remap a few keys to be more sane.
 inoremap jk <ESC>
 nnoremap ; :
 nnoremap ;; :x<CR>
 nnoremap ;' :q!<CR>
+
 " Remove trailing spaces quickly
 nmap <leader><space> :%s/\s\+$//<cr>
 
