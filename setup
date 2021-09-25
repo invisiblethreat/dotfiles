@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if [ ! -d $HOME/bin ]; then
+  mkdir $HOME/bin
+fi
+
+
 ./link_dotfiles
 
 if [ "$(uname)" == "Darwin" ]; then
