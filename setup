@@ -17,5 +17,5 @@ fi
 
 ./config_fonts
 ./config_zsh
-./config_vim
+./config_nvim
 ./helpers/stub_files
