@@ -9,7 +9,7 @@
 [push]
   default = current
 [core]
-  editor = vim
+  editor = nvim
   pager = less -X -F
   excludesfile = ~/.gitignore_global
 [color]
@@ -40,8 +40,6 @@
   tool = vimdiff
 [difftool]
   prompt = false
-[credential]
-  helper = cache
 [pull]
   rebase = false
 [filter "lfs"]

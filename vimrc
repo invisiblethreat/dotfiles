@@ -1,4 +1,3 @@
-set nocompatible
 filetype off
 
 filetype plugin indent on
@@ -11,9 +10,31 @@ let g:gundo_width = 60
 let g:gundo_preview_height = 40
 let g:gundo_right = 1
 
+
+call plug#begin('~/.vim/plugged')
+Plug 'https://github.com/ervandew/supertab.git'
+Plug 'https://github.com/fatih/vim-go.git'
+Plug 'https://github.com/junegunn/vim-easy-align'
+Plug 'https://github.com/jvirtanen/vim-hcl.git'
+Plug 'https://github.com/majutsushi/tagbar.git'
+Plug 'https://github.com/neovim/nvim-lspconfig'
+Plug 'https://github.com/nvim-lua/plenary.nvim'
+Plug 'https://github.com/nvim-telescope/telescope.nvim'
+Plug 'https://github.com/nvim-treesitter/nvim-treesitter'
+Plug 'https://github.com/phanviet/vim-monokai-pro'
+Plug 'https://github.com/preservim/nerdtree.git'
+Plug 'https://github.com/sheerun/vim-polyglot'
+Plug 'https://github.com/sirver/ultisnips.git'
+Plug 'https://github.com/sjl/gundo.vim.git'
+Plug 'https://github.com/tpope/vim-fugitive.git'
+Plug 'https://github.com/tpope/vim-git.git'
+Plug 'https://github.com/vim-airline/vim-airline-themes.git'
+Plug 'https://github.com/vim-airline/vim-airline.git'
+call plug#end()
+
 set termguicolors
 colorscheme monokai_pro
-"let g:lightline = { 'colorscheme': 'monokai_pro' }
+let g:lightline = { 'colorscheme': 'monokai_pro' }
 
 nmap <F5> :syntax sync fromstart<CR>
 nnoremap <F6> :GundoToggle<CR>
@@ -30,22 +51,27 @@ set t_Co=256
 syntax enable
 
 " General prefs
-set hidden
-set number
-set hlsearch
-set foldmethod=indent
-set foldlevelstart=20
-set backspace=2
-set showmatch
-set history=1000
-set undolevels=1000
-set title
-set history=1000
-set undolevels=1000
-set list
-set enc=utf8
-set listchars=tab:\ \ ,trail:•,extends:#,nbsp:#,extends:▶,precedes:◀
 filetype on
+set backspace=2
+set enc=utf8
+set foldlevelstart=20
+set foldmethod=indent
+set guicursor=
+set hidden
+set history=1000
+set history=1000
+set hlsearch
+set list
+set listchars=tab:\ \ ,trail:•,extends:#,nbsp:#,extends:▶,precedes:◀
+set nobackup
+set nocompatible
+set noswapfile
+set number
+set scrolloff=16
+set showmatch
+set title
+set undolevels=1000
+set undolevels=1000
 
 " No shift key needed in normal mode
 nnoremap ; :
@@ -59,7 +85,8 @@ set expandtab
 set showtabline=2
 set laststatus=2
 
-let mapleader="'"
+" Space is a great leader
+let mapleader=" "
 
 " Edit and reload config
 nmap <leader>e :e $MYVIMRC<CR> :echo ".vimrc opened for editing"<CR>
@@ -129,33 +156,9 @@ function! Chmod_bin()
   endif
 endfunction
 
-" This rewires n and N to do the highlighing...
-nnoremap <silent> n   n:call HLNext(0.4)<cr>
-nnoremap <silent> N   N:call HLNext(0.4)<cr>
-
-function! HLNext (blinktime)
-    highlight WhiteOnRed ctermfg=white ctermbg=red
-    let [bufnum, lnum, col, off] = getpos('.')
-    let matchlen = strlen(matchstr(strpart(getline('.'),col-1),@/))
-    let target_pat = '\c\%#\%('.@/.'\)'
-    let ring = matchadd('WhiteOnRed', target_pat, 101)
-    redraw
-    exec 'sleep ' . float2nr(a:blinktime * 1000) . 'm'
-    call matchdelete(ring)
-    redraw
-endfunction
-
-highlight ColorColumn ctermbg=red
-call matchadd('ColorColumn', '\%81v', 100)
-
-" Visual dragging of highlighted blocks. Superior to v+y+p
-try
-  source ~/.vim/dragvisuals.vim
-  vmap  <expr>  <S-LEFT>   DVB_Drag('left')
-  vmap  <expr>  <S-RIGHT>  DVB_Drag('right')
-  vmap  <expr>  <S-DOWN>   DVB_Drag('down')
-  vmap  <expr>  <S-UP>     DVB_Drag('up')
-  vmap  <expr>  D          DVB_Duplicate()
-catch
-  " Ignore missing file
-endtry
+" telescope
+nnoremap <leader>ff <cmd>lua require ('telescope.builtin').find_files({no_ignore = true})<cr>
+lua << EOF
+require'lspconfig'.pyright.setup{}
+require'lspconfig'.gopls.setup{}
+EOF
