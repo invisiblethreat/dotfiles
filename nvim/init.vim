@@ -1,10 +1,15 @@
 set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath=&runtimepath
 
+" See also: https://github.com/zchee/deoplete-jedi/wiki/Setting-up-Python-for-Neovim
+" https://neovim.io/doc/user/provider.html#python-virtualenv
+let g:python3_host_prog = '~/.config/nvim/py3nvim/bin/python'
 filetype off
-
 filetype plugin indent on
 
+source $HOME/.config/nvim/plugins.vim
+source $HOME/.config/nvim/functions.vim
+"source $HOME/.config/nvim/blockmove.vim
 "Bundle config items
 let g:airline_powerline_fonts = 1
 let g:airline_theme='molokai'
@@ -13,42 +18,12 @@ let g:gundo_width = 60
 let g:gundo_preview_height = 40
 let g:gundo_right = 1
 
-
-call plug#begin('~/.config/nvim/plugged')
-Plug 'https://github.com/ervandew/supertab.git'
-Plug 'https://github.com/fatih/vim-go.git'
-Plug 'https://github.com/hrsh7th/cmp-buffer'
-Plug 'https://github.com/hrsh7th/cmp-nvim-lsp'
-Plug 'https://github.com/hrsh7th/nvim-cmp'
-Plug 'https://github.com/junegunn/vim-easy-align'
-Plug 'https://github.com/jvirtanen/vim-hcl.git'
-Plug 'https://github.com/majutsushi/tagbar.git'
-Plug 'https://github.com/neovim/nvim-lspconfig'
-Plug 'https://github.com/nvim-lua/plenary.nvim'
-Plug 'https://github.com/nvim-telescope/telescope.nvim'
-Plug 'https://github.com/nvim-treesitter/nvim-treesitter'
-Plug 'https://github.com/phanviet/vim-monokai-pro'
-Plug 'https://github.com/preservim/nerdtree.git'
-Plug 'https://github.com/sheerun/vim-polyglot'
-Plug 'https://github.com/sirver/ultisnips.git'
-Plug 'https://github.com/sjl/gundo.vim.git'
-Plug 'https://github.com/tpope/vim-fugitive.git'
-Plug 'https://github.com/tpope/vim-git.git'
-Plug 'https://github.com/vim-airline/vim-airline-themes.git'
-Plug 'https://github.com/vim-airline/vim-airline.git'
-call plug#end()
-
 set termguicolors
 colorscheme monokai_pro
 let g:lightline = { 'colorscheme': 'monokai_pro' }
 
 nmap <F5> :syntax sync fromstart<CR>
-nnoremap <F6> :GundoToggle<CR>
-nmap <F7> :TagbarToggle<CR>
 nnoremap <F8> :set nu!<CR>
-
-" Keep going up until you find a tags file
-set tags=tags;/
 
 " Fallback statusline
 set statusline=%F%m%r%h%w\ [Position=%04l,%04v][%p%%]\ [Lines=%L]
@@ -57,18 +32,17 @@ set t_Co=256
 syntax enable
 
 " General prefs
-filetype on
 set backspace=2
-set enc=utf8
-set foldlevelstart=20
 set foldmethod=indent
+set foldlevelstart=20
+set enc=utf8
 set guicursor=
 set hidden
 set history=1000
 set history=1000
-set hlsearch
 set list
 set listchars=tab:\ \ ,trail:•,extends:#,nbsp:#,extends:▶,precedes:◀
+set hlsearch
 set nobackup
 set nocompatible
 set noswapfile
@@ -76,8 +50,12 @@ set number
 set scrolloff=16
 set showmatch
 set title
+set undodir=~/.config/nvim
+set undofile
 set undolevels=1000
-set undolevels=1000
+set incsearch
+set colorcolumn=80
+highlight ColorColumn ctermbg=0 guibg=darkgrey
 
 " No shift key needed in normal mode
 nnoremap ; :
@@ -96,7 +74,7 @@ let mapleader=" "
 
 " Edit and reload config
 nmap <leader>e :e $MYVIMRC<CR> :echo ".vimrc opened for editing"<CR>
-nmap <leader>r :so $MYVIMRC<CR> :echo "Reloaded Config"<CR>
+nmap <leader>r :so %<CR> :echo "Reloaded Config"<CR>
 
 " NERDTree
 nmap <leader>d :NERDTreeToggle<CR>
@@ -106,11 +84,18 @@ nmap <leader>d :NERDTreeToggle<CR>
 nmap <leader>f <C-]>
 nmap <leader>b <C-o>
 
+" Quickly yank to system keyboard
+xnoremap <leader>y "+y
+
 " Remap a few keys to be more sane.
 inoremap jk <ESC>
 nnoremap ; :
 nnoremap ;; :x<CR>
 nnoremap ;' :q!<CR>
+nnoremap ;l :w<CR>
+
+" Yank to the end of the line, the same as D meaning d$
+nnoremap Y y$
 
 " Remove trailing spaces quickly
 nmap <leader><space> :%s/\s\+$//<cr>
@@ -119,48 +104,14 @@ nmap <leader><space> :%s/\s\+$//<cr>
 " call the file browser to save it, otherwise just save it.
 map <C-S> :update<CR>
 
-"show the highlighting tag stack under the cursor
-nmap hr :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
-\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
-\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+" Death to trailing spaces
+au BufWritePre * :%s/\s\+$//e
 
-" Thanks for flying Vim can DIAF
-let &titleold=getcwd()
-
-" Colours for modes
-"hi statusline ctermfg=15 ctermbg=27 cterm=none
-au InsertEnter * call InsertStatuslineColor(v:insertmode)
-au InsertLeave * hi statusline ctermfg=15 ctermbg=27 cterm=none
-
-au BufReadPost * call CheckRo()
+" Make scripts executable if they have a shebang
 au BufWritePost * call Chmod_bin()
-au BufWritePre * %s/\s\+$//e
 
 " enable project speficific vimrc
 set exrc
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! InsertStatuslineColor(mode)
-  if a:mode == 'i'
-    hi statusline ctermfg=15 ctermbg=28 cterm=bold
-  endif
-endfunction
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! CheckRo()
-  if &readonly
-    hi statusline cterm=none ctermfg=0 ctermbg=178
-  endif
-endfunction
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! Chmod_bin()
-  if getline(1) =~ "^#!"
-    if getline(1) =~ "/bin/"
-      silent !chmod 700 <afile>
-    endif
-  endif
-endfunction
 
 " telescope
 nnoremap <leader>ff <cmd>lua require ('telescope.builtin').find_files({no_ignore = true})<cr>
@@ -219,4 +170,13 @@ lua <<EOF
     capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
   }
 EOF
+
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
+nnoremap <leader>j :m .+1<CR>==
+nnoremap <leader>k :m .-2<CR>==
+
+inoremap <C-j> <ESC>:m .+1<CR>==i
+inoremap <C-k> <ESC>:m .-2<CR>==i
 

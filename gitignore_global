@@ -39,7 +39,7 @@ Thumbs.db
 # Vim, Sed, and things left unsaid
 ######################
 *.swp
-*.bak
+*.bak*
 .vscode*
 .idea*
 .devcontainer*

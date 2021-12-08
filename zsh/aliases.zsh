@@ -13,18 +13,17 @@ alias l.='ls -d .* --color=auto'
 alias ll='ls -l --color=auto'
 alias ls='ls --color=auto'
 
-alias serve='sudo python -m SimpleHTTPServer 80 &'
+alias serve='python3 -m http.server 8000'
 alias tmux='TERM=screen-256color-bce tmux -2'
 alias diff='colordiff'
 alias less='less -r'
 alias lc='wc -l'
 
-alias drop='iptables -A INPUT -j DROP -s'
 
 alias pr='hub pull-request -o'
 
 alias ocs='openssl s_client -connect'
-alias x509='openssl x50'
+alias x509='openssl x509'
 
 git_status () {
 
@@ -32,7 +31,6 @@ git_status () {
     exit 0
   fi
   CHANGES=$(command git status --porcelain -b 2> /dev/null)
-  #CHANGES=$(git status --porcelain)
   ADDED=$(echo $CHANGES | grep -c "^M ")
   MODIFIED=$(echo $CHANGES | grep -c "^ M")
   UNTRACKED=$(echo $CHANGES | grep -c "^??")

@@ -8,11 +8,13 @@
         120
     ],
     "editor.formatOnSave": true,
+    "[json]": {
+        "editor.formatOnSave": false
+    },
     "editor.roundedSelection": true,
     "editor.minimap.enabled": true,
     "editor.formatOnPaste": true,
     "editor.trimAutoWhitespace": true,
-    "editor.formatOnSaveTimeout": 5000,
     "editor.dragAndDrop": true,
     "files.associations": {
         "Dockerfile-*": "dockerfile",
@@ -29,50 +31,55 @@
         "**/vendor": true
     },
     "files.trimTrailingWhitespace": true,
-    "json.format.enable": true,
     "extensions.autoUpdate": true,
-    "telemetry.enableCrashReporter": false,
-    "telemetry.enableTelemetry": false,
     "markdown.preview.markEditorSelection": true,
     "markdown.preview.doubleClickToSwitchToEditor": true,
     "markdown.preview.scrollPreviewWithEditor": true,
-    "workbench.colorTheme": "Flatland Monokai",
-    "workbench.iconTheme": "vs-seti",
-    "window.zoomLevel": 0,
+    "workbench.colorTheme": "Monokai Pro (Filter Octagon)",
+    "workbench.iconTheme": "Monokai Pro (Filter Octagon) Icons",
     "search.exclude": {
         "vendors/*": true
     },
     "git.enableSmartCommit": true,
     "git.autofetch": true,
     "explorer.confirmDragAndDrop": false,
-    "terminal.integrated.rendererType": "dom",
     "terminal.integrated.copyOnSelection": true,
     "breadcrumbs.enabled": true,
     "explorer.confirmDelete": false,
-    "terminal.integrated.shell.osx": "/bin/zsh",
+    "terminal.integrated.defaultProfile.osx": "zsh",
     "editor.largeFileOptimizations": false,
-    "go.buildOnSave": "off",
-    "go.formatTool": "goimports",
-    "go.useLanguageServer": false,
-    "go.lintOnSave": "file",
-    "go.gocodeFlags": [
-        "-builtin",
-        "-ignore-case"
-    ],
-    //"go.lintTool": "gometalinter",
-    "go.lintFlags": [
-        "--vendored-linters",
-        "--vendor",
-        "--fast",
-        "--concurrency=2",
-        "--deadline=10s",
-        "--exclude",
-        "not checked.+Close",
-        "--exclude",
-        ".pb.*.go",
-        "--exclude",
-        "_strings.go"
-    ],
     "go.autocompleteUnimportedPackages": true,
-    "go.useCodeSnippetsOnFunctionSuggest": true
+    "go.useCodeSnippetsOnFunctionSuggest": true,
+    "python.linting.pylintArgs": [
+        "--generate-members"
+    ],
+    "go.languageServerExperimentalFeatures": {
+        "diagnostics": false
+    },
+    "editor.cursorBlinking": "smooth",
+    "python.languageServer": "Pylance",
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter-notebook"
+    },
+    "go.toolsManagement.autoUpdate": true,
+    "window.zoomLevel": 1,
+    "json.schemas": [],
+    "terminal.integrated.tabs.enabled": true,
+    "workbench.startupEditor": "newUntitledFile",
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left"
+    },
+    "auto-build.defaultEnv.name": "STM32F103RC_btt_USB",
+    "python.experiments.enabled": false,
+    "python.analysis.completeFunctionParens": true,
+    "python.formatting.autopep8Args": [
+        "--ignore",
+        "E402"
+    ],
+    "python.analysis.typeCheckingMode": "basic",
+    "python.linting.pylintEnabled": true,
+    "python.linting.pylintPath": "/Users/walsh/Library/Python/3.9/bin/pylint",
+    "jupyter.askForKernelRestart": false,
+    "workbench.enableExperiments": false
 }
