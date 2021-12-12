@@ -11,6 +11,8 @@ fi
 # link the rc and vim-plug code. Having the vim-plug code in the repo solves
 # bootstrapping.
 ln -nsf $PWD/nvim/init.vim $CONFIG
+ln -nsf $PWD/nvim/plugins.vim $CONFIG
+ln -nsf $PWD/nvim/functions.vim $CONFIG
 ln -nsf $PWD/nvim/autoload $CONFIG
 ln -nsf $PWD/nvim/after $CONFIG
 
