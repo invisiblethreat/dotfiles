@@ -4,3 +4,12 @@ PACKAGES="aptitude apt-file apt-transport-https bind9-host colordiff curl jq tre
 
 apt-get update
 apt-get install -y $PACKAGES
+
+
+# get the nightly nvim and put it in the ~/bin
+
+cd ~/bin
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+chmod u+x nvim.appimage
+ln -nsf nvim.appimage nvim
+echo "alias vim=nvim" >> ~/.local_aliases.zsh
