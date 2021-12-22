@@ -1,29 +1,57 @@
-set runtimepath^=~/.vim runtimepath+=~/.vim/after
+set runtimepath^=~/.vim runtimepath+=~/.config/nvim/after
 let &packpath=&runtimepath
 
-" See also: https://github.com/zchee/deoplete-jedi/wiki/Setting-up-Python-for-Neovim
-" https://neovim.io/doc/user/provider.html#python-virtualenv
-let g:python3_host_prog = '~/.config/nvim/py3nvim/bin/python'
-filetype off
+set nocompatible
+
 filetype plugin indent on
 
+" Keep this file from growing wildlly out of control
 source $HOME/.config/nvim/plugins.vim
 source $HOME/.config/nvim/functions.vim
-"source $HOME/.config/nvim/blockmove.vim
-"Bundle config items
+
+" Anything environment specific should go here. This won't exist on a first
+" run, but that's OK.
+if filereadable($HOME."/.nvim_local/local.vim")
+  source $HOME/.nvim_local/local.vim
+endif
+
+" Make the directory if it doesn't exist.
+if !isdirectory($HOME."/.nvim_local")
+  call mkdir($HOME."/.nvim_local")
+endif
+
+" Make the directory if it doesn't exist.
+if !isdirectory($HOME."/.nvim_local/undo")
+  call mkdir($HOME."/.nvim_local/undo")
+endif
+
+set undodir=~/.nvim_local/undo
+set undofile
+set undolevels=1000
+
+" Edit and reload config
+nmap <leader>e :e $MYVIMRC<CR> :echo ".vimrc opened for editing"<CR>
+nmap <leader>r :so %<CR> :echo "Reloaded Config"<CR>
+
 let g:airline_powerline_fonts = 1
 let g:airline_theme='molokai'
 let g:airline#extensions#tabline#enabled = 1
-let g:gundo_width = 60
-let g:gundo_preview_height = 40
-let g:gundo_right = 1
+
+let g:gundo_width = 80
+let g:gundo_preview_height = 60
+let g:gundo_right = 0
 
 set termguicolors
 colorscheme monokai_pro
 let g:lightline = { 'colorscheme': 'monokai_pro' }
 
 nmap <F5> :syntax sync fromstart<CR>
-nnoremap <F8> :set nu!<CR>
+nmap <F6> :UndotreeToggle<CR>
+nnoremap <F7> :set nowrap!<CR>
+
+"Hybrid line number. Relative offsets, absolue curosor line
+set number relativenumber
+nnoremap <F8> :set nu! rnu!<CR>
 
 " Fallback statusline
 set statusline=%F%m%r%h%w\ [Position=%04l,%04v][%p%%]\ [Lines=%L]
@@ -44,15 +72,10 @@ set list
 set listchars=tab:\ \ ,trail:•,extends:#,nbsp:#,extends:▶,precedes:◀
 set hlsearch
 set nobackup
-set nocompatible
 set noswapfile
-set number
 set scrolloff=16
 set showmatch
 set title
-set undodir=~/.config/nvim
-set undofile
-set undolevels=1000
 set incsearch
 set colorcolumn=80
 highlight ColorColumn ctermbg=0 guibg=darkgrey
@@ -72,9 +95,6 @@ set laststatus=2
 " Space is a great leader
 let mapleader=" "
 
-" Edit and reload config
-nmap <leader>e :e $MYVIMRC<CR> :echo ".vimrc opened for editing"<CR>
-nmap <leader>r :so %<CR> :echo "Reloaded Config"<CR>
 
 " NERDTree
 nmap <leader>d :NERDTreeToggle<CR>

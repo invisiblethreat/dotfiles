@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # make the directory if it doesn't exist
-CONFIG="$HOME/.config/nvim"
+CONFIG="$HOME/.config"
 
 if [ ! -e $CONFIG ]; then
   mkdir -p $CONFIG
@@ -10,11 +10,7 @@ fi
 
 # link the rc and vim-plug code. Having the vim-plug code in the repo solves
 # bootstrapping.
-ln -nsf $PWD/nvim/init.vim $CONFIG
-ln -nsf $PWD/nvim/plugins.vim $CONFIG
-ln -nsf $PWD/nvim/functions.vim $CONFIG
-ln -nsf $PWD/nvim/autoload $CONFIG
-ln -nsf $PWD/nvim/after $CONFIG
+ln -nsf $PWD/nvim/ $CONFIG/nvim
 
 # Install plugins and exit
 nvim +PlugInstall -c x -c x
