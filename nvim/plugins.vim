@@ -1,5 +1,4 @@
-
-call plug#begin('~/.config/nvim/plugged')
+call plug#begin('~/.nvim_local/plugged')
 "Plug 'https://github.com/ervandew/supertab.git'
 Plug 'https://github.com/fatih/vim-go.git'
 Plug 'https://github.com/hrsh7th/cmp-buffer'
