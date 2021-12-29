@@ -17,12 +17,20 @@ if [ ! -e $FONTPATH ]; then
   mkdir $FONTPATH
 fi
 
-# Glyphs
+# Glyphs - these don't require any furhter processing
 curl -sL https://raw.githubusercontent.com/powerline/powerline/develop/font/PowerlineSymbols.otf -o ${FONTPATH}/PowerlineSymbols.otf
 
-# Hack
 WD=$(pwd)
 TMP=$(mktemp -d)
+
+# Hack - old and busted
 curl -sL https://github.com/source-foundry/Hack/releases/download/v3.003/Hack-v3.003-ttf.tar.gz -o ${TMP}/hack.tar.gz
 tar -zxvf ${TMP}/hack.tar.gz --strip-components 1 -C $FONTPATH
+rm -rf $TMP
+
+# JetBrians Mono - new hotness
+curl -sL https://github.com/JetBrains/JetBrainsMono/releases/download/v2.242/JetBrainsMono-2.242.zip -o ${TMP}/jbm.tar.gz
+tar -zxvf ${TMP}/jbm.tar.gz --strip-components 1 -C $FONTPATH
+
+# Clean up
 rm -rf $TMP
