@@ -1,5 +1,3 @@
-# portable aliases
-
 alias ..='cd ..'
 alias b='cd ~/bin'
 alias g='cd ~/git'
@@ -18,7 +16,7 @@ alias tmux='TERM=screen-256color-bce tmux -2'
 alias diff='colordiff'
 alias less='less -r'
 alias lc='wc -l'
-
+alias vim=nvim
 
 alias pr='hub pull-request -o'
 

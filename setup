@@ -6,12 +6,18 @@ fi
 
 ./link_dotfiles
 
-if [ "$(uname)" == "Darwin" ]; then
-  ./setup_darwin
-fi
+if [ "$1" != "noroot" ]; then
 
-if [ -e /etc/debian_version ]; then
-  sudo ./config_debian
+  if [ "$(uname)" == "Darwin" ]; then
+    ./setup_darwin
+  fi
+
+  if [ -e /etc/debian_version ]; then
+    sudo ./config_debian
+  fi
+
+else
+  echo "Not attempting to become root- no packages will be installed"
 fi
 
 ./config_fonts
