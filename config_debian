@@ -7,7 +7,7 @@ apt-get install -y $PACKAGES
 
 if [ "$(uname -m)" != "x86_64" ]; then
   echo "Wrong arch for Neovim appimage. Building from source"
-  apt-get install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip doxygen
+  apt-get install -y ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip doxygen
   cd ~/git
   git clone https://github.com/neovim/neovim.git
   cd neovim
