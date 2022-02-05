@@ -5,6 +5,10 @@ PACKAGES="aptitude apt-file apt-transport-https bind9-host colordiff curl jq tre
 apt-get update
 apt-get install -y $PACKAGES
 
+if [ "$(uname -m)" != "x86_64" ]; then
+  echo "Wrong arch for Neovim appimage"
+  exit
+fi
 
 # get the nightly nvim and put it in the ~/bin
 cd ~/bin
