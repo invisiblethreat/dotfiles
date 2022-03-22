@@ -24,3 +24,4 @@ fi
 ./config_zsh
 ./config_nvim
 ./helpers/stub_files
+./helpers/hushlogin
