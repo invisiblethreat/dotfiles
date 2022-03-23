@@ -1,6 +1,5 @@
 alias ..='cd ..'
 alias b='cd ~/bin'
-alias g='cd ~/git'
 alias s='cd ~/src'
 alias gr="cd $(if [ -d .git ];then git rev-parse --show-toplevel; fi)"
 
