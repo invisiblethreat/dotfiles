@@ -15,8 +15,5 @@ fi
 # bootstrapping.
 ln -nsf $PWD/nvim/ $CONFIG/nvim
 
-# For some of the providers
-pip3 install neovim
-
 # Install plugins and exit
 nvim +PlugInstall -c x -c x
