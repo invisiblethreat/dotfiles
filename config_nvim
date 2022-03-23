@@ -16,4 +16,4 @@ fi
 ln -nsf $PWD/nvim/ $CONFIG/nvim
 
 # Install plugins and exit
-nvim +PlugInstall +qall -c x -c x
+nvim --clean 'source ~/.config/nvim/plugins' +PlugInstall +qall -c x -c x
