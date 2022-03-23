@@ -1,12 +1,20 @@
 #!/bin/bash
 
+if [ -e $HOME/.config/dotfiles_setup ]; then
+  rundate=$(cat $HOME/.config/dotfiles_setup)
+  echo "Dotfiles setup was run on $rundate. Remove $HOME/.config/dotfiles_setup to run again."
+  exit 0
+fi
+
 if [ ! -d $HOME/bin ]; then
   mkdir $HOME/bin
 fi
 
 ./link_dotfiles
 
-if [ "$1" != "noroot" ]; then
+# let's attempt to have most of the setup done by Ansible and keep this as a
+# backup
+if [ "$1" === "root" ]; then
 
   if [ "$(uname)" == "Darwin" ]; then
     ./setup_darwin
