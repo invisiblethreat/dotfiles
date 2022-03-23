@@ -14,7 +14,7 @@ fi
 
 # let's attempt to have most of the setup done by Ansible and keep this as a
 # backup
-if [ "$1" === "root" ]; then
+if [ "$1" == "root" ]; then
 
   if [ "$(uname)" == "Darwin" ]; then
     ./setup_darwin
