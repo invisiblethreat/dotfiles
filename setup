@@ -10,7 +10,6 @@ if [ ! -d $HOME/bin ]; then
   mkdir $HOME/bin
 fi
 
-./link_dotfiles
 
 # let's attempt to have most of the setup done by Ansible and keep this as a
 # backup
@@ -30,6 +29,7 @@ fi
 
 ./config_fonts
 ./config_zsh
+./link_dotfiles
 ./config_nvim
 ./helpers/stub_files
 ./helpers/hushlogin
