@@ -3,10 +3,12 @@
 # Install OMZ
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh) --unattended"
 # Create the custom theme path
-mkdir -p ~/.oh-my-zsh/custom/themes
+if [ ! -d $HOME/.oh-my-zsh/custom/themes ]; then
+  mkdir -p ~/.oh-my-zsh/custom/themes
+fi
 
 # Link the theme in the repo into the OMZ path
-ln -s ~/.zsh/automaton.zsh-theme ~/.oh-my-zsh/custom/themes/automaton.zsh-theme
+ln -nsf ~/.zsh/automaton.zsh-theme ~/.oh-my-zsh/custom/themes/automaton.zsh-theme
 
 # Install plugins
 cd ~/.oh-my-zsh/custom/plugins/

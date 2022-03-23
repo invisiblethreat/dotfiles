@@ -33,3 +33,6 @@ fi
 ./config_nvim
 ./helpers/stub_files
 ./helpers/hushlogin
+
+date "+%F %T" > $HOME/.config/dotfiles_setup
+
