@@ -5,39 +5,34 @@ set nocompatible
 
 filetype plugin indent on
 
-" Make the directory if it doesn't exist.
-if !isdirectory($HOME."/.nvim_local")
-  call mkdir($HOME."/.nvim_local")
-endif
-
 " Keep this file from growing wildlly out of control
 source $HOME/.config/nvim/plugins.vim
 source $HOME/.config/nvim/functions.vim
 
-" Localized plugins and configurations that don't need source control
-if filereadable($HOME."/.nvim_local/local.vim")
-  source $HOME/.nvim_local/local.vim
+" Localized configurations that don't need source control. Localized plugins
+" are loaded via plugins.vim
+if filereadable($HOME."/.config/nvim/local.vim")
+  source $HOME/.config/nvim/local.vim
 endif
 
 " Make the directory if it doesn't exist.
-if !isdirectory($HOME."/.nvim_local/undo")
-  call mkdir($HOME."/.nvim_local/undo")
+if !isdirectory($HOME."/.config/nvim/undo")
+  call mkdir($HOME."/.config/nvim/undo")
 endif
 
-set undodir=~/.nvim_local/undo
+set undodir=~/.config/nvim/undo
 set undofile
 set undolevels=1000
 
+let mapleader=" "
 " Edit and reload config
-nmap <leader>e :e $MYVIMRC<CR> :echo ".vimrc opened for editing"<CR>
-nmap <leader>r :so %<CR> :echo "Reloaded Config"<CR>
 
 " airline config
 let g:airline_powerline_fonts = 1
 let g:airline_theme='molokai'
 " tabline is really the list of buffers. See also: buffers, tabs, windows...
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#tabline#fnamemod = ': t'
 
 let g:gundo_width = 80
 let g:gundo_preview_height = 60
@@ -93,10 +88,6 @@ set expandtab
 " Bottom status line
 set showtabline=2
 set laststatus=2
-
-" Space is a great leader
-let mapleader=" "
-
 
 " NERDTree
 nmap <leader>d :NERDTreeToggle<CR>

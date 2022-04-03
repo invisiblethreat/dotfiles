@@ -4,7 +4,7 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-call plug#begin('~/.nvim_local/plugged')
+call plug#begin('~/.config/nvim/plugged')
 "Plug 'https://github.com/ervandew/supertab.git'
 Plug 'https://github.com/fatih/vim-go.git'
 Plug 'https://github.com/hrsh7th/cmp-buffer'
@@ -27,5 +27,11 @@ Plug 'https://github.com/tpope/vim-fugitive.git'
 Plug 'https://github.com/tpope/vim-git.git'
 Plug 'https://github.com/vim-airline/vim-airline-themes.git'
 Plug 'https://github.com/vim-airline/vim-airline.git'
+
+" For tesing out new plugins while attempting to keep the repo somewhat clean.
+" The loading can be validated with :PlugStatus
+if filereadable($HOME."/.config/nvim/local_plugins.vim")
+  source $HOME/.config/nvim/local_plugins.vim
+endif
 call plug#end()
 
