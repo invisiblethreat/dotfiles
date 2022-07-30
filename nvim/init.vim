@@ -41,6 +41,7 @@ let g:gundo_right = 0
 set termguicolors
 colorscheme monokai_pro
 let g:lightline = { 'colorscheme': 'monokai_pro' }
+highlight Comment guifg=#b7b8b6
 
 nmap <F5> :syntax sync fromstart<CR>
 nmap <F6> :UndotreeToggle<CR>
@@ -89,8 +90,9 @@ set expandtab
 set showtabline=2
 set laststatus=2
 
-" NERDTree
-nmap <leader>d :NERDTreeToggle<CR>
+" NvimTree
+nmap <leader>d :NvimTreeToggle<CR>
+nmap <leader>df :NvimTreeFocus<CR>
 
 " To open a new empty buffer- mimic tmux mapping
 nmap <leader>c :enew<cr>
@@ -123,6 +125,7 @@ nnoremap Y y$
 
 " Remove trailing spaces quickly
 nmap <leader><space> :%s/\s\+$//<cr>
+nmap <leader>f :Neoformat<cr>
 
 " If the current buffer has never been saved, it will have no name,
 " call the file browser to save it, otherwise just save it.
@@ -193,6 +196,7 @@ lua <<EOF
   require('lspconfig').pyright.setup {
     capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
   }
+require("nvim-tree").setup()
 EOF
 
 vnoremap J :m '>+1<CR>gv=gv

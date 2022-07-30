@@ -1,11 +1,5 @@
-let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
-if empty(glob(data_dir . '/autoload/plug.vim'))
-  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
 
 call plug#begin('~/.config/nvim/plugged')
-"Plug 'https://github.com/ervandew/supertab.git'
 Plug 'https://github.com/fatih/vim-go.git'
 Plug 'https://github.com/hrsh7th/cmp-buffer'
 Plug 'https://github.com/hrsh7th/cmp-nvim-lsp'
@@ -14,24 +8,17 @@ Plug 'https://github.com/junegunn/vim-easy-align'
 Plug 'https://github.com/jvirtanen/vim-hcl.git'
 Plug 'https://github.com/kyazdani42/nvim-tree.lua'
 Plug 'https://github.com/kyazdani42/nvim-web-devicons'
+Plug 'https://github.com/mbbill/undotree'
 Plug 'https://github.com/neovim/nvim-lspconfig'
 Plug 'https://github.com/nvim-lua/plenary.nvim'
-Plug 'https://github.com/sbdchd/neoformat'
 Plug 'https://github.com/nvim-telescope/telescope.nvim'
 Plug 'https://github.com/nvim-treesitter/nvim-treesitter'
 Plug 'https://github.com/phanviet/vim-monokai-pro'
 Plug 'https://github.com/sbdchd/neoformat'
 Plug 'https://github.com/sheerun/vim-polyglot'
-Plug 'https://github.com/sirver/ultisnips.git'
+Plug 'https://github.com/tpope/vim-commentary'
 Plug 'https://github.com/tpope/vim-fugitive.git'
 Plug 'https://github.com/tpope/vim-git.git'
 Plug 'https://github.com/vim-airline/vim-airline-themes.git'
 Plug 'https://github.com/vim-airline/vim-airline.git'
-
-" For tesing out new plugins while attempting to keep the repo somewhat clean.
-" The loading can be validated with :PlugStatus
-if filereadable($HOME."/.config/nvim/local_plugins.vim")
-  source $HOME/.config/nvim/local_plugins.vim
-endif
 call plug#end()
-
