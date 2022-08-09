@@ -1,12 +1,14 @@
 #!/bin/bash
 
-cat >> ~/.gitconfig.local << 'EOT'
+if [ ! -e ~/.gitconfig.local ]
+  cat >> ~/.gitconfig.local << 'EOT'
 [user]
   name = "Scott Walsh"
   email = scott@invisiblethreat.ca
 EOT
 
-echo "~/.gitconfig.local created. Defaulted email to scott@invisiblethreat.ca"
+  echo "~/.gitconfig.local created. Defaulted email to scott@invisiblethreat.ca"
+fi
 
 touch ~/.local_profile.zsh
 touch ~/.local_aliases.zsh
