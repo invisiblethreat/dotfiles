@@ -1,7 +1,7 @@
 set runtimepath^=~/.vim runtimepath+=~/.config/nvim/after
 let &packpath=&runtimepath
 
-set nocompatible
+" set nocompatible
 
 filetype plugin indent on
 
@@ -20,11 +20,11 @@ if !isdirectory($HOME."/.config/nvim/undo")
   call mkdir($HOME."/.config/nvim/undo")
 endif
 
-set undodir=~/.config/nvim/undo
-set undofile
-set undolevels=1000
+" set undodir=~/.config/nvim/undo
+" set undofile
+" set undolevels=1000
 
-let mapleader=" "
+" let mapleader=" "
 " Edit and reload config
 
 " airline config
@@ -43,48 +43,48 @@ colorscheme monokai_pro
 let g:lightline = { 'colorscheme': 'monokai_pro' }
 highlight Comment guifg=#b7b8b6
 
-nmap <F5> :syntax sync fromstart<CR>
-nmap <F6> :UndotreeToggle<CR>
-nnoremap <F7> :set nowrap!<CR>
+" nmap <F5> :syntax sync fromstart<CR>
+" nmap <F6> :UndotreeToggle<CR>
+" nnoremap <F7> :set nowrap!<CR>
 
 "Hybrid line number. Relative offsets, absolue curosor line
-set number relativenumber
-nnoremap <F8> :set nu! rnu!<CR>
+" set number relativenumber
+" nnoremap <F8> :set nu! rnu!<CR>
 
 " Fallback statusline
-set statusline=%F%m%r%h%w\ [Position=%04l,%04v][%p%%]\ [Lines=%L]
+" set statusline=%F%m%r%h%w\ [Position=%04l,%04v][%p%%]\ [Lines=%L]
 
 set t_Co=256
 syntax enable
 
 " General prefs
-set backspace=2
-set foldmethod=indent
+" set backspace=2
+" set foldmethod=indent
 set foldlevelstart=20
 set enc=utf8
-set guicursor=
-set hidden
-set history=1000
-set history=1000
-set list
+" set guicursor=
+" set hidden
+" set history=1000
+" set list
 set listchars=tab:\ \ ,trail:•,extends:#,nbsp:#,extends:▶,precedes:◀
-set hlsearch
-set nobackup
-set noswapfile
-set scrolloff=16
-set showmatch
-set title
-set incsearch
-set colorcolumn=80
+" set hlsearch
+" set nobackup
+" set noswapfile
+" set scrolloff=16
+" set showmatch
+" set title
+" set incsearch
+" set colorcolumn=80
 highlight ColorColumn ctermbg=0 guibg=darkgrey
 
 " No shift key needed in normal mode
 nnoremap ; :
 
 " Tabs
-set tabstop=2
-set shiftwidth=2
-set expandtab
+" set tabstop=2
+" set shiftwidth=2
+" set expandtab
+"
 
 " Bottom status line
 set showtabline=2
@@ -114,18 +114,18 @@ nmap <leader>bl :ls<CR>
 xnoremap <leader>y "+y
 
 " Remap a few keys to be more sane.
-inoremap jk <ESC>
-nnoremap ; :
-nnoremap ;; :x<CR>
-nnoremap ;' :q!<CR>
-nnoremap ;l :w<CR>
+" inoremap jk <ESC>
+" nnoremap ; :
+" nnoremap ;; :x<CR>
+" nnoremap ;' :q!<CR>
+" nnoremap ;l :w<CR>
 
 " Yank to the end of the line, the same as D meaning d$
 nnoremap Y y$
 
 " Remove trailing spaces quickly
-nmap <leader><space> :%s/\s\+$//<cr>
-nmap <leader>f :Neoformat<cr>
+" nmap <leader><space> :%s/\s\+$//<cr>
+" nmap <leader>f :Neoformat<cr>
 
 " If the current buffer has never been saved, it will have no name,
 " call the file browser to save it, otherwise just save it.
@@ -197,6 +197,8 @@ lua <<EOF
     capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
   }
 require("nvim-tree").setup()
+require('user.options')
+require('user.keymaps')
 EOF
 
 vnoremap J :m '>+1<CR>gv=gv
@@ -207,4 +209,4 @@ nnoremap <leader>k :m .-2<CR>==
 
 inoremap <C-j> <ESC>:m .+1<CR>==i
 inoremap <C-k> <ESC>:m .-2<CR>==i
-
+" NvimTreeOpen
