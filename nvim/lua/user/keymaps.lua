@@ -44,7 +44,7 @@ km("v", "<A-j>", ":m .+1<CR>==", opts)
 km("v", "<A-k>", ":m .-2<CR>==", opts)
 km("v", "p", '"_dP', opts)
 
--- quick sourcing
+-- Quick sourcing
 km("n", "<leader>s", ":source %<CR>:lua print(\"Sourced \" .. vim.fn.expand('%'))<CR>", opts)
 
 -- Function keys mapping
@@ -56,3 +56,8 @@ km("n", "<F8>", ":set nu! rnu!<CR>", opts)              -- useful for cut and pa
 -- Formatting
 km("n", "<leader><space>", ":%s/\\s\\+$//e<CR>", opts)
 km("n", "<leader>f", ":Neoformat<CR>", opts)
+
+-- NvimTree
+km("n", "<leader>d", ":NvimTreeToggle<CR>", opts)
+
+

@@ -21,8 +21,8 @@ local options = {
   splitright = true,                       -- force splits right of the current window
   statusline = "%F%m%r%h%w [Position=%04l,%04v][%p%%] [Lines=%L]",
   tabstop = 2,
+  termguicolors = true,
   title = true,
-  undodir = "~/.config/nvim/undo",
   undofile = true,
   undolevels = 1000,
 }
