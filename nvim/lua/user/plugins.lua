@@ -54,11 +54,9 @@ return packer.startup(function(use)
   use 'mbbill/undotree'
   use 'neovim/nvim-lspconfig'
   use 'nvim-telescope/telescope.nvim'
-  use {
-  'nvim-lualine/lualine.nvim',
-  requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-  }
-  use 'nvim-treesitter/nvim-treesitter'
+  use {'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true }}
+  use {'romgrk/barbar.nvim', requires = {'kyazdani42/nvim-web-devicons'}}
+  use { 'nvim-treesitter/nvim-treesitter', run = ":TSupdate" }
   use 'phanviet/vim-monokai-pro'
   use 'rafamadriz/friendly-snippets'
   use 'sbdchd/neoformat'

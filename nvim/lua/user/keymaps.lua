@@ -1,6 +1,6 @@
 -- Set options
 local opts = { noremap = true, silent = true }
-local term_opts = { silent = true }
+-- local term_opts = { silent = true }
 
 -- Shorten the call to the API
 local km = vim.api.nvim_set_keymap
@@ -60,4 +60,6 @@ km("n", "<leader>f", ":Neoformat<CR>", opts)
 -- NvimTree
 km("n", "<leader>d", ":NvimTreeToggle<CR>", opts)
 
-
+-- Telescope
+km("n", "<leader>ff", "<cmd>Telescope find_files<cr>", opts)
+km("n", "<c-t>", "<cmd>Telescope live_grep<cr>", opts)

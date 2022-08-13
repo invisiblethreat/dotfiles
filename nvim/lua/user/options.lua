@@ -1,6 +1,6 @@
 -- :help options
 local options = {
-  cmdheight = 2,                           -- more space in the neovim command line for displaying messages
+  cmdheight = 1,
   colorcolumn = "81,120",
   cursorline = true,                       -- highlight the current line
   enc = "utf8",
