@@ -20,6 +20,11 @@ km("n", "<C-j>", "<C-w>j", opts)
 km("n", "<C-k>", "<C-w>k", opts)
 km("n", "<C-l>", "<C-w>l", opts)
 
+-- Navigate between buffers more easily
+km("n", "<leader>h", ":BufferPrevious<CR>", opts)
+km("n", "<leader>l", ":BufferNext<CR>", opts)
+km("n", "<leader>x", ":BufferClose<CR>", opts)
+
 -- Resize with arrows ** This conflicts with macOS Expose
 km("n", "<C-Up>", ":resize +2<CR>", opts)
 km("n", "<C-Down>", ":resize -2<CR>", opts)
