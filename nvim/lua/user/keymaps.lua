@@ -21,11 +21,11 @@ km("n", "<C-k>", "<C-w>k", opts)
 km("n", "<C-l>", "<C-w>l", opts)
 
 -- Navigate between buffers more easily
-km("n", "<leader>h", ":bnext<CR>", opts)
-km("n", "<leader>l", ":bprev<CR>", opts)
+km("n", "<leader>h", ":bprev<CR>", opts)
+km("n", "<leader>l", ":bnext<CR>", opts)
 -- EXPERIMENT: trial buffer switching
-km("n", "H", ":bnext<CR>", opts)
-km("n", "L", ":bprev<CR>", opts)
+km("n", "H", ":bprev<CR>", opts)
+km("n", "L", ":bnext<CR>", opts)
 
 -- Resize with arrows ** This conflicts with macOS Expose
 km("n", "<C-Up>", ":resize +2<CR>", opts)

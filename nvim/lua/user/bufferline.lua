@@ -47,88 +47,88 @@ bufferline.setup {
       bg = { attribute = "bg", highlight = "TabLine" },
     },
 
-  buffer_selected = {
+    buffer_selected = {
       fg = '#ffcc00',
       -- bg = '#6b6b6a',
       bold = true,
       italic = true,
-  },
-  -- buffer_visible = {
-  --   bg = '#6b6b6a',
-  --   -- fg = { attribute = "fg", highlight = "tabline" },
-  -- },
+    },
+    -- buffer_visible = {
+    --   bg = '#6b6b6a',
+    --   -- fg = { attribute = "fg", highlight = "tabline" },
+    -- },
 
-  close_button = {
-    fg = { attribute = "fg", highlight = "tabline" },
-    bg = { attribute = "bg", highlight = "tabline" },
-  },
-  close_button_visible = {
-    fg = { attribute = "fg", highlight = "tabline" },
-    bg = { attribute = "bg", highlight = "tabline" },
-  },
-  -- close_button_selected = {
-  --   fg = {attribute='fg',highlight='tablinesel'},
-  --   bg ={attribute='bg',highlight='tablinesel'}
-  --   },
+    close_button = {
+      fg = { attribute = "fg", highlight = "tabline" },
+      bg = { attribute = "bg", highlight = "tabline" },
+    },
+    close_button_visible = {
+      fg = { attribute = "fg", highlight = "tabline" },
+      bg = { attribute = "bg", highlight = "tabline" },
+    },
+    -- close_button_selected = {
+    --   fg = {attribute='fg',highlight='tablinesel'},
+    --   bg ={attribute='bg',highlight='tablinesel'}
+    --   },
 
-  tab_selected = {
-    fg = { attribute = "fg", highlight = "normal" },
-    bg = { attribute = "bg", highlight = "normal" },
-  },
-  tab = {
-    fg = { attribute = "fg", highlight = "tabline" },
-    bg = { attribute = "bg", highlight = "tabline" },
-  },
-  tab_close = {
-    -- fg = {attribute='fg',highlight='lspdiagnosticsdefaulterror'},
-    fg = { attribute = "fg", highlight = "tablinesel" },
-    bg = { attribute = "bg", highlight = "normal" },
-  },
+    tab_selected = {
+      fg = { attribute = "fg", highlight = "normal" },
+      bg = { attribute = "bg", highlight = "normal" },
+    },
+    tab = {
+      fg = { attribute = "fg", highlight = "tabline" },
+      bg = { attribute = "bg", highlight = "tabline" },
+    },
+    tab_close = {
+      -- fg = {attribute='fg',highlight='lspdiagnosticsdefaulterror'},
+      fg = { attribute = "fg", highlight = "tablinesel" },
+      bg = { attribute = "bg", highlight = "normal" },
+    },
 
-  -- duplicate_selected = {
-  --   fg = { attribute = "fg", highlight = "tablinesel" },
-  --   bg = { attribute = "bg", highlight = "tablinesel" },
-  --   gui = "italic",
-  -- },
-  -- duplicate_visible = {
-  --   fg = { attribute = "fg", highlight = "tabline" },
-  --   bg = { attribute = "bg", highlight = "tabline" },
-  --   gui = "italic",
-  -- },
-  -- duplicate = {
-  --   fg = { attribute = "fg", highlight = "tabline" },
-  --   bg = { attribute = "bg", highlight = "tabline" },
-  --   gui = "italic",
-  -- },
+    -- duplicate_selected = {
+    --   fg = { attribute = "fg", highlight = "tablinesel" },
+    --   bg = { attribute = "bg", highlight = "tablinesel" },
+    --   gui = "italic",
+    -- },
+    -- duplicate_visible = {
+    --   fg = { attribute = "fg", highlight = "tabline" },
+    --   bg = { attribute = "bg", highlight = "tabline" },
+    --   gui = "italic",
+    -- },
+    -- duplicate = {
+    --   fg = { attribute = "fg", highlight = "tabline" },
+    --   bg = { attribute = "bg", highlight = "tabline" },
+    --   gui = "italic",
+    -- },
 
-  modified = {
-    fg = { attribute = "fg", highlight = "tabline" },
-    bg = { attribute = "bg", highlight = "tabline" },
-  },
-  modified_selected = {
-    fg = { attribute = "fg", highlight = "normal" },
-    bg = { attribute = "bg", highlight = "normal" },
-  },
-  modified_visible = {
-    fg = { attribute = "fg", highlight = "tabline" },
-    bg = { attribute = "bg", highlight = "tabline" },
-  },
+    modified = {
+      fg = { attribute = "fg", highlight = "tabline" },
+      bg = { attribute = "bg", highlight = "tabline" },
+    },
+    modified_selected = {
+      fg = { attribute = "fg", highlight = "normal" },
+      bg = { attribute = "bg", highlight = "normal" },
+    },
+    modified_visible = {
+      fg = { attribute = "fg", highlight = "tabline" },
+      bg = { attribute = "bg", highlight = "tabline" },
+    },
 
-  separator = {
-    fg = { attribute = "bg", highlight = "tabline" },
-    bg = { attribute = "bg", highlight = "tabline" },
+    separator = {
+      fg = { attribute = "bg", highlight = "tabline" },
+      bg = { attribute = "bg", highlight = "tabline" },
+    },
+    separator_selected = {
+      fg = { attribute = "bg", highlight = "normal" },
+      bg = { attribute = "bg", highlight = "normal" },
+    },
+    -- separator_visible = {
+    --   fg = {attribute='bg',highlight='tabline'},
+    --   bg = {attribute='bg',highlight='tabline'}
+    --   },
+    indicator_selected = {
+      fg = { attribute = "fg", highlight = "lspdiagnosticsdefaulthint" },
+      bg = { attribute = "bg", highlight = "normal" },
+    },
   },
-  separator_selected = {
-    fg = { attribute = "bg", highlight = "normal" },
-    bg = { attribute = "bg", highlight = "normal" },
-  },
-  -- separator_visible = {
-  --   fg = {attribute='bg',highlight='tabline'},
-  --   bg = {attribute='bg',highlight='tabline'}
-  --   },
-  indicator_selected = {
-    fg = { attribute = "fg", highlight = "lspdiagnosticsdefaulthint" },
-    bg = { attribute = "bg", highlight = "normal" },
-  },
-},
 }
