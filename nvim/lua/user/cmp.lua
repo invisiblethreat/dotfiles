@@ -47,6 +47,11 @@ local kind_icons = {
 }
 -- find more here: https://www.nerdfonts.com/cheat-sheet
 
+-- This should never be able to happen due to the protected call
+if cmp == nil then
+  return
+end
+
 cmp.setup {
   snippet = {
     expand = function(args)
@@ -108,7 +113,6 @@ cmp.setup {
       vim_item.menu = ({
         buffer = "[Buffer]",
         nvim_lsp = "[LSP]",
-        nvim_lua = "[NVIM_LUA]",
         luasnip = "[Snippet]",
         path = "[Path]",
       })[entry.source.name]
@@ -118,7 +122,6 @@ cmp.setup {
   sources = {
     { name = "buffer" },
     { name = "nvim_lsp" },
-    { name = "nvim_lua" },
     { name = "luasnip" },
     { name = "path" },
   },

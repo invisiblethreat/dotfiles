@@ -1,5 +1,4 @@
 local fn = vim.fn
-
 -- Automatically install packer
 local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
@@ -68,6 +67,7 @@ return packer.startup(function(use)
   use "williamboman/nvim-lsp-installer" -- simple to use language server installer
   use 'vim-airline/vim-airline-themes' --probably want to replace with lualine
   use 'vim-airline/vim-airline'
+  use 'lewis6991/gitsigns.nvim'
 
   -- Completion sources.
   -- Get more at https://github.com/hrsh7th/nvim-cmp/wiki/List-of-sources
@@ -75,7 +75,6 @@ return packer.startup(function(use)
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-cmdline'
   use 'hrsh7th/cmp-nvim-lsp'
-  use 'hrsh7th/cmp-nvim-lua'
   use 'hrsh7th/cmp-path'
   use 'saadparwaiz1/cmp_luasnip'
 
