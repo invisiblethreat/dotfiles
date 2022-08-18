@@ -44,30 +44,38 @@ return packer.startup(function(use)
 
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
-  use 'L3MON4D3/LuaSnip'
   use 'fatih/vim-go'
-  use 'hrsh7th/nvim-cmp'
-  use 'junegunn/vim-easy-align'
-  use 'kyazdani42/nvim-tree.lua'
-  use 'kyazdani42/nvim-web-devicons'
   use 'mbbill/undotree'
-  use 'neovim/nvim-lspconfig'
   use 'nvim-telescope/telescope.nvim'
   use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true }}
-  use "akinsho/bufferline.nvim"
   use "akinsho/toggleterm.nvim"
   use { 'nvim-treesitter/nvim-treesitter', run = ":TSupdate" }
-  use 'phanviet/vim-monokai-pro'
-  use 'rafamadriz/friendly-snippets'
   use 'sbdchd/neoformat'
   use 'sheerun/vim-polyglot'
   use 'tpope/vim-commentary'
+  use "moll/vim-bbye"
+
+
+  -- Snippets
+  use 'L3MON4D3/LuaSnip'
+  use 'rafamadriz/friendly-snippets'
+
+  -- LSP
+  use 'neovim/nvim-lspconfig'
+  use "williamboman/nvim-lsp-installer" -- simple to use language server installer
+
+  -- Git
   use 'tpope/vim-fugitive'
   use 'tpope/vim-git'
-  use "williamboman/nvim-lsp-installer" -- simple to use language server installer
-  use 'vim-airline/vim-airline-themes' --probably want to replace with lualine
-  use 'vim-airline/vim-airline'
   use 'lewis6991/gitsigns.nvim'
+
+  -- Visuals
+  use "akinsho/bufferline.nvim"
+  use 'kyazdani42/nvim-tree.lua'
+  use 'kyazdani42/nvim-web-devicons'
+
+  -- Completion
+  use 'hrsh7th/nvim-cmp'
 
   -- Completion sources.
   -- Get more at https://github.com/hrsh7th/nvim-cmp/wiki/List-of-sources
@@ -80,6 +88,7 @@ return packer.startup(function(use)
 
   -- Themes
   use 'tanvirtin/monokai.nvim'
+  use 'phanviet/vim-monokai-pro'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
