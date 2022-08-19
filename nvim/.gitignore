@@ -1,5 +1,1 @@
-local.vim
-local_plugins.vim
-plugged
-undo
-autoload/plug.vim.old
+plugin
