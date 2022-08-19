@@ -16,4 +16,4 @@ fi
 ln -nsf $PWD/nvim/ $CONFIG/nvim
 
 # Install plugins and exit
-nvim --clean +'source ~/.config/nvim/autoload/plug.vim' +'source ~/.config/nvim/plugins.vim' +PlugInstall +qall -c x -c x
+nvim --clean +'source ~/.config/nvim/lua/user/plugins.lua'
