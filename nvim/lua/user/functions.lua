@@ -11,5 +11,10 @@ function ChmodExecute()
   end
 end
 
--- au BufWritePost * call Chmod_bin()
-vim.cmd("autocmd BufWritePost * lua ChmodExecute()")
+-- Autogroup to change mode to executeable if components of the 'shebang' are present
+vim.cmd [[
+  augroup chown_execute_group
+    autocmd!
+    autocmd BufWritePost * lua ChmodExecute()
+  augroup endk
+  ]]
