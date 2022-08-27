@@ -15,3 +15,4 @@ fi
 # bootstrapping.
 ln -nsf $PWD/nvim/ $CONFIG/nvim
 
+nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'

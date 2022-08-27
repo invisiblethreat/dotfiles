@@ -56,7 +56,6 @@ return packer.startup(function(use)
   use 'tpope/vim-commentary'
   use "moll/vim-bbye"
 
-
   -- Snippets
   use 'L3MON4D3/LuaSnip'
   use 'rafamadriz/friendly-snippets'
@@ -96,4 +95,5 @@ return packer.startup(function(use)
   if PACKER_BOOTSTRAP then
     require("packer").sync()
   end
-end)
+end
+)
