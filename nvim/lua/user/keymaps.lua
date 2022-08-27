@@ -27,7 +27,7 @@ km("n", "<leader>x", ":Bdelete<CR>", opts)
 -- EXPERIMENT: trial buffer switching
 km("n", "H", ":bprev<CR>", opts)
 km("n", "L", ":bnext<CR>", opts)
-km("n", "L", ":Bdelete<CR>", opts)
+km("n", "X", ":Bdelete<CR>", opts)
 
 -- Resize with arrows ** This conflicts with macOS Expose
 km("n", "<C-Up>", ":resize +2<CR>", opts)
@@ -57,7 +57,7 @@ km("v", "p", '"_dP', opts)
 km("n", "<leader>s", ":source %<CR>:lua print(\"Sourced \" .. vim.fn.expand('%'))<CR>", opts)
 
 -- Function keys mapping
-km("n", "<F5>", ":syntax sync from start<CR>", opts)
+km("n", "<F5>", ":syntax sync from start<CR>", opts)    -- large JSON objects often break highlighitng, use this to try again
 km("n", "<F6>", ":UndoTreeToggle<CR>", opts)
 km("n", "<F7>", ":set nowrap!<CR>", opts)
 km("n", "<F8>", ":set nu! rnu!<CR>", opts)              -- useful for cut and paste outside of nvim
