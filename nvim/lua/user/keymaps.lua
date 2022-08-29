@@ -75,5 +75,5 @@ km("n", "<c-t>", "<cmd>Telescope live_grep<cr>", opts)
 
 
 -- Packer Snapshots
--- km("n", "pts", ":PackerSnapshot $XDG_HOME/nvim/snapshot/packer.json", opts)
--- km("n", "prs", ":PackerRestore $XDG_HOME/nvim/snapshot/packer.json", opts)
+km("n", "<F9>", ":PackerSnapshot ~/.config/nvim/lua/user/snapshots/packer.json<CR>", opts)
+km("n", "<F10>", ":PackerSnapshotRollback ~/.config/nvim/lus/user/snapshots/packer.json<CR>", opts)
