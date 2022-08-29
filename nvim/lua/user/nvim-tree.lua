@@ -25,31 +25,3 @@ ntree.setup({
   },
 })
 
--- Enable dynamic reloading on FS operations
-local ok_api, api = pcall(require, 'nvim-tree.api')
-if not ok_api then
-  vim.notify("nvim-tree.api requirement not met")
-  return
-end
-
-Event = api.events.Event
-
-api.events.subscribe(Event.FileCreated, function()
-    api.tree.reload()
-end)
-
-api.events.subscribe(Event.FileRemoved, function()
-    api.tree.reload()
-end)
-
-api.events.subscribe(Event.NodeRenamed, function()
-    api.tree.reload()
-end)
-
-api.events.subscribe(Event.FolderCreated, function()
-    api.tree.reload()
-end)
-
-api.events.subscribe(Event.FolderRemoved, function()
-    api.tree.reload()
-end)

@@ -63,7 +63,7 @@ km("n", "<F7>", ":set nowrap!<CR>", opts)
 km("n", "<F8>", ":set nu! rnu!<CR>", opts)              -- useful for cut and paste outside of nvim
 
 -- Formatting
-km("n", "<leader><space>", ":%s/\\s\\+$//e<CR>", opts)
+km("n", "<leader><space>", ":%s/\\s\\+$//e<CR>", opts)  -- kill trailing spaces
 km("n", "<leader>f", ":Neoformat<CR>", opts)
 
 -- NvimTree
