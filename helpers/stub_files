@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ ! -e ~/.gitconfig.local ]
+if [ ! -e ~/.gitconfig.local ]; then
   cat >> ~/.gitconfig.local << 'EOT'
 [user]
   name = "Scott Walsh"

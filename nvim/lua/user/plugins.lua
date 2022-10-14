@@ -55,6 +55,7 @@ return packer.startup(function(use)
   use 'sheerun/vim-polyglot'
   use 'tpope/vim-commentary'
   use "moll/vim-bbye"
+  use 'rmagatti/goto-preview'
 
   -- Snippets
   use 'L3MON4D3/LuaSnip'
