@@ -18,8 +18,6 @@ alias less='less -r'
 alias lc='wc -l'
 alias vim=nvim
 
-alias pr='hub pull-request -o'
-
 alias ocs='openssl s_client -connect'
 alias x509='openssl x509'
 

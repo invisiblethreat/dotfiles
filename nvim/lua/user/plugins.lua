@@ -38,7 +38,7 @@ packer.init {
 }
 
 -- Install your plugins here
--- If you suffix repos with .git, you will be prompted for authentication
+-- If you suffix repos with .git, you will be prompted for authentication.
 return packer.startup(function(use)
   use "wbthomason/packer.nvim" -- Have packer manage itself
 
@@ -64,6 +64,7 @@ return packer.startup(function(use)
   -- LSP
   use 'neovim/nvim-lspconfig'
   use "williamboman/nvim-lsp-installer" -- simple to use language server installer
+  use 'hrsh7th/cmp-nvim-lsp-signature-help'
 
   -- Git
   use 'tpope/vim-fugitive'
@@ -77,6 +78,9 @@ return packer.startup(function(use)
 
   -- Completion
   use 'hrsh7th/nvim-cmp'
+
+  -- Navigation
+  use 'ggandor/leap.nvim'
 
   -- Completion sources.
   -- Get more at https://github.com/hrsh7th/nvim-cmp/wiki/List-of-sources
