@@ -1,6 +1,7 @@
 -- :help options
 local o = vim.opt
 
+o.guicursor = ""                          -- fat cursor
 o.cmdheight = 1
 o.colorcolumn = "81,120"
 o.cursorline = true                       -- highlight the current line
