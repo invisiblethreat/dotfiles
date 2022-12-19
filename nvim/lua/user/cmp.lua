@@ -111,19 +111,19 @@ cmp.setup {
       -- Kind icons
       vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
       vim_item.menu = ({
-        buffer = "[Buffer]",
         nvim_lsp = "[LSP]",
         luasnip = "[Snippet]",
         path = "[Path]",
+        buffer = "[Buffer]",
       })[entry.source.name]
       return vim_item
     end,
   },
   sources = {
-    { name = "buffer" },
     { name = "nvim_lsp" },
     { name = "luasnip" },
     { name = "path" },
+    { name = "buffer", keyword_length = 5 },
   },
   confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,
