@@ -58,7 +58,7 @@ km("n", "<leader>s", ":source %<CR>:lua print(\"Sourced \" .. vim.fn.expand('%')
 
 -- Function keys mapping
 km("n", "<F5>", ":syntax sync from start<CR>", opts)    -- large JSON objects often break highlighitng, use this to try again
-km("n", "<F6>", ":UndoTreeToggle<CR>", opts)
+km("n", "<F6>", ":UndotreeToggle<CR>", opts)
 km("n", "<F7>", ":set nowrap!<CR>", opts)
 km("n", "<F8>", ":set nu! rnu!<CR>", opts)              -- useful for cut and paste outside of nvim
 

@@ -76,12 +76,11 @@ return packer.startup(function(use)
   use 'kyazdani42/nvim-tree.lua'
   use 'kyazdani42/nvim-web-devicons'
 
-  -- Completion
-  use 'hrsh7th/nvim-cmp'
-
   -- Navigation
   use 'ggandor/leap.nvim'
 
+  -- Completion
+  use 'hrsh7th/nvim-cmp'
   -- Completion sources.
   -- Get more at https://github.com/hrsh7th/nvim-cmp/wiki/List-of-sources
   -- To have new cmp sources used, add them in cmp.lua
