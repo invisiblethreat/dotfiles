@@ -69,6 +69,11 @@ km("n", "<leader>f", ":Neoformat<CR>", opts)
 -- NvimTree
 km("n", "<leader>d", ":NvimTreeToggle<CR>", opts)
 
+-- Symbols Outline
+km("n", "<leader>o", ":SymbolsOutline<CR>", opts)
+
+
+
 -- Telescope
 km("n", "<leader>ff", "<cmd>Telescope find_files<cr>", opts)
 km("n", "<c-t>", "<cmd>Telescope live_grep<cr>", opts)

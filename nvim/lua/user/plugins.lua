@@ -74,6 +74,7 @@ return packer.startup(function(use)
   -- Visuals
   use "akinsho/bufferline.nvim"
   use 'kyazdani42/nvim-tree.lua'
+  use 'simrat39/symbols-outline.nvim'
   use 'kyazdani42/nvim-web-devicons'
 
   -- Navigation
