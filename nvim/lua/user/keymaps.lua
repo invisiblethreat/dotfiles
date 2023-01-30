@@ -42,7 +42,7 @@ km("i", "jk", "<ESC>", opts)
 km("n", ";", ":", opts)
 km("n", ";;", ":xa<CR>", opts)
 km("n", ";'", ":qa!<CR>", opts)
-km("n", ";l", ":wa<CR>", opts)
+km("n", ";l", ":w<CR>", opts)
 
 -- Indents
 km("v", "<", "<gv", opts)
