@@ -40,9 +40,9 @@ km("i", "jk", "<ESC>", opts)
 
 -- Quality of life mappings
 km("n", ";", ":", opts)
-km("n", ";;", ":x<CR>", opts)
-km("n", ";'", ":q!<CR>", opts)
-km("n", ";l", ":w<CR>", opts)
+km("n", ";;", ":xa<CR>", opts)
+km("n", ";'", ":qa!<CR>", opts)
+km("n", ";l", ":wa<CR>", opts)
 
 -- Indents
 km("v", "<", "<gv", opts)
