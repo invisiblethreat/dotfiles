@@ -20,11 +20,11 @@ km("n", "<C-j>", "<C-w>j", opts)
 km("n", "<C-k>", "<C-w>k", opts)
 km("n", "<C-l>", "<C-w>l", opts)
 
--- Navigate between buffers more easily
-km("n", "<leader>h", ":bprev<CR>", opts)
-km("n", "<leader>l", ":bnext<CR>", opts)
-km("n", "<leader>x", ":Bdelete<CR>", opts)
--- EXPERIMENT: trial buffer switching
+-- TRIAL: Window switching
+km("n", "<leader>h", "<C-w>h", opts)
+km("n", "<leader>l", "<C-w>l", opts)
+
+-- Buffer switching
 km("n", "H", ":bprev<CR>", opts)
 km("n", "L", ":bnext<CR>", opts)
 km("n", "X", ":Bdelete<CR>", opts)
