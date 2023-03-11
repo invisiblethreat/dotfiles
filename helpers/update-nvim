@@ -1,9 +1,12 @@
 #!/bin/bash
 
 function get-version(){
-  nvim --version|grep "NVIM v" |awk '{print $2}'
+  found=$(which nvim > /dev/null; echo $?)
+  if [ "$found" == "0" ]; then
+    nvim --version|grep "NVIM v" |awk '{print $2}'
+  else
+    echo "not installed"
 }
-
 
 function update-linux(){
   cd ~/bin
@@ -13,7 +16,6 @@ function update-linux(){
 }
 
 function update-darwin(){
-  brew unlink neovim
   brew update && brew install neovim --HEAD
 }
 
@@ -23,8 +25,10 @@ echo -n "Starting update... "
 os=$(uname)
 
 if [ "$os" == "Linux" ]; then
+  echo -n "Updating neovim for $os... "
   update-linux
 elif [[ "$os" == "Darwin" ]]; then
+  echo -n "Updating neovim for $os... "
   update-darwin
 else
   printf "\n Unsupported OS"
@@ -38,6 +42,6 @@ if [ "$old" != "$new" ]; then
   echo "nvim updated from $old to $new"
   echo "You may need to rebuild Treesitter with :TSUpdate"
 else
-  echo "Fresh binary pulled, but version remains at $old"
+  echo "nvim version remains at $old"
 fi
 
