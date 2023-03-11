@@ -15,8 +15,4 @@ if [ "$(uname -m)" != "x86_64" ]; then
   exit
 fi
 
-# get the nightly nvim and put it in the ~/bin
-cd ~/bin
-curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
-chmod u+x nvim.appimage
-ln -nsf nvim.appimage nvim
+$HOME/bin/update-nvim

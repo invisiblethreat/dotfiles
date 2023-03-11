@@ -1,0 +1,34 @@
+#!/bin/bash
+#
+# By my convention, the files linked out of this directory named the same as
+# their corresponding "dotfile", but not prefixed with a "."
+#
+
+PWD=$(pwd)
+
+# zshrc gets linked in config_zsh, after the OMZ install
+FILES="helpers/update-nvim"
+
+# You're in a bad place if this happens
+if [ -z $HOME/bin ]; then
+    printf "\$HOME/bin is not set\n"
+fi
+
+# Bulk unlink if things have gone awry
+if [ "$1" = "unlink" ]; then
+  for i in $FILES
+  do
+    unlink $HOME/bin/$i
+  done
+# Default mode is to link the files
+else
+  for i in $FILES
+  do
+    printf "Linking $PWD/$i to $HOME/bin/$i..."
+    if [ -e $HOME/bin/$i ]; then
+      mv $HOME/bin/$i $HOME/bin/$i-old
+    fi
+    ln -nsf $PWD/$i $HOME/bin/$(basename $i)
+    printf " Done.\n"
+  done
+fi

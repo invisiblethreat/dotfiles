@@ -30,6 +30,7 @@ fi
 ./config_fonts
 ./config_zsh
 ./link_dotfiles
+./helpers/update-nvim
 ./config_nvim
 ./helpers/stub_files
 ./helpers/hushlogin
