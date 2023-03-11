@@ -3,12 +3,34 @@
 function get-version(){
   nvim --version|grep "NVIM v" |awk '{print $2}'
 }
+
+
+function update-linux(){
+  cd ~/bin
+  curl -LOs https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+  chmod u+x nvim.appimage
+  ln -nsf nvim.appimage nvim
+}
+
+function update-darwin(){
+  brew unlink neovim
+  brew update && brew install neovim --HEAD
+}
+
 old=$(get-version)
 echo -n "Starting update... "
-cd ~/bin
-curl -LOs https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
-chmod u+x nvim.appimage
-ln -nsf nvim.appimage nvim
+
+os=$(uname)
+
+if [ "$os" == "Linux" ]; then
+  update-linux
+elif [[ "$os" == "Darwin" ]]; then
+  update-darwin
+else
+  printf "\n Unsupported OS"
+  exit 1
+fi
+
 echo "Done."
 new=$(get-version)
 
