@@ -1,0 +1,21 @@
+#!/bin/bash
+
+function get-version(){
+  nvim --version|grep "NVIM v" |awk '{print $2}'
+}
+old=$(get-version)
+echo -n "Starting update... "
+cd ~/bin
+curl -LOs https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+chmod u+x nvim.appimage
+ln -nsf nvim.appimage nvim
+echo "Done."
+new=$(get-version)
+
+if [ "$old" != "$new" ]; then
+  echo "nvim updated from $old to $new"
+  echo "You may need to rebuild Treesitter with :TSUpdate"
+else
+  echo "Fresh binary pulled, but version remains at $old"
+fi
+
