@@ -6,6 +6,7 @@ function get-version(){
     nvim --version|grep "NVIM v" |awk '{print $2}'
   else
     echo "not installed"
+  fi
 }
 
 function update-linux(){
