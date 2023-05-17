@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo "Current remote: \n$(git remote -v)"
+git remote set-url origin git@github.com:invisiblethreat/dotfiles.git
+echo "New remote: \n$(git remote -v)"
