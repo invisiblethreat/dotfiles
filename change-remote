@@ -1,0 +1,14 @@
+#!/bin/bash
+
+SSH="git@github.com:invisiblethreat/dotfiles.git"
+HTTP="https://github.com/invisiblethreat/dotfiles"
+CHANGE=$SSH
+
+# the '@' is unique to SSH. Use that to determine the current state with 'grep'
+IS_SSH=$(git remote -v | grep '@' > /dev/null; echo $?)
+if [ "$IS_SSH" == "0" ]; then
+  CHANGE=$HTTP
+fi
+printf "Old remote: \n$(git remote -v)\n\n"
+git remote set-url origin $CHANGE
+printf "New remote: \n$(git remote -v)\n"
