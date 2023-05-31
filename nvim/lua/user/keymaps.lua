@@ -1,5 +1,5 @@
 -- Set options
-local opts = { noremap = true, silent = true }
+local opts = {noremap = true, silent = true}
 -- local term_opts = { silent = true }
 
 -- Shorten the call to the API
@@ -54,16 +54,17 @@ km("v", "<A-k>", ":m .-2<CR>==", opts)
 km("v", "p", '"_dP', opts)
 
 -- Quick sourcing
-km("n", "<leader>s", ":source %<CR>:lua print(\"Sourced \" .. vim.fn.expand('%'))<CR>", opts)
+km("n", "<leader>s",
+   ":source %<CR>:lua print(\"Sourced \" .. vim.fn.expand('%'))<CR>", opts)
 
 -- Function keys mapping
-km("n", "<F5>", ":syntax sync from start<CR>", opts)    -- large JSON objects often break highlighitng, use this to try again
+km("n", "<F5>", ":syntax sync from start<CR>", opts) -- large JSON objects often break highlighitng, use this to try again
 km("n", "<F6>", ":UndotreeToggle<CR>", opts)
 km("n", "<F7>", ":set nowrap!<CR>", opts)
-km("n", "<F8>", ":set nu! rnu!<CR>", opts)              -- useful for cut and paste outside of nvim
+km("n", "<F8>", ":set nu! rnu!<CR>", opts) -- useful for cut and paste outside of nvim
 
 -- Formatting
-km("n", "<leader><space>", ":%s/\\s\\+$//e<CR>", opts)  -- kill trailing spaces
+km("n", "<leader><space>", ":%s/\\s\\+$//e<CR>", opts) -- kill trailing spaces
 km("n", "<leader>f", ":Neoformat<CR>", opts)
 
 -- NvimTree
@@ -72,13 +73,13 @@ km("n", "<leader>d", ":NvimTreeToggle<CR>", opts)
 -- Symbols Outline
 km("n", "<leader>o", ":SymbolsOutline<CR>", opts)
 
-
-
 -- Telescope
 km("n", "<leader>ff", "<cmd>Telescope find_files<cr>", opts)
 km("n", "<c-t>", "<cmd>Telescope live_grep<cr>", opts)
 
-
 -- Packer Snapshots
-km("n", "<F9>", ":PackerSnapshot ~/.config/nvim/lua/user/snapshots/packer.json<CR>", opts)
-km("n", "<F10>", ":PackerSnapshotRollback ~/.config/nvim/lus/user/snapshots/packer.json<CR>", opts)
+km("n", "<F9>",
+   ":PackerSnapshot ~/.config/nvim/lua/user/snapshots/packer.json<CR>", opts)
+km("n", "<F10>",
+   ":PackerSnapshotRollback ~/.config/nvim/lus/user/snapshots/packer.json<CR>",
+   opts)
