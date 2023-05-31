@@ -159,17 +159,23 @@ tree.setup({
     view = {adaptive_size = false},
     renderer = {
         full_name = true,
+        highlight_git = true,
+
         group_empty = true,
         special_files = {},
         symlink_destination = false,
         indent_markers = {enable = true},
         icons = {
+            webdev_colors = true,
             git_placement = "signcolumn",
+            modified_placement = "after",
+            symlink_arrow = " ➛ ",
             show = {
                 file = true,
-                folder = false,
-                folder_arrow = false,
-                git = true
+                folder = true,
+                folder_arrow = true,
+                git = true,
+                modified = true,
             }
         }
     },
