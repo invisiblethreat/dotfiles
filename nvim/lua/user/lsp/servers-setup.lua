@@ -72,8 +72,7 @@ if not null_ls_ok then return end
 local sources = {
     -- python
     null_ls.builtins.formatting.isort, null_ls.builtins.formatting.autopep8,
-    null_ls.builtins.formatting.lua_format,
-    null_ls.builtins.formatting.markdownlint
+    null_ls.builtins.formatting.lua_format, null_ls.builtins.formatting.markdownlint
 }
 
 null_ls.setup({sources = sources})

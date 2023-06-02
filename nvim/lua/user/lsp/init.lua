@@ -4,7 +4,7 @@ if not status_ok then return end
 require("mason").setup {ui = {icons = {package_installed = "✓"}}}
 
 require("mason-lspconfig").setup {
-    ensure_installed = {"lua_ls", "ruff_lsp", "pyright", "luacheck", "pylint","markdownlint", "ruff", "luaformatter"}
+    ensure_installed = {"lua_ls", "ruff_lsp", "pyright"}
     
 
 
