@@ -64,6 +64,7 @@ return packer.startup(function(use)
     use "williamboman/mason.nvim" -- simple to use language server installer
     use "williamboman/mason-lspconfig.nvim" -- simple to use language server installer
     use 'hrsh7th/cmp-nvim-lsp-signature-help'
+    use 'jose-elias-alvarez/null-ls.nvim'
 
     -- Git
     use 'tpope/vim-fugitive'
