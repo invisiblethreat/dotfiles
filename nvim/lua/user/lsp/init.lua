@@ -4,12 +4,26 @@ if not status_ok then return end
 require("mason").setup {ui = {icons = {package_installed = "✓"}}}
 
 require("mason-lspconfig").setup {
-    ensure_installed = {"lua_ls", "ruff_lsp", "pyright"}
+    ensure_installed = {"lua_ls", "ruff_lsp", "pyright", "luacheck", "pylint","markdownlint", "ruff", "luaformatter"}
+    
+
+
+
+
+
 }
+-- ✓ jq
+ -- 13                                      ✓ lua-language-server lua_ls
+ -- 14 async def worker(wid, queue):        ✓ luacheck
+ -- 15     while True:                      ✓ luaformatter
+ -- 16         target = await queue.get(    ✓ markdownlint
+ -- 17         log.info(f"{wid} checking    ✓ pylint
+ -- 18         async with httpx.AsyncCli    ✓ pyright
+ -- 19             try:                     ✓ ruff
+ -- 20                 r = await client.    ✓ ruff-lsp ruff_lsp
 
 require("user.lsp.handlers").setup()
 
-require'cmp'.setup {sources = {{name = 'nvim_lsp_signature_help'}}}
 
 local opts = {noremap = true, silent = true}
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
