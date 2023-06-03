@@ -17,7 +17,7 @@ o.incsearch = true
 o.list = true
 o.listchars = {
     trail = "",
-    tab = " ", -- tab requires at least two characters. :help listchars, as the error message is useless
+    tab = " 󰌒", -- tab requires at least two characters. :help listchars, as the error message is useless
     precedes = "",
     extends = ""
 }
