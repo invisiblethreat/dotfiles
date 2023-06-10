@@ -2,7 +2,7 @@ local configs = require("nvim-treesitter.configs")
 configs.setup {
     -- List of supported languages is at https://github.com/nvim-treesitter/nvim-treesitter#supported-languages
     ensure_installed = {
-        "python", "c", "ruby", "bash", "go", "dockerfile", "json", "lua",
+        "python", "c", "bash", "go", "dockerfile", "json", "lua",
         "markdown", "sql", "yaml"
     },
     sync_install = false,

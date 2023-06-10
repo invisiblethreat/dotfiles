@@ -150,7 +150,6 @@ local function on_attach(bufnr)
                    opts('Close Directory'))
     vim.keymap.set('n', '"', api.tree.collapse_all, opts('Collapse'))
     vim.keymap.set('n', '?', api.tree.toggle_help, opts('Help'))
-
 end
 
 tree.setup({
@@ -175,7 +174,7 @@ tree.setup({
                 folder = true,
                 folder_arrow = true,
                 git = true,
-                modified = true,
+                modified = true
             }
         }
     },
@@ -205,4 +204,3 @@ tree.setup({
         }
     }
 })
-

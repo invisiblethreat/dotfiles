@@ -19,31 +19,31 @@ end
 
 --   פּ ﯟ   some other good icons
 local kind_icons = {
-    Text = "",
+    Text = "󰊄",
     Method = "m",
-    Function = "",
+    Function = "󰊕",
     Constructor = "",
     Field = "",
-    Variable = "",
-    Class = "",
+    Variable = "󰫧",
+    Class = "",
     Interface = "",
     Module = "",
     Property = "",
     Unit = "",
-    Value = "",
+    Value = "󱃼",
     Enum = "",
     Keyword = "",
     Snippet = "",
-    Color = "",
-    File = "",
+    Color = "󰉦",
+    File = "",
     Reference = "",
-    Folder = "",
+    Folder = "",
     EnumMember = "",
     Constant = "",
     Struct = "",
     Event = "",
-    Operator = "",
-    TypeParameter = ""
+    Operator = "",
+    TypeParameter = ""
 }
 -- find more here: https://www.nerdfonts.com/cheat-sheet
 
@@ -112,7 +112,8 @@ cmp.setup {
         end
     },
     sources = {
-        {name = "nvim_lsp"}, {name = "luasnip"}, {name = "path"},
+        {name = 'nvim_lsp_signature_help'}, {name = "nvim_lsp"},
+        {name = "luasnip"}, {name = "path"},
         {name = "buffer", keyword_length = 5}
     },
     confirm_opts = {behavior = cmp.ConfirmBehavior.Replace, select = false},

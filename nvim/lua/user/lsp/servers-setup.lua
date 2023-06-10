@@ -46,16 +46,19 @@ require('lspconfig').ruff_lsp.setup {
 
 require('lspconfig').gopls.setup {
     capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol
-                                                                    .make_client_capabilities())
+                                                                    .make_client_capabilities()),
+    on_attach = on_attach
 }
 require('lspconfig').pyright.setup {
     capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol
-                                                                    .make_client_capabilities())
+                                                                    .make_client_capabilities()),
+    on_attach = on_attach
 }
 
 require('lspconfig').lua_ls.setup {
     capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol
                                                                     .make_client_capabilities()),
+    on_attach = on_attach,
     settings = {
         Lua = {
             diagnostics = {
@@ -65,3 +68,14 @@ require('lspconfig').lua_ls.setup {
         }
     }
 }
+
+local null_ls_ok, null_ls = pcall(require, "null-ls")
+if not null_ls_ok then return end
+
+local sources = {
+    null_ls.builtins.formatting.isort, null_ls.builtins.formatting.autopep8,
+    null_ls.builtins.formatting.lua_format,
+    null_ls.builtins.formatting.markdownlint
+}
+
+null_ls.setup({sources = sources, debug = true})

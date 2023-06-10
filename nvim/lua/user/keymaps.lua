@@ -65,7 +65,7 @@ km("n", "<F8>", ":set nu! rnu!<CR>", opts) -- useful for cut and paste outside o
 
 -- Formatting
 km("n", "<leader><space>", ":%s/\\s\\+$//e<CR>", opts) -- kill trailing spaces
-km("n", "<leader>f", ":Neoformat<CR>", opts)
+-- km("n", "<leader>f", ":Neoformat<CR>", opts)
 
 -- NvimTree
 km("n", "<leader>d", ":NvimTreeToggle<CR>", opts)
