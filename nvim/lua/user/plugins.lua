@@ -94,7 +94,6 @@ return packer.startup(function(use)
 
     -- Themes
     use 'tanvirtin/monokai.nvim'
-    use 'phanviet/vim-monokai-pro'
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

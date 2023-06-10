@@ -31,8 +31,8 @@ local opts = {
     lsp_blacklist = {},
     symbol_blacklist = {},
     symbols = {
-        File = {icon = "", hl = "@text.uri"},
-        Module = {icon = "", hl = "@namespace"},
+        File = {icon = "", hl = "@text.uri"},
+        Module = {icon = "󰕳", hl = "@namespace"},
         Namespace = {icon = "", hl = "@namespace"},
         Package = {icon = "", hl = "@namespace"},
         Class = {icon = "𝓒", hl = "@type"},
@@ -42,8 +42,8 @@ local opts = {
         Constructor = {icon = "", hl = "@constructor"},
         Enum = {icon = "ℰ", hl = "@type"},
         Interface = {icon = "ﰮ", hl = "@type"},
-        Function = {icon = "", hl = "@function"},
-        Variable = {icon = "", hl = "@constant"},
+        Function = {icon = "ƒ", hl = "@function"},
+        Variable = {icon = "󰫧", hl = "@constant"},
         Constant = {icon = "", hl = "@constant"},
         String = {icon = "𝓐", hl = "@string"},
         Number = {icon = "#", hl = "@number"},
@@ -57,7 +57,7 @@ local opts = {
         Event = {icon = "", hl = "@type"},
         Operator = {icon = "+", hl = "@operator"},
         TypeParameter = {icon = "𝙏", hl = "@parameter"},
-        Component = {icon = "", hl = "@function"},
+        Component = {icon = "󱨸", hl = "@function"},
         Fragment = {icon = "", hl = "@constant"}
     }
 }
