@@ -1,6 +1,5 @@
 -- :help options
 local o = vim.opt
-
 o.guicursor = "" -- fat cursor
 o.cmdheight = 1
 o.colorcolumn = "81,120"
@@ -17,7 +16,7 @@ o.incsearch = true
 o.list = true
 o.listchars = {
     trail = "",
-    tab = " 󰌒", -- tab requires at least two characters. :help listchars, as the error message is useless
+    tab = "", 
     precedes = "",
     extends = ""
 }

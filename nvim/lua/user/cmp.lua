@@ -17,7 +17,6 @@ local check_backspace = function()
     return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
 end
 
---   פּ ﯟ   some other good icons
 local kind_icons = {
     Text = "󰊄",
     Method = "m",
@@ -68,8 +67,27 @@ cmp.setup {
             c = cmp.mapping.close()
         },
         -- Accept currently selected item. If none selected, `select` first item.
+
         -- Set `select` to `false` to only confirm explicitly selected items.
-        ["<CR>"] = cmp.mapping.confirm {select = true},
+        -- ["<CR>"] = cmp.mapping.confirm {select = true},
+        ["<CR>"] = cmp.mapping({
+            i = function(fallback)
+                if cmp.visible() and cmp.get_active_entry() then
+                    cmp.confirm({
+                        behavior = cmp.ConfirmBehavior.Replace,
+                        select = false
+                    })
+                else
+                    fallback()
+                end
+            end,
+            s = cmp.mapping.confirm({select = true}),
+            c = cmp.mapping.confirm({
+                behavior = cmp.ConfirmBehavior.Replace,
+                select = true
+            })
+        }),
+
         ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_next_item()
@@ -114,7 +132,7 @@ cmp.setup {
     sources = {
         {name = 'nvim_lsp_signature_help'}, {name = "nvim_lsp"},
         {name = "luasnip"}, {name = "path"},
-        {name = "buffer", keyword_length = 5}
+        {name = "buffer", keyword_length = 4}
     },
     confirm_opts = {behavior = cmp.ConfirmBehavior.Replace, select = false},
     experimental = {ghost_text = false, native_menu = false}

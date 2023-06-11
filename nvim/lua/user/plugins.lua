@@ -32,8 +32,10 @@ local plugins = {
   'rmagatti/goto-preview',
 
   -- Snippets
-  'L3MON4D3/LuaSnip',
-  'rafamadriz/friendly-snippets',
+  {
+    "L3MON4D3/LuaSnip",
+    dependencies = { "rafamadriz/friendly-snippets" },
+  },
 
   -- LSP
   'neovim/nvim-lspconfig',

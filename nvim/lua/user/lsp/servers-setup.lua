@@ -24,40 +24,44 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
     vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-    vim.keymap.set('n', '<space>f',
-                   function() vim.lsp.buf.format {async = true} end, bufopts)
+    vim.keymap.set('n', '<space>f', function()
+        vim.notify("Formatting")
+        vim.lsp.buf.format {async = true};
+    end, bufopts)
 end
 
+local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp
+                                                                      .protocol
+                                                                      .make_client_capabilities())
 -- Configure `ruff-lsp`.
 -- See: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#ruff_lsp
 -- For the default config, along with instructions on how to customize the settings
 require('lspconfig').ruff_lsp.setup {
-    capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol
-                                                                    .make_client_capabilities()),
+    capabilities = capabilities,
     on_attach = on_attach,
     init_options = {
         settings = {
-            -- Any extra CLI arguments for `ruff` go here.
-            -- args = {'--fix'},
             args = {}
         }
     }
 }
 
 require('lspconfig').gopls.setup {
-    capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol
-                                                                    .make_client_capabilities()),
+    capabilities = capabilities,
     on_attach = on_attach
 }
 require('lspconfig').pyright.setup {
-    capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol
-                                                                    .make_client_capabilities()),
+    capabilities = capabilities,
+    on_attach = on_attach
+}
+
+require('lspconfig').jsonls.setup {
+    capabilities = capabilities,
     on_attach = on_attach
 }
 
 require('lspconfig').lua_ls.setup {
-    capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol
-                                                                    .make_client_capabilities()),
+    capabilities = capabilities,
     on_attach = on_attach,
     settings = {
         Lua = {
@@ -75,7 +79,7 @@ if not null_ls_ok then return end
 local sources = {
     null_ls.builtins.formatting.isort, null_ls.builtins.formatting.autopep8,
     null_ls.builtins.formatting.lua_format,
-    null_ls.builtins.formatting.markdownlint
+    null_ls.builtins.formatting.markdownlint, null_ls.builtins.formatting.jq
 }
 
 null_ls.setup({sources = sources, debug = true})
