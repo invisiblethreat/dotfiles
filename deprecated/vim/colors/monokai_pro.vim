@@ -1,1 +1,0 @@
-/Users/walsh/.vim/pack/autoload/start/vim-monokai-pro/colors/monokai_pro.vim

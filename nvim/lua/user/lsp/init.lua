@@ -1,7 +1,10 @@
 local status_ok, _ = pcall(require, "lspconfig")
 if not status_ok then return end
 
-require("mason").setup {ui = {icons = {package_installed = "✓"}}}
+require("mason").setup {
+    PATH = "prepend",
+    ui = {icons = {package_installed = "✓"}}
+}
 require("mason-lspconfig").setup {
     ensure_installed = {"lua_ls", "ruff_lsp", "pyright"}
 }

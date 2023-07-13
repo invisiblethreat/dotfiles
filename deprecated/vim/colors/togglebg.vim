@@ -1,1 +1,0 @@
-/Users/walsh/.vim/themes/vim-colors-solarized/autoload/togglebg.vim

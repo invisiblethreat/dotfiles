@@ -43,3 +43,7 @@ Thumbs.db
 .vscode*
 .idea*
 .devcontainer*
+
+# pre-commit configs on shared projects
+####################
+.pre-commit-config.yaml
