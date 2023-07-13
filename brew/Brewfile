@@ -33,7 +33,6 @@ brew "neovim", args: ["HEAD"]
 brew "nmap"
 brew "perl"
 brew "pyenv"
-brew "r", link: false
 brew "ripgrep"
 brew "tcptraceroute"
 brew "telnet"
@@ -56,5 +55,4 @@ cask "spotify"
 cask "tunnelblick"
 cask "visual-studio-code"
 cask "wireshark"
-mas "1Password 7", id: 1333542190
 mas "WireGuard", id: 1451685025
