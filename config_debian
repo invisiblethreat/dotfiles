@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PACKAGES="aptitude apt-file apt-transport-https bind9-host colordiff curl jq tree tmux htop zsh git strace zsh-syntax-highlighting"
+PACKAGES="aptitude apt-file apt-transport-https bind9-host colordiff curl jq tree tmux htop zsh git strace zsh-syntax-highlighting python3-pip python3-venv"
 
 apt-get update
 apt-get install -y $PACKAGES
