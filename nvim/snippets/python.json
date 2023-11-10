@@ -8,5 +8,11 @@
       "prefix": "flj",
       "body": "import sys\nfrom fileloader import load_jsonl\n\nrecs = load_jsonl(sys.argv[1])\n",
       "description": "Configure coloredlogs"
-    }
+    },
+  "argv": {
+      "prefix": "argv",
+      "body": "sys.argv[1]\n",
+      "description": "sys.argv[1]"
+  }
+
 }

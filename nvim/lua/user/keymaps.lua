@@ -4,6 +4,7 @@ local opts = {noremap = true, silent = true}
 
 -- Shorten the call to the API
 local km = vim.api.nvim_set_keymap
+local kms = vim.keymap.set
 
 -- Remap the leader
 km("", "<Space>", "<Nop>", opts)
@@ -77,9 +78,14 @@ km("n", "<leader>o", ":SymbolsOutline<CR>", opts)
 km("n", "<leader>ff", "<cmd>Telescope find_files<cr>", opts)
 km("n", "<c-t>", "<cmd>Telescope live_grep<cr>", opts)
 
--- Packer Snapshots
-km("n", "<F9>",
-   ":PackerSnapshot ~/.config/nvim/lua/user/snapshots/packer.json<CR>", opts)
-km("n", "<F10>",
-   ":PackerSnapshotRollback ~/.config/nvim/lus/user/snapshots/packer.json<CR>",
-   opts)
+-- LuaSnip
+local ls = require("luasnip")
+kms({"i"}, "<C-K>", function() ls.expand() end, {silent = true})
+kms({"i", "s"}, "<C-L>", function() ls.jump( 1) end, {silent = true})
+kms({"i", "s"}, "<C-J>", function() ls.jump(-1) end, {silent = true})
+
+kms({"i", "s"}, "<C-E>", function()
+	if ls.choice_active() then
+		ls.change_choice(1)
+	end
+end, {silent = true})

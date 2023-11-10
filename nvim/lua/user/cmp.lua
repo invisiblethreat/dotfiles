@@ -11,11 +11,11 @@ if not snip_status_ok then
 end
 
 require("luasnip/loaders/from_vscode").lazy_load()
+
 local my_snips = {
     paths = "~/.config/nvim/snippets/"
 }
 require("luasnip.loaders.from_vscode").load(my_snips)
--- require("luasnip.loaders.from_vscode").lazy_load({ paths = { "$HOME/.config/nvim/snippets/" } })
 
 local check_backspace = function()
     local col = vim.fn.col "." - 1
