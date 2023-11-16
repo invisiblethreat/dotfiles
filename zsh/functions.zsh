@@ -20,21 +20,46 @@ function title() {
     echo -ne "\033]0;"$*"\007"
 }
 
-function make_venv() {
-  python3 -m venv venv-$1
-}
 
 function venv() {
+  NAME="venv-$(basename $(pwd))"
+
+  # deavtivate before deleting
+  if [[ "$1" == "rm" && -d  $NAME  && ! -z $VIRTUAL_ENV_PROMPT ]]; then
+    echo "Deactivating $VIRTUAL_ENV_PROMPT before deleting"
+    deactivate
+  fi
+
+  # delete
+  if [[ "$1" == "rm" && -d  $NAME  && -z $VIRTUAL_ENV_PROMPT ]]; then
+    echo "Deleting $NAME"
+    rm -rf $NAME
+    return
+  fi
+
+  # if we're in a venv, deativate it
   if [ ! -z $VIRTUAL_ENV_PROMPT ]; then
     echo "Deactivating $VIRTUAL_ENV_PROMPT"
     deactivate
   else
-    NAME="venv-$(basename $(pwd))"
+    # if a venv exists enter it
     if [ -d $NAME ]; then
       echo "Entering venv: ($NAME)"
       source $NAME/bin/activate
     else
-      make_venv $(basename $(pwd))
+      # make a venv and enter it if it doesn't exist
+      echo "Making venv ($NAME)"
+      python3 -m venv $1
+      echo "Entering venv: ($NAME)"
+      source $NAME/bin/activate
+
+      # if requiements.txt exists install the packages listed
+      if [ -f "requirements.txt" ]; then
+        echo "Upgrading pip"
+        pip3 install --upgrade pip
+        echo "Installing packages from requirements.txt into ($NAME)"
+        pip3 install -r requirements.txt
+      fi
     fi
   fi
 
