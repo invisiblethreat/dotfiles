@@ -25,3 +25,4 @@ export PATH="$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 
 export PATH="$PATH:$HOME/.rvm/bin"
+

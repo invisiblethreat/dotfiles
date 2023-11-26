@@ -49,7 +49,7 @@ function venv() {
     else
       # make a venv and enter it if it doesn't exist
       echo "Making venv ($NAME)"
-      python3 -m venv $1
+      python3 -m venv $NAME
       echo "Entering venv: ($NAME)"
       source $NAME/bin/activate
 

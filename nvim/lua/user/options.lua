@@ -16,7 +16,7 @@ o.incsearch = true
 o.list = true
 o.listchars = {
     trail = "",
-    tab = "", 
+    tab = "",
     precedes = "",
     extends = ""
 }
@@ -33,4 +33,3 @@ o.termguicolors = true
 o.title = true
 o.undofile = true
 o.undolevels = 1000
-

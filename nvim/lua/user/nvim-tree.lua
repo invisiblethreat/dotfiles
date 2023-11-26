@@ -157,20 +157,20 @@ tree.setup({
     sync_root_with_cwd = true,
     view = {
         adaptive_size = false,
-        float = {
-            enable = true,
-            quit_on_focus_loss = false,
-            open_win_config = function()
-                return {
-                    row = 3,
-                    width = 30,
-                    border = "rounded",
-                    relative = "editor",
-                    col = vim.o.columns - 9,
-                    height = vim.o.lines - 10
-                }
-            end
-        }
+        -- float = {
+        --     enable = true,
+        --     quit_on_focus_loss = false,
+        --     open_win_config = function()
+        --         return {
+        --             row = 3,
+        --             width = 30,
+        --             border = "rounded",
+        --             relative = "editor",
+        --             col = vim.o.columns - 9,
+        --             height = vim.o.lines - 10
+        --         }
+        --     end
+        -- }
     },
     renderer = {
         full_name = true,
@@ -202,7 +202,8 @@ tree.setup({
     diagnostics = {enable = true, show_on_dirs = true},
     filters = {custom = {"^.git$"}},
     actions = {
-        change_dir = {enable = false, restrict_above_cwd = false},
+        -- change_dir = {enable = false, restrict_above_cwd = false},
+        change_dir = {enable = true, restrict_above_cwd = false},
         open_file = {resize_window = true, window_picker = {chars = "aoeui"}},
         remove_file = {close_window = false}
     },
