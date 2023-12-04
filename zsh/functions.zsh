@@ -52,11 +52,12 @@ function venv() {
       python3 -m venv $NAME
       echo "Entering venv: ($NAME)"
       source $NAME/bin/activate
+      echo "Upgrading pip"
+      pip3 install --upgrade pip
+
 
       # if requiements.txt exists install the packages listed
       if [ -f "requirements.txt" ]; then
-        echo "Upgrading pip"
-        pip3 install --upgrade pip
         echo "Installing packages from requirements.txt into ($NAME)"
         pip3 install -r requirements.txt
       fi
