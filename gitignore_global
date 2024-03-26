@@ -47,3 +47,6 @@ Thumbs.db
 # pre-commit configs on shared projects
 ####################
 .pre-commit-config.yaml
+
+# Make it really hard to add .env
+.env

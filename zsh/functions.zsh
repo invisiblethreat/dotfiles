@@ -50,6 +50,8 @@ function venv() {
       # make a venv and enter it if it doesn't exist
       echo "Making venv ($NAME)"
       python3 -m venv $NAME
+      echo "Adding .gitignore to ($NAME)"
+      echo '*' >$NAME/.gitignore
       echo "Entering venv: ($NAME)"
       source $NAME/bin/activate
       echo "Upgrading pip"

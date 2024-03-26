@@ -77,9 +77,12 @@ local null_ls_ok, null_ls = pcall(require, "null-ls")
 if not null_ls_ok then return end
 
 local sources = {
-    null_ls.builtins.formatting.isort, null_ls.builtins.formatting.autopep8,
+    null_ls.builtins.formatting.isort,
+    -- null_ls.builtins.formatting.autopep8,
+    null_ls.builtins.formatting.black,
     null_ls.builtins.formatting.lua_format,
-    null_ls.builtins.formatting.markdownlint, null_ls.builtins.formatting.jq
+    null_ls.builtins.formatting.markdownlint,
+    null_ls.builtins.formatting.jq
 }
 
 null_ls.setup({sources = sources, debug = true})

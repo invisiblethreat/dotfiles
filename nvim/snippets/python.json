@@ -1,13 +1,14 @@
 {
   "clog": {
       "prefix": "clog",
-      "body": "import logging\n\nimport coloredlogs\n\ncoloredlogs.install(level='DEBUG')\nlogging.basicConfig()\nlog = logging.getLogger('${1:main}')\nlog.setLevel(level=logging.INFO)",
+      "body": "import logging\n\ntry:\n    import coloredlogs\n    coloredlogs.install(level='DEBUG')\nexcept ImportError:\n    pass\n\nlogging.basicConfig()\nlog = logging.getLogger('${1:main}')\nlog.setLevel(level=logging.DEBUG)",
+
       "description": "Configure coloredlogs"
     },
   "fl": {
       "prefix": "flj",
       "body": "import sys\nfrom fileloader import load_jsonl\n\nrecs = load_jsonl(sys.argv[1])\n",
-      "description": "Configure coloredlogs"
+      "description": "fileloader for jsonl"
     },
   "argv": {
       "prefix": "argv",
@@ -16,3 +17,4 @@
   }
 
 }
+

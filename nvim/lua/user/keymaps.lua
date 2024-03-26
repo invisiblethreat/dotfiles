@@ -76,7 +76,8 @@ km("n", "<leader>o", ":SymbolsOutline<CR>", opts)
 
 -- Telescope
 km("n", "<leader>ff", "<cmd>Telescope find_files<cr>", opts)
-km("n", "<c-t>", "<cmd>Telescope live_grep<cr>", opts)
+-- km("n", "<c-t>", "<cmd>Telescope live_grep<cr>", opts)
+km("n", "<leader>g", "<cmd>Telescope live_grep<cr>", opts)
 
 -- LuaSnip
 local ls = require("luasnip")
