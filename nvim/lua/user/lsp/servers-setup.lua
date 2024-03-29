@@ -39,11 +39,7 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp
 require('lspconfig').ruff_lsp.setup {
     capabilities = capabilities,
     on_attach = on_attach,
-    init_options = {
-        settings = {
-            args = {}
-        }
-    }
+    init_options = {settings = {args = {}}}
 }
 
 require('lspconfig').gopls.setup {
@@ -77,12 +73,10 @@ local null_ls_ok, null_ls = pcall(require, "null-ls")
 if not null_ls_ok then return end
 
 local sources = {
-    null_ls.builtins.formatting.isort,
-    -- null_ls.builtins.formatting.autopep8,
-    null_ls.builtins.formatting.black,
+    null_ls.builtins.formatting.isort, null_ls.builtins.formatting.black,
     null_ls.builtins.formatting.lua_format,
-    null_ls.builtins.formatting.markdownlint,
-    null_ls.builtins.formatting.jq
+    null_ls.builtins.formatting.markdownlint, null_ls.builtins.formatting.jq,
+    null_ls.builtins.formatting.beautysh, null_ls.builtins.formatting.nixfmt,
+    null_ls.builtins.formatting.prettier.with({extra_filetypes = {"toml"}})
 }
-
-null_ls.setup({sources = sources, debug = true})
+null_ls.setup({sources = sources, debug = true, on_attach = on_attach})
