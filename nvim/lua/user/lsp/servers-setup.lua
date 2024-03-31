@@ -77,6 +77,7 @@ local sources = {
     null_ls.builtins.formatting.lua_format,
     null_ls.builtins.formatting.markdownlint, null_ls.builtins.formatting.jq,
     null_ls.builtins.formatting.beautysh, null_ls.builtins.formatting.nixfmt,
+    null_ls.builtins.diagnostics.ansiblelint,
     null_ls.builtins.formatting.prettier.with({extra_filetypes = {"toml"}})
 }
 null_ls.setup({sources = sources, debug = true, on_attach = on_attach})
