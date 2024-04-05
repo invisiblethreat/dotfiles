@@ -1,0 +1,12 @@
+#!/bin/bash
+# Required parameters:
+# @raycast.schemaVersion 1
+# @raycast.title Get External IP Address
+# @raycast.mode inline
+# @raycast.icon 🌐
+# @raycast.packageName
+#
+addr=$(curl -s ifconfig.co/)
+
+echo $addr | tr -d '\n' | pbcopy
+echo "$addr (copied to clipboard)"
