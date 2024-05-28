@@ -33,3 +33,4 @@ o.termguicolors = true
 o.title = true
 o.undofile = true
 o.undolevels = 1000
+o.modeline = true
