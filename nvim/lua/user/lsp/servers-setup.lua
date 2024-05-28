@@ -33,6 +33,28 @@ end
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp
                                                                       .protocol
                                                                       .make_client_capabilities())
+-- Configure `ruff-lsp`.
+-- See: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#ruff_lsp
+-- For the default config, along with instructions on how to customize the settings
+require('lspconfig').ruff_lsp.setup {
+    capabilities = capabilities,
+    on_attach = on_attach,
+    init_options = {settings = {args = {}}}
+}
+-- require"lspconfig".pylsp.setup {
+--     on_attach = on_attach,
+--     settings = {
+--         pylsp = {
+--             plugins = {
+--                 flake8 = {enabled = false, maxLineLength = 119},
+--                 mypy = {enabled = true},
+--                 pycodestyle = {enabled = false},
+--                 pyflakes = {enabled = false}
+--             }
+--         }
+--     }
+-- }
+
 require('lspconfig').gopls.setup {
     capabilities = capabilities,
     on_attach = on_attach
@@ -53,6 +75,7 @@ require('lspconfig').lua_ls.setup {
     settings = {
         Lua = {
             diagnostics = {
+                -- Get the language server to recognize the `vim` global
                 globals = {'vim'}
             }
         }
