@@ -18,7 +18,7 @@ configs.setup {
 
 -- Define a custom highlight group for Python comments
 -- https://neovim.io/doc/user/api.html#nvim_set_hl()
-vim.api.nvim_set_hl(0, 'CustomPythonComment', {fg = '#fc9526', sp= '#ffffff', italic = true})
+vim.api.nvim_set_hl(0, 'CustomPythonComment', {fg = '#3399ff', italic = true})
 
 -- Link the Tree-sitter comment group to the custom group
 vim.api.nvim_set_hl(0, '@comment.python', {link = 'CustomPythonComment'})
