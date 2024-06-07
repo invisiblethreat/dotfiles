@@ -33,6 +33,7 @@ end
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp
     .protocol
     .make_client_capabilities())
+--
 -- Configure `ruff-lsp`.
 -- See: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#ruff_lsp
 -- For the default config, along with instructions on how to customize the settings
@@ -69,10 +70,13 @@ require('lspconfig').lua_ls.setup {
     }
 }
 
+
+-- this is none-ls, which is a community maintained version of null-ls
 local null_ls_ok, null_ls = pcall(require, "null-ls")
 if not null_ls_ok then return end
 
 local sources = {
+    null_ls.builtins.formatting.biome,
     null_ls.builtins.formatting.isort,
     null_ls.builtins.formatting.black,
     null_ls.builtins.formatting.markdownlint,

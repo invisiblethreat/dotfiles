@@ -71,8 +71,8 @@ km("n", "<leader><space>", ":%s/\\s\\+$//e<CR>", opts) -- kill trailing spaces
 -- NvimTree
 km("n", "<leader>d", ":NvimTreeToggle<CR>", opts)
 
--- Symbols Outline
-km("n", "<leader>o", ":SymbolsOutline<CR>", opts)
+--  Outline
+km("n", "<leader>o", ":Outline<CR>", opts)
 
 -- Telescope
 km("n", "<leader>ff", "<cmd>Telescope find_files<cr>", opts)
