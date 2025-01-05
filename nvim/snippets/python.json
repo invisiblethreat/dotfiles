@@ -1,7 +1,7 @@
 {
   "clog": {
       "prefix": "clog",
-      "body": "import logging\n\ntry:\n    import coloredlogs\n    coloredlogs.install(level='DEBUG')\nexcept ImportError:\n    pass\n\nlogging.basicConfig()\nlog = logging.getLogger('${1:main}')\nlog.setLevel(level=logging.DEBUG)",
+      "body": "import logging\nimport sys\n\ntry:\n    if sys.stdin.isatty():\n        import coloredlogs\n        coloredlogs.install(level='DEBUG')\nexcept ImportError:\n    pass\n\nlogging.basicConfig()\nlog = logging.getLogger('${1:main}')\nlog.setLevel(level=logging.DEBUG)",
 
       "description": "Configure coloredlogs"
     },
@@ -13,6 +13,12 @@
   "argv": {
       "prefix": "argv",
       "body": "sys.argv[1]\n",
+      "description": "sys.argv[1]"
+  },
+
+  "rel": {
+      "prefix": "rel",
+      "body": "src=Node(name=, type=Nodes.)\nsrc_props=src.props()\nsrc_source=Source(name=Sources., node_id=src.get_id(), observed_at=datetime.now(),)\ndst=Node(name=, type=Nodes.)\ndst_props=dst.props()\ndst_source=Source(name=Sources., node_id=dst.get_id(), observed_at=datetime.now(),)\nlink=Link(type=Links., src=src.get_id(), dst=dst.get_id())\n\nrelations.append( Relation( src=src, src_props=src_props, src_source=src_source, dst=dst, dst_source=dst_source, dst_props=dst_props, link=link,)",
       "description": "sys.argv[1]"
   }
 

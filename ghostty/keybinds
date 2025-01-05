@@ -1,0 +1,6 @@
+keybind = command+left=previous_tab
+keybind = command+right=next_tab
+keybind = command+s>h=goto_split:previous
+keybind = command+s>l=goto_split:next
+
+# vim: ft=config

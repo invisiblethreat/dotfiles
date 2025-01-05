@@ -1,0 +1,19 @@
+# ghostty +show-config --default
+# ghostty +show-config --default --docs
+
+theme = GruvboxDarkHard
+shell-integration-features = no-cursor
+font-size = 16
+font-thicken = true
+cursor-style = block
+cursor-style-blink = true
+copy-on-select = clipboard
+macos-titlebar-style = "tabs"
+
+background-opacity = 1.0
+background-blur-radius = 20
+
+config-file = keybinds
+# config-file = shaders/config
+
+# vim: ft=config

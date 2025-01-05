@@ -32,6 +32,7 @@ fi
 ./link_dotfiles
 ./helpers/update-nvim
 ./config_nvim
+./config_ghostty
 ./helpers/stub_files
 ./helpers/hushlogin
 

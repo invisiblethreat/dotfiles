@@ -1,0 +1,4 @@
+# Background eye candy
+# https://github.com/m-ahdal/ghostty-shaders/tree/main
+# custom-shader-animation = "always"
+# custom-shader = bloom.glsl

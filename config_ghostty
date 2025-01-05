@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# make the directory if it doesn't exist
+CONFIG="$HOME/.config"
+
+if [ ! -e $CONFIG ]; then
+  mkdir -p $CONFIG
+
+fi
+
+# link the entire directory. Ghostty is a self-contained config
+ln -nsf $PWD/ghostty/ $CONFIG/ghostty
+
