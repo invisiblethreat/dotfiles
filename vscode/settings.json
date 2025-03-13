@@ -1,85 +1,134 @@
-// Place your settings in this file to overwrite the default settings
 {
-    "terminal.external.osxExec": "iTerm.app",
-    "editor.fontFamily": "Hack, Menlo, Monaco, 'Courier New', monospace",
+    "window.commandCenter": true,
+    "workbench.iconTheme": "Monokai Pro (Filter Ristretto) Icons",
     "editor.fontSize": 14,
-    "editor.rulers": [
-        80,
-        120
+    "editor.fontFamily": "'JetBrainsMono Nerd Font', Menlo, Monaco, 'Courier New', monospace",
+    "editor.wordWrap": "on",
+    "vim.leader": "<space>",
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    "vim.enableNeovim": true,
+    "vim.neovimPath": "/opt/homebrew/bin/nvim",
+    "vim.neovimConfigPath": "~/.config/nvim/init.lua",
+    "vim.neovimUseConfigFile": true,
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "j",
+                "k"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        }
     ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                ":",
+                ":"
+            ],
+            "commands": [
+                "workbench.action.closeActiveEditor"
+            ]
+        }
+    ],
+    "workbench.colorCustomizations": {
+        "statusBar.background": "#20a11b",
+        "statusBar.noFolderBackground": "#20a11b",
+        "statusBar.debuggingBackground": "#20a11b",
+        "statusBar.foreground": "#ffffff",
+        "statusBar.debuggingForeground": "#ffffff"
+    },
+    "git.confirmSync": false,
+    "files.saveConflictResolution": "overwriteFileOnDisk",
+    "vim.commandLineModeKeyBindingsNonRecursive": [],
     "editor.formatOnSave": true,
-    "[json]": {
-        "editor.formatOnSave": false
-    },
-    "editor.roundedSelection": true,
-    "editor.minimap.enabled": true,
-    "editor.formatOnPaste": true,
-    "editor.trimAutoWhitespace": true,
-    "editor.dragAndDrop": true,
-    "files.associations": {
-        "Dockerfile-*": "dockerfile",
-        "Dockerfile.*": "dockerfile",
-        "*.nse": "lua"
-    },
-    "files.autoSave": "afterDelay",
-    "files.exclude": {
-        "**/.DS_Store": true,
-        "**/.git": true,
-        "**/.hg": true,
-        "**/.svn": true,
-        "**/CVS": true,
-        "**/vendor": true
-    },
-    "files.trimTrailingWhitespace": true,
-    "extensions.autoUpdate": true,
-    "markdown.preview.markEditorSelection": true,
-    "markdown.preview.doubleClickToSwitchToEditor": true,
-    "markdown.preview.scrollPreviewWithEditor": true,
-    "workbench.colorTheme": "Monokai Pro (Filter Octagon)",
-    "workbench.iconTheme": "Monokai Pro (Filter Octagon) Icons",
-    "search.exclude": {
-        "vendors/*": true
-    },
-    "git.enableSmartCommit": true,
-    "git.autofetch": true,
-    "explorer.confirmDragAndDrop": false,
-    "terminal.integrated.copyOnSelection": true,
-    "breadcrumbs.enabled": true,
-    "explorer.confirmDelete": false,
-    "terminal.integrated.defaultProfile.osx": "zsh",
-    "editor.largeFileOptimizations": false,
-    "go.autocompleteUnimportedPackages": true,
-    "go.useCodeSnippetsOnFunctionSuggest": true,
-    "python.linting.pylintArgs": [
-        "--generate-members"
-    ],
-    "go.languageServerExperimentalFeatures": {
-        "diagnostics": false
-    },
-    "editor.cursorBlinking": "smooth",
+    "python.analysis.autoImportCompletions": true,
     "python.languageServer": "Pylance",
-    "workbench.editorAssociations": {
-        "*.ipynb": "jupyter-notebook"
+    "git.enableSmartCommit": true,
+    "explorer.confirmDragAndDrop": false,
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "editor.definitionLinkOpensInPeek": true,
+    "workbench.settings.applyToAllProfiles": [],
+    "ruff.lint.enable": true,
+    "ruff.configuration": "${workspaceFolder}/pyproject.toml",
+    "ruff.nativeServer": "on",
+    "vim.smartRelativeLine": true,
+    "vim.surround": false,
+    "vim.cursorStylePerMode.insert": "block",
+    "vim.cursorStylePerMode.normal": "block",
+    "vim.showcmd": false,
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
     },
-    "go.toolsManagement.autoUpdate": true,
-    "window.zoomLevel": 1,
-    "json.schemas": [],
-    "terminal.integrated.tabs.enabled": true,
-    "workbench.startupEditor": "newUntitledFile",
-    "notebook.cellToolbarLocation": {
-        "default": "right",
-        "jupyter-notebook": "left"
-    },
-    "auto-build.defaultEnv.name": "STM32F103RC_btt_USB",
-    "python.experiments.enabled": false,
-    "python.analysis.completeFunctionParens": true,
-    "python.formatting.autopep8Args": [
-        "--ignore",
-        "E402"
+    "vim.statusBarColors.normal": [
+        "#4287f5",
+        "#ffffff"
     ],
-    "python.analysis.typeCheckingMode": "basic",
-    "python.linting.pylintEnabled": true,
-    "python.linting.pylintPath": "/Users/walsh/Library/Python/3.9/bin/pylint",
+    "vim.statusBarColors.insert": [
+        "#20a11b",
+        "#ffffff"
+    ],
+    "vim.statusBarColorControl": true,
+    "python.experiments.enabled": false,
+    "python.REPL.enableREPLSmartSend": false,
+    "gitlens.currentLine.format": "${author, }${date}${' via  'pullRequest}${ • message|50?}",
+    "isort.check": true,
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit"
+        },
+    },
+    "isort.args": [
+        "--profile",
+        "black"
+    ],
+    "githubPullRequests.queries": [
+        {
+            "label": "Waiting For My Review",
+            "query": "repo:${owner}/${repository} is:open review-requested:${user}"
+        },
+        {
+            "label": "Assigned To Me",
+            "query": "repo:${owner}/${repository} is:open assignee:${user}"
+        },
+        {
+            "label": "Created By Me",
+            "query": "repo:${owner}/${repository} is:open author:${user}"
+        },
+        {
+            "label": "Mentioned Me",
+            "query": "repo:${owner}/${repository} is:open mentions:${user}"
+        }
+    ],
+    "github.gitProtocol": "ssh",
     "jupyter.askForKernelRestart": false,
-    "workbench.enableExperiments": false
+    "editor.minimap.enabled": true,
+    "editor.minimap.autohide": true,
+    "editor.minimap.scale": 2,
+    "launch": {
+        "configurations": [],
+        "compounds": []
+    },
+    "[yaml]": {
+        "diffEditor.ignoreTrimWhitespace": true
+    },
+    "makefile.configureOnOpen": true,
+    "python.createEnvironment.trigger": "off",
+    "terminal.integrated.copyOnSelection": true,
+    "editor.fontVariations": false,
+    "workbench.colorTheme": "Monokai Pro (Filter Ristretto)",
+    "jupyter.widgetScriptSources": [
+        "jsdelivr.com",
+        "unpkg.com"
+    ],
+    "explorer.confirmDelete": false,
+    "githubPullRequests.pushBranch": "always"
 }
