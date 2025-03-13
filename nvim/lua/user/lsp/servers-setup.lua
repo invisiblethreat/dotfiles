@@ -33,15 +33,15 @@ end
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp
     .protocol
     .make_client_capabilities())
---
--- Configure `ruff-lsp`.
+
+-- Configure `rf`.
 -- See: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#ruff_lsp
 -- For the default config, along with instructions on how to customize the settings
--- require('lspconfig').ruff_lsp.setup {
---     capabilities = capabilities,
---     on_attach = on_attach,
---     init_options = { settings = { args = {} } }
--- }
+require('lspconfig').ruff.setup {
+    capabilities = capabilities,
+    on_attach = on_attach,
+    init_options = { settings = { args = {} } }
+}
 
 require('lspconfig').gopls.setup {
     capabilities = capabilities,
@@ -52,10 +52,6 @@ require('lspconfig').pyright.setup {
     on_attach = on_attach
 }
 
--- require('lspconfig').basedpyright.setup {
---     capabilities = capabilities,
---     on_attach = on_attach
--- }
 require('lspconfig').jsonls.setup {
     capabilities = capabilities,
     on_attach = on_attach

@@ -2,19 +2,19 @@
 # ghostty +show-config --default
 # ghostty +show-config --default --docs
 
-theme = GruvboxDarkHard
+theme = MaterialDesignColors
+window-colorspace = display-p3
+cursor-click-to-move = false
+# font-family = Hack
 shell-integration-features = no-cursor
-font-size = 16
-font-thicken = true
+font-size = 18
 cursor-style = block
 cursor-style-blink = true
 copy-on-select = clipboard
-macos-titlebar-style = "tabs"
 
 background-opacity = 1.0
-background-blur-radius = 20
-
 config-file = keybinds
-# config-file = shaders/config
+adjust-cell-width = -10%
+minimum-contrast = 1
 
 # vim: ft=config

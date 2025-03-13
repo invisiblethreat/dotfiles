@@ -6,7 +6,7 @@ require("mason").setup {
     ui = {icons = {package_installed = "✓"}}
 }
 require("mason-lspconfig").setup {
-    ensure_installed = {"lua_ls", "ruff_lsp", "pyright"}
+    ensure_installed = {"lua_ls", "ruff", "pyright"}
 }
 
 require("user.lsp.handlers").setup()
