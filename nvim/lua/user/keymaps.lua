@@ -28,7 +28,7 @@ km("n", "<leader>l", "<C-w>l", opts)
 -- Buffer switching
 km("n", "H", ":bprev<CR>", opts)
 km("n", "L", ":bnext<CR>", opts)
-km("n", "X", ":Bdelete<CR>", opts)
+km("n", "X", ":bdelete<CR>", opts)
 
 -- Resize with arrows ** This conflicts with macOS Expose
 km("n", "<C-Up>", ":resize +2<CR>", opts)
