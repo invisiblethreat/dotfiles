@@ -42,7 +42,8 @@ new=$(get-version)
 
 if [ "$old" != "$new" ]; then
   echo "nvim updated from $old to $new"
-  echo "You may need to rebuild Treesitter with :TSUpdate"
+  echo "Rebuilding Treesitter with :TSUpdate all"
+  nvim --headless +"TSUpdate all" +qa
 else
   echo "nvim version remains at $old"
 fi
