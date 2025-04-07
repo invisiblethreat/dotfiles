@@ -30,6 +30,7 @@ local plugins = {
   'akinsho/toggleterm.nvim',
   'nvim-treesitter/nvim-treesitter',
   'tpope/vim-commentary',
+  "rmagatti/logger.nvim",
   {
     "rmagatti/goto-preview",
     dependencies = { "rmagatti/logger.nvim" },

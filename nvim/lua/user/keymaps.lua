@@ -1,5 +1,5 @@
 -- Set options
-local opts = {noremap = true, silent = true}
+local opts = { noremap = true, silent = true }
 -- local term_opts = { silent = true }
 
 -- Shorten the call to the API
@@ -13,7 +13,6 @@ vim.g.maplocalleader = " "
 
 -- keymap stub
 -- Modes are "n", "i", "v", and probably "e"
--- km("n", "<leader>x", "REPLACE", opts)
 
 -- Navigate between windows more easily
 km("n", "<C-h>", "<C-w>h", opts)
@@ -25,7 +24,7 @@ km("n", "<C-l>", "<C-w>l", opts)
 km("n", "<leader>h", "<C-w>h", opts)
 km("n", "<leader>l", "<C-w>l", opts)
 
--- Buffer switching
+-- Buffer movement and management
 km("n", "H", ":bprev<CR>", opts)
 km("n", "L", ":bnext<CR>", opts)
 km("n", "X", ":bdelete<CR>", opts)
@@ -36,7 +35,7 @@ km("n", "<C-Down>", ":resize -2<CR>", opts)
 km("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 km("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
--- Press jk fast to enter
+-- jk to enter normal mode
 km("i", "jk", "<ESC>", opts)
 
 -- Quality of life mappings
@@ -45,7 +44,7 @@ km("n", ";;", ":xa<CR>", opts)
 km("n", ";'", ":qa!<CR>", opts)
 km("n", ";l", ":w<CR>", opts)
 
--- Indents
+-- Vicual mode indents. Can be used with visual blocks as well
 km("v", "<", "<gv", opts)
 km("v", ">", ">gv", opts)
 
@@ -56,7 +55,7 @@ km("v", "p", '"_dP', opts)
 
 -- Quick sourcing
 km("n", "<leader>s",
-   ":source %<CR>:lua print(\"Sourced \" .. vim.fn.expand('%'))<CR>", opts)
+  ":source %<CR>:lua print(\"Sourced \" .. vim.fn.expand('%'))<CR>", opts)
 
 -- Function keys mapping
 km("n", "<F5>", ":syntax sync from start<CR>", opts) -- large JSON objects often break highlighitng, use this to try again
@@ -66,7 +65,6 @@ km("n", "<F8>", ":set nu! rnu!<CR>", opts) -- useful for cut and paste outside o
 
 -- Formatting
 km("n", "<leader><space>", ":%s/\\s\\+$//e<CR>", opts) -- kill trailing spaces
--- km("n", "<leader>f", ":Neoformat<CR>", opts)
 
 -- NvimTree
 km("n", "<leader>d", ":NvimTreeToggle<CR>", opts)
@@ -78,14 +76,28 @@ km("n", "<leader>o", ":Outline<CR>", opts)
 km("n", "<leader>ff", "<cmd>Telescope find_files<cr>", opts)
 km("n", "<leader>g", "<cmd>Telescope live_grep<cr>", opts)
 
+-- Goto Preview
+km("n", "gpd", "<cmd>lua require('goto-preview').goto_preview_definition()<CR>", opts)
+km("n", "gpt", "<cmd>lua require('goto-preview').goto_preview_type_definition()<CR>", opts)
+km("n", "gpi", "<cmd>lua require('goto-preview').goto_preview_type_implementation()<CR>", opts)
+km("n", "gpr", "<cmd>lua require('goto-preview').goto_preview_references()<CR>", opts)
+km("n", "<leader>r", "<cmd>lua require('goto-preview').goto_preview_references()<CR>", opts)
+km("n", "gx", "<cmd>lua require('goto-preview').close_all_win()<CR>", opts)
+km("n", "<leader>x", "<cmd>lua require('goto-preview').close_all_win()<CR>", opts)
+-- nnoremap gpd <cmd>lua require('goto-preview').goto_preview_definition()<CR>
+-- nnoremap gpt <cmd>lua require('goto-preview').goto_preview_type_definition()<CR>
+-- nnoremap gpi <cmd>lua require('goto-preview').goto_preview_implementation()<CR>
+-- nnoremap gpD <cmd>lua require('goto-preview').goto_preview_declaration()<CR>
+-- nnoremap gP <cmd>lua require('goto-preview').close_all_win()<CR>
+-- nnoremap gpr <cmd>lua require('goto-preview').goto_preview_references()<CR>
 -- LuaSnip
 local ls = require("luasnip")
-kms({"i"}, "<C-K>", function() ls.expand() end, {silent = true})
-kms({"i", "s"}, "<C-L>", function() ls.jump( 1) end, {silent = true})
-kms({"i", "s"}, "<C-J>", function() ls.jump(-1) end, {silent = true})
+kms({ "i" }, "<C-K>", function() ls.expand() end, { silent = true })
+kms({ "i", "s" }, "<C-L>", function() ls.jump(1) end, { silent = true })
+kms({ "i", "s" }, "<C-J>", function() ls.jump(-1) end, { silent = true })
 
-kms({"i", "s"}, "<C-E>", function()
-	if ls.choice_active() then
-		ls.change_choice(1)
-	end
-end, {silent = true})
+kms({ "i", "s" }, "<C-E>", function()
+  if ls.choice_active() then
+    ls.change_choice(1)
+  end
+end, { silent = true })
