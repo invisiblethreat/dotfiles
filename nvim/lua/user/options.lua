@@ -15,10 +15,10 @@ o.hlsearch = true
 o.incsearch = true
 o.list = true
 o.listchars = {
-    trail = "",
-    tab = "",
-    precedes = "",
-    extends = ""
+  trail = "",
+  tab = "",
+  precedes = "",
+  extends = ""
 }
 o.number = true
 o.relativenumber = true
