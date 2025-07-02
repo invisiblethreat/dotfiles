@@ -81,8 +81,8 @@ km("n", "gpd", "<cmd>lua require('goto-preview').goto_preview_definition()<CR>",
 km("n", "gpt", "<cmd>lua require('goto-preview').goto_preview_type_definition()<CR>", opts)
 km("n", "gpi", "<cmd>lua require('goto-preview').goto_preview_type_implementation()<CR>", opts)
 km("n", "gpr", "<cmd>lua require('goto-preview').goto_preview_references()<CR>", opts)
+km("n", "gpx", "<cmd>lua require('goto-preview').close_all_win()<CR>", opts)
 km("n", "<leader>r", "<cmd>lua require('goto-preview').goto_preview_references()<CR>", opts)
-km("n", "gx", "<cmd>lua require('goto-preview').close_all_win()<CR>", opts)
 km("n", "<leader>x", "<cmd>lua require('goto-preview').close_all_win()<CR>", opts)
 -- nnoremap gpd <cmd>lua require('goto-preview').goto_preview_definition()<CR>
 -- nnoremap gpt <cmd>lua require('goto-preview').goto_preview_type_definition()<CR>
