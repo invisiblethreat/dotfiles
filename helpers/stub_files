@@ -5,9 +5,12 @@ if [ ! -e ~/.gitconfig.local ]; then
 [user]
   name = "Scott Walsh"
   email = scott@invisiblethreat.ca
+#[url "git@github.com:"]
+#  insteadOf = https://github.com/
 EOT
 
   echo "~/.gitconfig.local created. Defaulted email to scott@invisiblethreat.ca"
+  echo "~/.gitconfig.local contains SSH entries for GitHub. Uncomment to activate"
 fi
 
 touch ~/.local_profile.zsh
