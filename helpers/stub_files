@@ -16,9 +16,14 @@ fi
 touch ~/.local_profile.zsh
 touch ~/.local_aliases.zsh
 touch ~/.local_exports.zsh
+touch ~/.local_hostname.zsh
 
-# just uncomment this for auto-tmuxing
+# uncomment for auto-tmuxing
 echo "#export TMUX_AUTO=1" >> ~/.local_exports.zsh
 echo "Edit ~/.local_exports.zsh to auto-tmux this host"
+
+# uncomment to override hostname in prompt
+echo "#export OVERRIDE_HOSTNAME=" >> ~/.local_hostname.zsh
+echo "Edit ~/.local_hostname.zsh to override the dynamic hostname"
 
 echo "Local files for zsh created"

@@ -2,14 +2,21 @@
 # Tested on Linux, Unix and Windows under ANSI colors.
 # It is recommended to use with a dark background and the font Inconsolata.
 # Colors: black, red, green, yellow, *blue, magenta, cyan, and white.
-# 
+#
 # http://ysmood.org/wp/2013/03/my-ys-terminal-theme/
 # Mar 2013 ys
 
 # Machine name.
 function box_name {
-    echo $SHORT_HOST
+    if [[ -v OVERRIDE_HOST ]]; then
+      echo $OVERRIDE_HOST
+    else
+      echo $SHORT_HOST
+    fi
 }
+
+# Override the hostname if you have some sort of upstream hostname management
+[[ -r ~/.local_hostname.zsh ]] && source ~/.local_hostname.zsh
 
 # Directory info.
 local current_dir='${PWD/#$HOME/~}'
