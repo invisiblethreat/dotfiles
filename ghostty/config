@@ -2,7 +2,7 @@
 # ghostty +show-config --default
 # ghostty +show-config --default --docs
 
-theme = MaterialDesignColors
+theme = Material Design Colors
 window-colorspace = display-p3
 cursor-click-to-move = false
 # font-family = Hack
