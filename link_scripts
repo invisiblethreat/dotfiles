@@ -7,7 +7,7 @@
 PWD=$(pwd)
 
 # zshrc gets linked in config_zsh, after the OMZ install
-FILES="helpers/update-nvim"
+FILES="helpers/update-nvim helpers/bu"
 
 # You're in a bad place if this happens
 if [ -z $HOME/bin ]; then

@@ -1,20 +1,18 @@
-# https://ghostty.org/docs/config/reference
+# ghostty +list-fonts
 # ghostty +show-config --default
 # ghostty +show-config --default --docs
 
-theme = MaterialDesignColors
-window-colorspace = display-p3
-cursor-click-to-move = false
-# font-family = Hack
 shell-integration-features = no-cursor
 font-size = 16
 cursor-style = block
 cursor-style-blink = true
 copy-on-select = clipboard
+theme = Material Design Colors
 
-background-opacity = 1.0
-config-file = keybinds
-adjust-cell-width = -10%
-minimum-contrast = 1
+keybind = command+left=previous_tab
+keybind = command+right=next_tab
 
-# vim: ft=config
+keybind = command+s>h=goto_split:previous
+keybind = command+s>l=goto_split:next
+keybind = command+s>-=new_split:down
+keybind = command+s>-=new_split:down
