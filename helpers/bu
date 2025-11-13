@@ -71,6 +71,16 @@ function restore(){
   info "renamed $BUD/$1 to $BUD/$1-restored to denote restored"
 }
 
+function compare(){
+  if [ ! -e $BUD/$1 ]; then
+    error "$BUD/$1 does not exist to restore"
+  fi
+  current=$(restore_name $1)
+
+  info "comparing $BUD/$1 to $current"
+  diff -urN $BUD/$1 $current
+}
+
 function help(){
   error "Enter a file to backup"
   info "Other actions available: ls, ls <filter>, restore"
@@ -102,6 +112,15 @@ if [ $1 == "restore" ]; then
   exit 0
 fi
 
+if [ $1 == "compare" ]; then
+  if [ ! -z $2 ]; then
+    compare $2
+  else
+    error "'compare' requires a file name"
+    exit 1
+  fi
+  exit 0
+fi
 
 backup $1
 
