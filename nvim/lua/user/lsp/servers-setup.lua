@@ -34,42 +34,6 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp
     .protocol
     .make_client_capabilities())
 
--- Configure `rf`.
--- See: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#ruff_lsp
--- For the default config, along with instructions on how to customize the settings
-require('lspconfig').ruff.setup {
-    capabilities = capabilities,
-    on_attach = on_attach,
-    init_options = { settings = { args = {} } }
-}
-
-require('lspconfig').gopls.setup {
-    capabilities = capabilities,
-    on_attach = on_attach
-}
-require('lspconfig').pyright.setup {
-    capabilities = capabilities,
-    on_attach = on_attach
-}
-
-require('lspconfig').jsonls.setup {
-    capabilities = capabilities,
-    on_attach = on_attach
-}
-
-require('lspconfig').lua_ls.setup {
-    capabilities = capabilities,
-    on_attach = on_attach,
-    settings = {
-        Lua = {
-            diagnostics = {
-                -- Get the language server to recognize the `vim` global
-                globals = { 'vim' }
-            }
-        }
-    }
-}
-
 
 -- this is none-ls, which is a community maintained version of null-ls
 local null_ls_ok, null_ls = pcall(require, "null-ls")

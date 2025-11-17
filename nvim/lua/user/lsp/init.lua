@@ -6,7 +6,7 @@ require("mason").setup {
     ui = {icons = {package_installed = "✓"}}
 }
 require("mason-lspconfig").setup {
-    ensure_installed = {"lua_ls", "ruff", "pyright"}
+    ensure_installed = {"lua_ls", "ruff", "pyright", "lua-language-server", "json-lsp",}
 }
 
 require("user.lsp.handlers").setup()
@@ -18,3 +18,8 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
 vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
 
 require("user.lsp.servers-setup")
+
+vim.lsp.enable("ruff")
+vim.lsp.enable("lua_ls")
+vim.lsp.enable("pyright")
+vim.lsp.enable("jsonls")
