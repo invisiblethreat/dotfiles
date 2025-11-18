@@ -19,8 +19,7 @@ vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
 
 require("user.lsp.servers-setup")
 
--- These are automatically enabeld by mason-lspconfig
--- vim.lsp.enable("ruff")
--- vim.lsp.enable("lua_ls")
--- vim.lsp.enable("pyright")
--- vim.lsp.enable("jsonls")
+vim.lsp.enable("ruff")
+vim.lsp.enable("lua_ls")
+vim.lsp.enable("pyright")
+vim.lsp.enable("jsonls")

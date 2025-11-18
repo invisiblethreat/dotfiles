@@ -6,13 +6,13 @@
         "language": [
           "all"
         ],
-        "path": "./snippets/all.json"
+        "path": "snippets/all.json"
       },
       {
         "language": [
           "python"
         ],
-        "path": "./snippets/python.json"
+        "path": "snippets/python.json"
       }
     ]
   }
