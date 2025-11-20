@@ -54,8 +54,7 @@ km("v", "<A-k>", ":m .-2<CR>==", opts)
 km("v", "p", '"_dP', opts)
 
 -- Quick sourcing
-km("n", "<leader>s",
-  ":source %<CR>:lua print(\"Sourced \" .. vim.fn.expand('%'))<CR>", opts)
+km("n", "<leader>s", ":source %<CR>:lua print(\"Sourced \" .. vim.fn.expand('%'))<CR>", opts)
 
 -- Function keys mapping
 km("n", "<F5>", ":syntax sync from start<CR>", opts) -- large JSON objects often break highlighitng, use this to try again
@@ -92,12 +91,18 @@ km("n", "<leader>x", "<cmd>lua require('goto-preview').close_all_win()<CR>", opt
 -- nnoremap gpr <cmd>lua require('goto-preview').goto_preview_references()<CR>
 -- LuaSnip
 local ls = require("luasnip")
-kms({ "i" }, "<C-K>", function() ls.expand() end, { silent = true })
-kms({ "i", "s" }, "<C-L>", function() ls.jump(1) end, { silent = true })
-kms({ "i", "s" }, "<C-J>", function() ls.jump(-1) end, { silent = true })
+kms({ "i" }, "<C-K>", function()
+	ls.expand()
+end, { silent = true })
+kms({ "i", "s" }, "<C-L>", function()
+	ls.jump(1)
+end, { silent = true })
+kms({ "i", "s" }, "<C-J>", function()
+	ls.jump(-1)
+end, { silent = true })
 
 kms({ "i", "s" }, "<C-E>", function()
-  if ls.choice_active() then
-    ls.change_choice(1)
-  end
+	if ls.choice_active() then
+		ls.change_choice(1)
+	end
 end, { silent = true })

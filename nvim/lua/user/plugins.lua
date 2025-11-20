@@ -91,6 +91,7 @@ local plugins = {
 
 	-- Theme
 	"tanvirtin/monokai.nvim",
+	"Shatur/neovim-ayu",
 }
 
 local opts = {}
