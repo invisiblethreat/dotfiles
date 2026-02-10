@@ -20,6 +20,40 @@ function title() {
     echo -ne "\033]0;"$*"\007"
 }
 
+function uvenv() {
+  # uv uses .venv
+  NAME=".venv"
+
+  # deavtivate before deleting
+  if [[ "$1" == "rm" && -d  $NAME  && ! -z $VIRTUAL_ENV_PROMPT ]]; then
+    echo "Deactivating $VIRTUAL_ENV_PROMPT before deleting"
+    deactivate
+  fi
+
+  # delete
+  if [[ "$1" == "rm" && -d  $NAME  && -z $VIRTUAL_ENV_PROMPT ]]; then
+    echo "Deleting $NAME"
+    rm -rf $NAME
+    return
+  fi
+
+  # if we're in a venv, deativate it
+  if [ ! -z $VIRTUAL_ENV_PROMPT ]; then
+    echo "Deactivating $VIRTUAL_ENV_PROMPT"
+    deactivate
+  else
+    # if a venv exists enter it
+    if [ -d $NAME ]; then
+      echo "Entering venv: ($NAME)"
+      source $NAME/bin/activate
+    else
+      # make a venv and enter it if it doesn't exist
+      echo "Making venv ($NAME)"
+      uv sync
+      source $NAME/bin/activate
+    fi
+  fi
+}
 
 function venv() {
   NAME="venv-$(basename $(pwd))"
