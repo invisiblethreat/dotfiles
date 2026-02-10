@@ -77,7 +77,7 @@ local plugins = {
 	"kyazdani42/nvim-web-devicons",
 
 	-- Navigation
-  "https://codeberg.org/andyg/leap.nvim"
+	"https://codeberg.org/andyg/leap.nvim",
 	-- "ggandor/leap.nvim", -- Completion
 
 	-- Get more at https://github.com/hrsh7th/nvim-cmp/wiki/List-of-sources
