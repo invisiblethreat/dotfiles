@@ -1,28 +1,22 @@
-local status_ok, _ = pcall(require, "lspconfig")
-if not status_ok then
-	return
-end
+vim.lsp.config('*', {
+	capabilities = require('cmp_nvim_lsp').default_capabilities(),
+})
 
 require("mason").setup({
 	PATH = "prepend",
-	ui = { icons = { package_installed = "✓" } },
+	ui = {
+		icons = {
+			package_installed = "✓",
+			package_pending = "➜",
+			package_uninstalled = "✗",
+		},
+	},
 })
 require("mason-lspconfig").setup({
 	ensure_installed = { "bashls", "lua_ls", "ruff", "pyright", "jsonls" },
+	automatic_enable = true,
 })
 
 require("user.lsp.handlers").setup()
-
-local opts = { noremap = true, silent = true }
-vim.keymap.set("n", "<space>e", vim.diagnostic.open_float, opts)
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
-vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist, opts)
-
-vim.lsp.enable("ruff")
-vim.lsp.enable("lua_ls")
-vim.lsp.enable("pyright")
-vim.lsp.enable("jsonls")
-vim.lsp.enable("bashls")
 
 require("user.lsp.servers-setup")

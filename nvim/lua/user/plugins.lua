@@ -1,7 +1,7 @@
 -- Automatically install lazy
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
-if not vim.loop.fs_stat(lazypath) then
+if not vim.uv.fs_stat(lazypath) then
 	vim.fn.system({
 		"git",
 		"clone",
@@ -44,23 +44,11 @@ local plugins = {
 
 	-- LSP
 	"neovim/nvim-lspconfig",
-	{
-		"mason-org/mason.nvim",
-		opts = {
-			ui = {
-				icons = {
-					package_installed = "✓",
-					package_pending = "➜",
-					package_uninstalled = "✗",
-				},
-			},
-		},
-	},
+	"mason-org/mason.nvim",
 	{
 		"mason-org/mason-lspconfig.nvim",
-		opts = {},
 		dependencies = {
-			{ "mason-org/mason.nvim", opts = {} },
+			"mason-org/mason.nvim",
 			"neovim/nvim-lspconfig",
 		},
 	},
