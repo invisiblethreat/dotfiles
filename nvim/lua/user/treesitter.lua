@@ -1,26 +1,36 @@
-local configs = require("nvim-treesitter.configs")
-configs.setup({
-	-- List of supported languages is at https://github.com/nvim-treesitter/nvim-treesitter#supported-languages
-	ensure_installed = {
-		"python",
-		"c",
-		"bash",
-		"go",
-		"dockerfile",
-		"json",
-		"lua",
-		"markdown",
-		"sql",
-		"yaml",
-	},
-	auto_install = true,
-	sync_install = false,
-	ignore_install = { "" }, -- List of parsers to ignore installing
-	highlight = {
-		enable = true, -- false will disable the whole extension
-		additional_vim_regex_highlighting = true,
-	},
-	indent = { enable = true, disable = { "yaml" } },
+-- nvim-treesitter v2 (rewrite) — no more nvim-treesitter.configs
+-- Parsers are installed independently; highlighting uses vim.treesitter built-ins.
+
+require("nvim-treesitter").install({
+	"python",
+	"c",
+	"bash",
+	"go",
+	"dockerfile",
+	"json",
+	"lua",
+	"markdown",
+	"sql",
+	"yaml",
+})
+
+-- Enable treesitter highlighting and indentation for all filetypes
+vim.api.nvim_create_autocmd("FileType", {
+	callback = function()
+		local ok = pcall(vim.treesitter.start)
+		if ok then
+			-- Use treesitter-based indentation where available
+			vim.bo.indentexpr = "v:lua.vim.treesitter.indentexpr()"
+		end
+	end,
+})
+
+-- Disable treesitter indentation for yaml (notoriously broken)
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "yaml",
+	callback = function()
+		vim.bo.indentexpr = ""
+	end,
 })
 
 -- Define a custom highlight group for Python comments

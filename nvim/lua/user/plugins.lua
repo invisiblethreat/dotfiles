@@ -31,7 +31,7 @@ local plugins = {
 	},
 
 	"akinsho/toggleterm.nvim",
-	"nvim-treesitter/nvim-treesitter",
+	{ "nvim-treesitter/nvim-treesitter", branch = 'main', build = ":TSUpdate", lazy = false },
 	"tpope/vim-commentary",
 
 	{
