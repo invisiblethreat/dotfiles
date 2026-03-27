@@ -17,8 +17,9 @@ function update-linux(){
 }
 
 function update-darwin(){
-  brew unlink neovim
-  brew update && brew install neovim --HEAD
+  # brew unlink neovim
+  # brew update && brew install neovim --HEAD
+  brew upgrade --fetch-HEAD neovim
 }
 
 old=$(get-version)
