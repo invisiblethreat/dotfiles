@@ -2,16 +2,25 @@
 -- Parsers are installed independently; highlighting uses vim.treesitter built-ins.
 
 require("nvim-treesitter").install({
-	"python",
-	"c",
 	"bash",
-	"go",
+	"c",
 	"dockerfile",
+	"go",
 	"json",
 	"lua",
 	"markdown",
+	"python",
 	"sql",
 	"yaml",
+  "git_config",
+  "git_rebase",
+  "gitattributes",
+  "gitcommit",
+  "gitignore",
+  "gitignore",
+  "toml",
+  "vim",
+  "xml",
 })
 
 -- Enable treesitter highlighting and indentation for all filetypes
