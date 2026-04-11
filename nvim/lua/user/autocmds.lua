@@ -1,49 +1,20 @@
-vim.o.cmdheight = 0
-require("vim._core.ui2").enable({
-	enable = true,
-	msg = {
-		targets = {
-			[""] = "msg",
-			empty = "cmd",
-			bufwrite = "msg",
-			confirm = "cmd",
-			emsg = "pager",
-			echo = "msg",
-			echomsg = "msg",
-			echoerr = "pager",
-			completion = "cmd",
-			list_cmd = "pager",
-			lua_error = "pager",
-			lua_print = "msg",
-			progress = "pager",
-			rpc_error = "pager",
-			quickfix = "msg",
-			search_cmd = "cmd",
-			search_count = "cmd",
-			shell_cmd = "pager",
-			shell_err = "pager",
-			shell_out = "pager",
-			shell_ret = "msg",
-			undo = "msg",
-			verbose = "pager",
-			wildlist = "cmd",
-			wmsg = "msg",
-			typed_cmd = "cmd",
-		},
-		cmd = {
-			height = 0.5,
-		},
-		dialog = {
-			height = 0.5,
-		},
-		msg = {
-			height = 0.3,
-			timeout = 5000,
-		},
-		pager = {
-			height = 0.5,
-		},
-	},
+-- Enable treesitter highlighting and indentation for all filetypes
+vim.api.nvim_create_autocmd("FileType", {
+	callback = function()
+		local ok = pcall(vim.treesitter.start)
+		if ok then
+			-- Use treesitter-based indentation where available
+			vim.bo.indentexpr = "v:lua.vim.treesitter.indentexpr()"
+		end
+	end,
+})
+
+-- Disable treesitter indentation for yaml (notoriously broken)
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "yaml",
+	callback = function()
+		vim.bo.indentexpr = ""
+	end,
 })
 
 vim.api.nvim_create_autocmd("FileType", {
@@ -52,11 +23,10 @@ vim.api.nvim_create_autocmd("FileType", {
 		local ui2 = require("vim._core.ui2")
 		local win = ui2.wins and ui2.wins.msg
 		if win and vim.api.nvim_win_is_valid(win) then
-			vim.api.nvim_set_option_value(
-				"winhighlight",
-				"Normal:NormalFloat,FloatBorder:FloatBorder",
-				{ scope = "local", win = win }
-			)
+			vim.api.nvim_set_option_value("winhighlight", "Normal:NormalFloat,FloatBorder:FloatBorder", {
+				scope = "local",
+				win = win,
+			})
 		end
 	end,
 })
@@ -102,3 +72,13 @@ vim.api.nvim_create_autocmd("FileType", {
 		end)
 	end,
 })
+
+-- autocmd to load the nvim-tree without stealing focus. This is generally a
+-- reminder that you can stay in nvim and move around more easily
+local function open_nvim_tree()
+	-- open the tree
+	require("nvim-tree.api").tree.toggle({ focus = false })
+end
+
+-- open nvimtree on startup
+vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })

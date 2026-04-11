@@ -23,24 +23,6 @@ require("nvim-treesitter").install({
   "xml",
 })
 
--- Enable treesitter highlighting and indentation for all filetypes
-vim.api.nvim_create_autocmd("FileType", {
-	callback = function()
-		local ok = pcall(vim.treesitter.start)
-		if ok then
-			-- Use treesitter-based indentation where available
-			vim.bo.indentexpr = "v:lua.vim.treesitter.indentexpr()"
-		end
-	end,
-})
-
--- Disable treesitter indentation for yaml (notoriously broken)
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = "yaml",
-	callback = function()
-		vim.bo.indentexpr = ""
-	end,
-})
 
 -- Define a custom highlight group for Python comments
 -- https://neovim.io/doc/user/api.html#nvim_set_hl()
