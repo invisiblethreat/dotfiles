@@ -106,3 +106,7 @@ function mkdirc() {
   mkdir -p $1
   cd $1
 }
+
+function push-terminfo() {
+  infocmp -x |ssh $1 -- tic -x -
+}
