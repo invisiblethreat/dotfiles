@@ -101,3 +101,8 @@ function venv() {
   fi
 
 }
+
+function mkdirc() {
+  mkdir -p $1
+  cd $1
+}
